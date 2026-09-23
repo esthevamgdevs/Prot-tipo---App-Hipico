@@ -1,6 +1,6 @@
 {
  "fonte": "Federação Paulista de Hipismo (fph.com.br)",
- "atualizadoEm": "2026-09-23T18:59:24.021Z",
+ "atualizadoEm": "2026-09-23T23:33:58.683Z",
  "torneios": [
   {
    "id": 3404,
@@ -563,7 +563,12 @@
      "hora": "10:00",
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "DANIEL ABBUD SARQUIS AIEX",
+      "h": "CORNET CHIN D'OLYMPO (TE)"
+     }
     },
     {
      "id": 13612,
@@ -575,7 +580,12 @@
      "hora": "11:00",
      "pista": "AREIA - SERGIO BRANDÃO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "DANIELA RIBEIRO",
+      "h": "UEGOND XANGO"
+     }
     },
     {
      "id": 13631,
@@ -587,7 +597,12 @@
      "hora": "12:00",
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "THEO SEEBACHER BRANCO JORDAO",
+      "h": "SL ONIX"
+     }
     },
     {
      "id": 13615,
@@ -599,7 +614,12 @@
      "hora": "13:30",
      "pista": "AREIA - SERGIO BRANDÃO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "LUANA BERNARDES GERMANO",
+      "h": "JL WINTAGE"
+     }
     },
     {
      "id": 13638,
@@ -611,7 +631,12 @@
      "hora": "13:30",
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "ROBERTO PODVAL",
+      "h": "FAVALL"
+     }
     },
     {
      "id": 13618,
@@ -623,7 +648,12 @@
      "hora": "15:00",
      "pista": "AREIA - SERGIO BRANDÃO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "LAVINIA EID SUDANO RODRIGUES",
+      "h": "BEST BLACK"
+     }
     },
     {
      "id": 13642,
@@ -635,7 +665,12 @@
      "hora": "15:00",
      "pista": "AREIA - SERGIO BRANDÃO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "LUISA BOECHAT CASTILHO",
+      "h": "TCHALI DUKE (IA)"
+     }
     },
     {
      "id": 13635,
@@ -647,7 +682,12 @@
      "hora": "16:00",
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "IVO ROZA FILHO",
+      "h": "NIGHT STAR VD"
+     }
     },
     {
      "id": 13717,
@@ -659,7 +699,12 @@
      "hora": "08:00",
      "pista": "AREIA - SERGIO BRANDÃO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "HELENA CARVALHO SANTOCHI",
+      "h": "CANTEL JOTER (IA)"
+     }
     },
     {
      "id": 13715,
@@ -671,7 +716,12 @@
      "hora": null,
      "pista": "AREIA - SERGIO BRANDÃO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "RAYSSA ROSSI PRATES",
+      "h": "HAPPYNESS 3K (IA)"
+     }
     },
     {
      "id": 13716,
@@ -683,7 +733,12 @@
      "hora": null,
      "pista": "AREIA - SERGIO BRANDÃO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "LUCAS MOREIRA ARANHA",
+      "h": "ILUNA"
+     }
     },
     {
      "id": 13721,
@@ -695,7 +750,12 @@
      "hora": "08:30",
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "FABIANO DUARTE",
+      "h": "BROMÉLIA JMEN (TE)"
+     }
     },
     {
      "id": 13722,
@@ -707,7 +767,12 @@
      "hora": "08:30",
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "HELENA CHRISTINA SCHMIDT",
+      "h": "EQUICENTER GRANDGRAAF (IA)"
+     }
     },
     {
      "id": 13714,
@@ -731,7 +796,12 @@
      "hora": "11:30",
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "ROBERTO PODVAL",
+      "h": "FAVALL"
+     }
     },
     {
      "id": 13718,
@@ -743,7 +813,12 @@
      "hora": "13:00",
      "pista": "AREIA - SERGIO BRANDÃO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "RENAN LAURINO DE ARAUJO",
+      "h": "LA BLANCHE JMEN"
+     }
     },
     {
      "id": 13719,
@@ -755,7 +830,12 @@
      "hora": null,
      "pista": "AREIA - SERGIO BRANDÃO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "JULIA REYNOSO FERNANDEZ BORGES GOMES",
+      "h": "CBC CELECONA Z"
+     }
     },
     {
      "id": 13720,
@@ -767,7 +847,12 @@
      "hora": null,
      "pista": "AREIA - SERGIO BRANDÃO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "LARA MUNHOZ PACHECO",
+      "h": "CH BIG BOY"
+     }
     },
     {
      "id": 13636,
@@ -779,7 +864,12 @@
      "hora": "16:00",
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "FERNANDO JOSE DE ASSIS COSTA",
+      "h": "FANDANGO DE SEMILY"
+     }
     }
    ],
    "url": "https://www.fph.com.br/calendario/ListaProvas.aspx?ID=3371"
@@ -3608,7 +3698,12 @@
      "hora": "09:00",
      "pista": "AREIA - SERGIO BRANDÃO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "LUIZ ALCESTE DEL CISTIA THONON FILHO",
+      "h": "EMS PHARMA SHOWJUMPING HF DARK STONE"
+     }
     },
     {
      "id": 13821,
@@ -3620,7 +3715,12 @@
      "hora": "12:00",
      "pista": "GRAMA - DR. JOÃO CARLOS KRUEL",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "BEATRIZ BARATA ROTHIER",
+      "h": "QUEENIE A F"
+     }
     },
     {
      "id": 13795,
@@ -9992,7 +10092,7 @@
   },
   {
    "id": 3487,
-   "nome": "CAMPEONATO PAULISTA AMAZONAS INICIANTE - 2026.",
+   "nome": "CAMPEONATO PAULISTA AMAZONAS INICIANTE - 2026",
    "modalidade": "SALTO PARA INICIANTES",
    "local": "SOCIEDADE HIPICA DE CAMPINAS",
    "status": "Torneio em Andamento",
@@ -10000,7 +10100,7 @@
    "fim": "2026-09-27",
    "provas": [
     {
-     "id": null,
+     "id": 14647,
      "numero": "01",
      "nome": "MMR INTER",
      "desc": "0,80M - 0,80M - MMR INTER - 0,80M/JC INTER - 0,80M/AM INTER - 0,80M",
@@ -10012,7 +10112,7 @@
      "linkResultado": false
     },
     {
-     "id": null,
+     "id": 14649,
      "numero": "02",
      "nome": "MMR PRINC",
      "desc": "0,90M - 0,90M - MMR PRINC - 0,90M/JC PRIN - 0,90M/AM PRIN - 0,9M",
@@ -10066,7 +10166,7 @@
      "desc": "0,90M - 0,90M - MMR PRINC - 0,90M/JC PRIN - 0,90M/AM PRIN - 0,9M",
      "altura": 0.9,
      "dia": "2026-09-26",
-     "hora": "15:00",
+     "hora": "14:00",
      "pista": "AREIA-1",
      "gp": false,
      "linkResultado": false
@@ -10090,7 +10190,7 @@
      "desc": "0,60M - 0,60M - MMR PREL - 0,60M/JC PREL - 0,60M/AM PREL - 0,60M",
      "altura": 0.6,
      "dia": "2026-09-27",
-     "hora": "12:30",
+     "hora": "12:00",
      "pista": "AREIA-1",
      "gp": false,
      "linkResultado": false
@@ -10335,7 +10435,7 @@
     },
     {
      "id": null,
-     "numero": "17",
+     "numero": "16",
      "nome": "CLÁSSICO",
      "desc": "CLÁSSICO - 1,45M - 1,45M - JR/SR/U25/AST",
      "altura": 1.45,
@@ -10347,7 +10447,7 @@
     },
     {
      "id": null,
-     "numero": "18",
+     "numero": "17",
      "nome": "1,00M",
      "desc": "1,00M - MMR/JCB - MB/AMB - 1,00M - AMB/JCB/MB/MMR",
      "altura": 1,
@@ -10359,7 +10459,7 @@
     },
     {
      "id": null,
-     "numero": "20",
+     "numero": "19",
      "nome": "COPA PRATA",
      "desc": "1,25M - COPA PRATA - 1,25M - AM/JC/JR/M/MR/PJR/SR",
      "altura": 1.25,
@@ -10371,7 +10471,7 @@
     },
     {
      "id": null,
-     "numero": "19",
+     "numero": "18",
      "nome": "1,10M",
      "desc": "1,10M - AMA/MA - JCA - 1,10M - AMA/JCA/MA",
      "altura": 1.1,
@@ -10395,7 +10495,7 @@
     },
     {
      "id": null,
-     "numero": "16",
+     "numero": "20",
      "nome": "COPA OURO",
      "desc": "COPA OURO - 1,35M - JR/SR/U25",
      "altura": 1.35,
@@ -10425,7 +10525,7 @@
    "nome": "CAMPEONATO PAULISTA AMAZONAS SALTO",
    "modalidade": "SALTO",
    "local": "SOCIEDADE HIPICA DE CAMPINAS",
-   "status": "Inscrições Abertas",
+   "status": "Inscrições Encerradas",
    "inicio": "2026-10-06",
    "fim": "2026-10-11",
    "provas": [
