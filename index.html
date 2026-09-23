@@ -59,9 +59,12 @@ a{color:var(--verde);text-decoration:none}
 .serif{font-family:var(--serif);font-weight:400}
 
 /* cabeçalhos */
-.capa{background:var(--verde);color:var(--ink-claro);padding:18px 20px 22px;display:flex;flex-direction:column;gap:12px}
+.capa{background:var(--verde);color:var(--ink-claro);padding:18px 20px 20px;display:flex;flex-direction:column;gap:12px;position:relative;border-bottom:2px solid var(--ouro-escuro)}
+/* filtros de categoria dentro do cabeçalho: rolam até a borda da tela */
+.capa .chips{margin:2px -20px -2px;padding:2px 20px 4px;overflow-x:auto}
+.capa h1+.sub{margin-top:-6px}
 .capa h1{margin:0;font-family:var(--serif);font-weight:400;font-size:38px;line-height:1.02}
-.capa h1.grande{font-size:42px}
+.capa h1.grande{font-size:36px;letter-spacing:.005em}
 .capa .sub{font-size:13.5px;color:var(--verde-claro)}
 .olho{font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--ouro-claro)}
 .topo-linha{display:flex;align-items:center;justify-content:space-between;gap:12px}
@@ -80,14 +83,14 @@ a{color:var(--verde);text-decoration:none}
 
 /* filtros */
 main{padding:0 0 8px}
-.chips{display:flex;gap:8px;overflow-x:auto;padding:0 20px;scrollbar-width:none}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:0 20px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .chips::-webkit-scrollbar{display:none}
 .chip{flex:none;min-height:36px;padding:0 14px;border-radius:999px;border:1px solid var(--verde-3);background:transparent;color:var(--ink-claro);font-size:13.5px;font-weight:500}
 .chip[aria-pressed="true"]{background:var(--ouro-claro);border-color:var(--ouro-claro);color:#1C231F;font-weight:700}
 .chips.clara{padding:0}
 .chips.clara .chip{border-color:var(--linha);color:var(--ink)}
 .chips.clara .chip[aria-pressed="true"]{background:var(--verde);border-color:var(--verde);color:var(--ink-claro)}
-.barra-filtros{display:flex;gap:8px;align-items:center;padding:14px 20px 0}
+.barra-filtros{display:flex;gap:8px;align-items:center;padding:16px 20px 0}
 select{font:inherit;font-size:14px;min-height:40px;padding:0 10px;border-radius:4px;border:1px solid var(--linha);background:var(--surface);color:var(--ink);flex:1}
 .secao{padding:18px 20px 8px;display:flex;align-items:baseline;gap:10px}
 .secao h2{margin:0;font-family:var(--serif);font-weight:400;font-size:22px}
@@ -259,6 +262,9 @@ function titulo(s) {
     return w.toLowerCase().replace(/(^|[^A-Za-zÀ-ÿ])([a-zà-ÿ])/g, (_, a, b) => a + b.toUpperCase());
   }).join(' ');
 }
+const SIGLAS_FED = [[/PAULISTA/i,'FPH'],[/PARANAENSE/i,'FPrH'],[/BRAS[ÍI]LIA/i,'FHBr'],[/RIO DE JANEIRO/i,'FEERJ'],[/MINAS/i,'FHMG'],[/GA[ÚU]CHA|RIO GRANDE DO SUL/i,'FGH'],[/CATARINENSE|SANTA CATARINA/i,'FCH'],[/GOI[ÁA]/i,'FHGO'],[/BAH?IA|BAIANA/i,'FBH'],[/PERNAMBUC/i,'FPeH'],[/CEAR[ÁA]/i,'FCeH'],[/MATO GROSSO DO SUL/i,'FHMS'],[/MATO GROSSO/i,'FHMT'],[/ESP[ÍI]RITO SANTO/i,'FHES'],[/CONFEDERA/i,'CBH']];
+// nomes de federação são longos: mostramos a sigla e deixamos o nome no title
+const fedCurta = f => { for (const [re, s] of SIGLAS_FED) if (re.test(f || '')) return s; return titulo(f || ''); };
 const categoria = m => /INICIANTE/i.test(m) ? 'Iniciantes' : (/CAVALOS?\s+NOVOS?/i.test(m) ? 'Cavalos novos' : (/ESCOLA/i.test(m) ? 'Escola' : 'Salto'));
 
 // ---------- estado ----------
@@ -408,12 +414,15 @@ function cartaoTorneio(t, comVencedor) {
 }
 
 const FAIXAS = { todas: () => true, baixa: h => h <= 1.00, media: h => h >= 1.05 && h <= 1.30, alta: h => h >= 1.35 };
-function filtros(base) {
+function chipsCategoria(base) {
   const cats = ['Todas', ...[...new Set(base.map(t => t.cat))].sort()];
-  return `<div class="chips clara" role="group" aria-label="Categoria" style="padding:0 20px">
+  if (cats.length < 3) return '';
+  return `<div class="chips" role="group" aria-label="Categoria">
       ${cats.map(c => `<button class="chip" data-cat="${esc(c)}" aria-pressed="${S.cat === c}">${esc(c)}</button>`).join('')}
-    </div>
-    <div class="barra-filtros">
+    </div>`;
+}
+function filtros() {
+  return `<div class="barra-filtros">
       <label class="sr" for="altura">Altura</label>
       <select id="altura">
         <option value="todas">Todas as alturas</option>
@@ -438,16 +447,19 @@ function rodape(extra) {
 // ---------- telas ----------
 function telaCalendario() {
   const base = S.dados.torneios.filter(t => t.fim >= hojeISO() && !cancelado(t)).sort((a, b) => a.inicio.localeCompare(b.inicio));
+  const vazio = `<header class="capa"><div class="topo-linha"><span class="marca">${roseta(1, 26)}Pista</span><button class="btn-fino" data-acao="sobre">Sobre</button></div><h1 class="grande">A temporada<br>de salto, prova a prova</h1></header>`;
   const capa = `<header class="capa">
       <div class="topo-linha">
         <span class="marca">${roseta(1, 26)}Pista</span>
         <button class="btn-fino" data-acao="sobre">Sobre</button>
       </div>
       <h1 class="grande">A temporada<br>de salto, prova a prova</h1>
+      <span class="sub">${base.length} torneio${base.length > 1 ? 's' : ''} pela frente</span>
+      ${chipsCategoria(base)}
     </header>`;
-  if (!base.length) return capa + `<main><div class="vazio"><b>Nenhum torneio programado</b>O calendário é atualizado automaticamente algumas vezes por dia.</div>${rodape()}</main>`;
+  if (!base.length) return vazio + `<main><div class="vazio"><b>Nenhum torneio programado</b>O calendário é atualizado automaticamente algumas vezes por dia.</div>${rodape()}</main>`;
   const lista = aplicar(base);
-  let corpo = filtros(base);
+  let corpo = filtros();
   if (!lista.length) corpo += semFiltro;
   else {
     let mes = '';
@@ -463,11 +475,11 @@ function telaCalendario() {
 
 function telaResultados() {
   const base = S.dados.torneios.filter(t => t.temRes).sort((a, b) => b.fim.localeCompare(a.fim));
-  const capa = `<header class="capa"><div class="topo-linha"><span class="marca">${roseta(1, 26)}Pista</span><button class="btn-fino" data-acao="sobre">Sobre</button></div>
-    <h1>Resultados</h1><span class="sub">Provas de salto já disputadas</span></header>`;
-  if (!base.length) return capa + `<main><div class="vazio"><b>Ainda sem resultados</b>Eles aparecem assim que a federação publicar.</div>${rodape()}</main>`;
+  const cab = extra => `<header class="capa"><div class="topo-linha"><span class="marca">${roseta(1, 26)}Pista</span><button class="btn-fino" data-acao="sobre">Sobre</button></div>
+    <h1>Resultados</h1><span class="sub">${base.length ? base.length + ' torneios já disputados' : 'Provas de salto já disputadas'}</span>${extra}</header>`;
+  if (!base.length) return cab('') + `<main><div class="vazio"><b>Ainda sem resultados</b>Eles aparecem assim que a federação publicar.</div>${rodape()}</main>`;
   const lista = aplicar(base);
-  return capa + `<main class="fade">${filtros(base)}${lista.length ? `<div class="secao"><h2>Últimos torneios</h2><span class="risco"></span></div><div class="lista">${lista.map(t => cartaoTorneio(t, true)).join('')}</div>` : semFiltro}${rodape()}</main>`;
+  return cab(chipsCategoria(base)) + `<main class="fade">${filtros()}${lista.length ? `<div class="secao"><h2>Últimos torneios</h2><span class="risco"></span></div><div class="lista">${lista.map(t => cartaoTorneio(t, true)).join('')}</div>` : semFiltro}${rodape()}</main>`;
 }
 
 function telaTorneio() {
@@ -527,7 +539,7 @@ function telaProva() {
       ${voltar('voltarTorneio', titulo(t.nome))}
       <span class="olho">PROVA ${numProva(p)}${x ? ` · ${DIA_LONGO[x.getDay().toString()] || ''}, ${x.getDate()} DE ${MES_LONGO[x.getMonth()].toUpperCase()}` : ''}</span>
       <h1>${p.altura != null ? p.altura.toFixed(2).replace('.', ',') + (p.altura === 1 ? ' metro' : ' metros') : esc(titulo(p.nome))}</h1>
-      <span class="sub">${esc([titulo(p.nome), p.hora, p.pista ? 'Pista ' + titulo(p.pista) : ''].filter(Boolean).join(' · '))}</span>`;
+      <span class="sub">${esc([/^\d[,.]\d{2}\s*M$/i.test((p.nome || '').trim()) ? '' : titulo(p.nome), p.hora, p.pista ? 'Pista ' + titulo(p.pista) : ''].filter(Boolean).join(' · '))}</span>`;
   const dados = S.torneios[t.id];
   if (!dados || dados === 'carregando') { carregarTorneio(t.id); return cab + '</header><main><div class="vazio">Carregando resultado…</div></main>'; }
   if (dados === 'erro') return cab + `</header><main><div class="vazio"><b>Não deu para carregar</b><button class="btn clara" style="margin-top:12px;flex:none" data-acao="recarregarProva">Tentar de novo</button></div></main>`;
@@ -550,7 +562,7 @@ function telaProva() {
         ${roseta(l.p, 38)}
         <span class="conj" style="flex-grow:1;min-width:0;display:flex;flex-direction:column;gap:2px">
           <span class="nome">${esc(titulo(l.c))}</span>
-          <span class="meta">${esc(titulo(l.h))}${f ? ' · ' + esc(f) : ''}</span>
+          <span class="meta">${esc(titulo(l.h))}${f ? ' · ' + esc(fedCurta(f)) : ''}</span>
         </span>
         <span class="res"><b>${l.s ? esc(l.s) : fmtN((des || perc)?.[0]) + ' · ' + fmtT((des || perc)?.[1])}</b><span>${des ? 'desempate' : 'percurso'}</span></span>
       </button>`;
@@ -568,7 +580,7 @@ function corpoLinhas(linhas, fed) {
     const f = fed(l.f), perc = l.r?.[0];
     return `<button class="linha" data-perfil="cavaleiros" data-k="${esc(chave(l.c))}">
       <span class="pos">${l.p}</span>
-      <span class="conj"><span class="cav">${esc(titulo(l.c))}</span><span class="cavalo">${esc(titulo(l.h))}${f ? ' · ' + esc(f) : ''}</span></span>
+      <span class="conj"><span class="cav">${esc(titulo(l.c))}</span><span class="cavalo">${esc(titulo(l.h))}${f ? ' · ' + esc(fedCurta(f)) : ''}</span></span>
       <span class="f${!l.s && perc?.[0] === 0 ? ' zero' : ''}">${l.s ? `<span class="status">${esc(l.s)}</span>` : fmtN(perc?.[0])}</span>
       <span class="t">${l.s || !perc ? '–' : fmtT(perc[1])}</span>
     </button>`;
