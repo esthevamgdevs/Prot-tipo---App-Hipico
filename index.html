@@ -101,9 +101,10 @@ select{font:inherit;font-size:14px;min-height:40px;padding:0 10px;border-radius:
 .lista{display:flex;flex-direction:column;gap:10px;padding:0 20px}
 .cartao{display:flex;background:var(--surface);border:1px solid var(--linha);border-radius:4px;overflow:hidden;color:var(--ink);width:100%;text-align:left}
 .cartao:hover{border-color:var(--ouro)}
-.cartao .data{width:72px;flex:none;background:var(--verde);color:var(--ink-claro);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px 4px;gap:2px}
+.cartao .data{width:80px;flex:none;background:var(--verde);color:var(--ink-claro);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px 6px;gap:2px}
 .cartao .data.destaque{background:var(--ouro-escuro)}
-.cartao .data b{font-family:var(--serif);font-weight:400;font-size:26px;line-height:1}
+.cartao .data b{font-family:var(--serif);font-weight:400;font-size:26px;line-height:1.05; white-space:nowrap;letter-spacing:-,01em}
+  .cartao .data b.longo{font-size:21px}
 .cartao .data span{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-align:center}
 .cartao .corpo{flex-grow:1;min-width:0;padding:12px 14px;display:flex;flex-direction:column;gap:3px}
 .cartao .nome{font-family:var(--serif);font-size:18px;line-height:1.15}
@@ -401,7 +402,7 @@ function cartaoTorneio(t, comVencedor) {
   const p = periodo(t), destaque = emAndamento(t);
   const venc = comVencedor ? provaDestaque(t) : null;
   return `<button class="cartao" data-torneio="${t.id}">
-    <span class="data${destaque ? ' destaque' : ''}"><b>${p.cima}</b><span>${p.baixo}</span></span>
+    <span class="data${destaque ? ' destaque' : ''}"><b class="${p.cima.length > 4 ? 'longo' : ''}">${p.cima}</b><span>${p.baixo}</span></span>
     <span class="corpo">
       ${destaque ? '<span class="vivo"><i></i>ACONTECENDO AGORA</span>' : ''}
       <span class="nome">${esc(titulo(t.nome))}</span>
