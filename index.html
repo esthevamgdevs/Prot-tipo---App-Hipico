@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Pista · Calendário e resultados de salto</title>
-<meta name="description" content="Calendário e resultados de provas de salto no Brasil, a partir dos dados públicos da Federação Paulista de Hipismo.">
-<meta property="og:title" content="Pista · Calendário e resultados de salto">
-<meta property="og:description" content="Calendário, resultados, ranking e perfis de cavaleiros e cavalos. Projeto em testes.">
+<title>Salta · Provas e resultados de salto</title>
+<meta name="description" content="Calendário e resultados de provas de salto no Brasil, por Opportunity Leilões. Dados públicos da Federação Paulista de Hipismo.">
+<meta property="og:title" content="Salta · Provas e resultados de salto">
+<meta property="og:description" content="Calendário, resultados, ranking e perfis de cavaleiros e cavalos. Um projeto Opportunity Leilões.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="./icon-512.png">
 <meta name="twitter:card" content="summary">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Pista">
+<meta name="apple-mobile-web-app-title" content="Salta">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#123D30">
 <link rel="manifest" href="./manifest.json">
@@ -68,7 +68,8 @@ a{color:var(--verde);text-decoration:none}
 .capa .sub{font-size:13.5px;color:var(--verde-claro)}
 .olho{font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--ouro-claro)}
 .topo-linha{display:flex;align-items:center;justify-content:space-between;gap:12px}
-.marca{display:flex;align-items:center;gap:8px;font-family:var(--serif);font-size:22px}
+.marca{display:flex;align-items:baseline;gap:8px;font-family:var(--serif);font-size:22px}
+.marca small{font-family:var(--sans);font-size:11.5px;font-weight:600;letter-spacing:.04em;opacity:.75}
 .btn-fino{font-size:13px;font-weight:600;color:var(--ink-claro);border:1px solid var(--verde-3);border-radius:999px;padding:8px 14px;display:inline-flex;align-items:center;min-height:36px}
 .voltar{min-height:44px;display:inline-flex;align-items:center;gap:6px;color:var(--ink-claro);font-size:14px;font-weight:600;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .numeros{display:flex;gap:22px;padding-top:12px;border-top:1px solid var(--verde-linha);flex-wrap:wrap}
@@ -383,6 +384,10 @@ function roseta(pos, tam = 38) {
     <circle cx="23" cy="22" r="11" fill="#fff"/>
     <text x="23" y="27" text-anchor="middle" font-family="DM Serif Display, serif" font-size="15" fill="#1C231F">${pos}</text></svg>`;
 }
+function marcaSvg(t = 26) {
+  // oxer com a trajetória do salto: marca do Salta
+  return `<svg width="${t}" height="${t}" viewBox="0 0 100 100" fill="none" aria-hidden="true" style="flex:none"><path d="M6 88C10 46 26 20 50 20s40 26 44 68" stroke="#D9B45A" stroke-width="7" stroke-linecap="round" stroke-dasharray="1 14" fill="none"></path> <rect x="20" y="50" width="52" height="7" rx="3.5" fill="#A8801F"></rect> <rect x="18" y="40" width="8" height="36" rx="4" fill="#7E9A8D"></rect> <rect x="66" y="40" width="8" height="36" rx="4" fill="#7E9A8D"></rect> <rect x="28" y="64" width="52" height="8" rx="4" fill="#D9B45A"></rect> <rect x="26" y="54" width="10" height="38" rx="5" fill="#F4F1EA"></rect> <rect x="72" y="54" width="10" height="38" rx="5" fill="#F4F1EA"></rect></svg>`;
+}
 function abas() {
   const itens = [['calendario', 'Calendário'], ['resultados', 'Resultados'], ['seguindo', 'Seguindo'], ['ranking', 'Ranking']];
   const naAba = !S.tela;
@@ -465,10 +470,10 @@ function rodape(extra) {
 // ---------- telas ----------
 function telaCalendario() {
   const base = S.dados.torneios.filter(t => t.fim >= hojeISO() && !cancelado(t)).sort((a, b) => a.inicio.localeCompare(b.inicio));
-  const vazio = `<header class="capa"><div class="topo-linha"><span class="marca">${roseta(1, 26)}Pista</span><button class="btn-fino" data-acao="sobre">Sobre</button></div><h1 class="grande">A temporada<br>de salto, prova a prova</h1></header>`;
+  const vazio = `<header class="capa"><div class="topo-linha"><span class="marca">${marcaSvg(26)}Salta<small>by Opportunity</small></span><button class="btn-fino" data-acao="sobre">Sobre</button></div><h1 class="grande">A temporada<br>de salto, prova a prova</h1></header>`;
   const capa = `<header class="capa">
       <div class="topo-linha">
-        <span class="marca">${roseta(1, 26)}Pista</span>
+        <span class="marca">${marcaSvg(26)}Salta<small>by Opportunity</small></span>
         <button class="btn-fino" data-acao="sobre">Sobre</button>
       </div>
       <h1 class="grande">A temporada<br>de salto, prova a prova</h1>
@@ -493,7 +498,7 @@ function telaCalendario() {
 
 function telaResultados() {
   const base = S.dados.torneios.filter(t => t.temRes).sort((a, b) => b.fim.localeCompare(a.fim));
-  const cab = extra => `<header class="capa"><div class="topo-linha"><span class="marca">${roseta(1, 26)}Pista</span><button class="btn-fino" data-acao="sobre">Sobre</button></div>
+  const cab = extra => `<header class="capa"><div class="topo-linha"><span class="marca">${marcaSvg(26)}Salta<small>by Opportunity</small></span><button class="btn-fino" data-acao="sobre">Sobre</button></div>
     <h1>Resultados</h1><span class="sub">${base.length ? base.length + ' torneios já disputados' : 'Provas de salto já disputadas'}</span>${extra}</header>`;
   if (!base.length) return cab('') + `<main><div class="vazio"><b>Ainda sem resultados</b>Eles aparecem assim que a federação publicar.</div>${rodape()}</main>`;
   const lista = aplicar(base);
@@ -616,7 +621,7 @@ function corpoLinhas(linhas, fed) {
 }
 
 function telaSeguindo() {
-  const capa = `<header class="capa"><div class="topo-linha"><span class="marca">${roseta(1, 26)}Pista</span><button class="btn-fino" data-acao="sobre">Sobre</button></div>
+  const capa = `<header class="capa"><div class="topo-linha"><span class="marca">${marcaSvg(26)}Salta<small>by Opportunity</small></span><button class="btn-fino" data-acao="sobre">Sobre</button></div>
     <h1>Seguindo</h1><span class="sub">Cavaleiros, cavalos e torneios que você acompanha</span></header>`;
   const salvosT = salvos.map(id => achar(id)).filter(Boolean);
   if (!seguindo.length && !salvosT.length) {
@@ -686,12 +691,12 @@ function telaSobre() {
   const t = S.stats?.totais;
   return `<header class="capa">
       ${voltar('voltarSobre', 'Voltar')}
-      <span class="olho">SOBRE O PISTA</span>
+      <span class="olho">SOBRE O SALTA</span>
       <h1>Calendário e resultados de salto</h1>
-      <span class="sub">Um projeto em testes, feito por quem gosta de hipismo.</span>
+      <span class="sub">Um projeto da Opportunity Leilões, em fase de testes.</span>
     </header><main class="fade">
     <div class="painel"><h3>De onde vêm os dados</h3>
-      <p style="margin:0;font-size:14px;line-height:1.55;color:var(--muted)">Tudo o que aparece aqui vem das páginas públicas de torneios da Federação Paulista de Hipismo, lidas automaticamente algumas vezes por dia. Cada prova traz o link para o resultado oficial, que é sempre a fonte final. O Pista não é um serviço da FPH nem da CBH.</p>
+      <p style="margin:0;font-size:14px;line-height:1.55;color:var(--muted)">Tudo o que aparece aqui vem das páginas públicas de torneios da Federação Paulista de Hipismo, lidas automaticamente algumas vezes por dia. Cada prova traz o link para o resultado oficial, que é sempre a fonte final. O Salta não é um serviço da FPH nem da CBH.</p>
     </div>
     ${t ? `<div class="stats" style="grid-template-columns:repeat(2,minmax(0,1fr))">
       <div><b>${t.torneios}</b><span>torneios</span></div>
@@ -700,7 +705,7 @@ function telaSobre() {
       <div><b>${t.cavalos.toLocaleString('pt-BR')}</b><span>cavalos</span></div>
     </div>` : ''}
     <div class="painel"><h3>Cuidados</h3>
-      <p style="margin:0;font-size:14px;line-height:1.55;color:var(--muted)">O ranking é uma contagem própria do Pista e não substitui o ranking oficial da federação. Em provas de categorias infantis, o sobrenome do atleta aparece abreviado. Se encontrar algum erro, avise: dá para conferir na hora no link oficial de cada prova.</p>
+      <p style="margin:0;font-size:14px;line-height:1.55;color:var(--muted)">O ranking é uma contagem própria do Salta e não substitui o ranking oficial da federação. Em provas de categorias infantis, o sobrenome do atleta aparece abreviado. Se encontrar algum erro, avise: dá para conferir na hora no link oficial de cada prova.</p>
     </div>
     <div class="painel"><h3>Seus dados</h3>
       <p style="margin:0;font-size:14px;line-height:1.55;color:var(--muted)">O que você salva e segue fica guardado só neste aparelho, no seu navegador. Nada é enviado para lugar nenhum e não existe cadastro.</p>
@@ -710,7 +715,7 @@ function telaSobre() {
 
 function telaRanking() {
   const capa = `<header class="capa">
-      <div class="topo-linha"><span class="marca">${roseta(1, 26)}Pista</span><button class="btn-fino" data-acao="sobre">Sobre</button></div>
+      <div class="topo-linha"><span class="marca">${marcaSvg(26)}Salta<small>by Opportunity</small></span><button class="btn-fino" data-acao="sobre">Sobre</button></div>
       <span class="olho">TEMPORADA ${(S.stats?.desde || '2026').slice(0, 4)}</span>
       <h1>Quem mais venceu</h1>
       <div class="chips" role="group" aria-label="Tipo de ranking">
@@ -825,8 +830,8 @@ function cartaoSVG() {
   <text x="${des ? 360 : 540}" y="1695" text-anchor="middle" fill="#D9B45A" font-size="26" letter-spacing="5">PERCURSO</text>
   ${des ? `<text x="720" y="1650" text-anchor="middle" fill="#F4F1EA" font-size="52" font-family="DM Serif Display, Georgia, serif">${fmtN(des[0])} · ${fmtT(des[1])}</text>
   <text x="720" y="1695" text-anchor="middle" fill="#D9B45A" font-size="26" letter-spacing="5">DESEMPATE</text>` : ''}
-  <text x="120" y="1810" fill="#F4F1EA" font-size="44" font-family="DM Serif Display, Georgia, serif">Pista</text>
-  <text x="960" y="1810" text-anchor="end" fill="#C9D6CF" font-size="26">por Opportunity Leilões</text>
+  <text x="120" y="1810" fill="#F4F1EA" font-size="44" font-family="DM Serif Display, Georgia, serif">Salta</text>
+  <text x="960" y="1810" text-anchor="end" fill="#C9D6CF" font-size="26">by Opportunity Leilões</text>
 </svg>`;
 }
 function folhaCompartilhar() {
@@ -869,13 +874,13 @@ const app = document.getElementById('app');
 function render() {
   let html;
   if (S.erro) {
-    html = `<header class="capa"><span class="marca">${roseta(1, 26)}Pista</span></header><main><div class="vazio">${
+    html = `<header class="capa"><span class="marca">${marcaSvg(26)}Salta<small>by Opportunity</small></span></header><main><div class="vazio">${
       S.erro === 'sem-dados'
         ? '<b>Dados ainda não coletados</b>Rode o coletor no GitHub (aba Actions) e volte em alguns minutos.'
         : '<b>Não deu para carregar</b><button class="btn clara" style="margin-top:12px;flex:none" data-acao="recarregar">Tentar de novo</button>'
     }</div></main>`;
   } else if (!S.dados) {
-    html = `<header class="capa"><span class="marca">${roseta(1, 26)}Pista</span></header><main><div class="vazio">Carregando provas…</div></main>`;
+    html = `<header class="capa"><span class="marca">${marcaSvg(26)}Salta<small>by Opportunity</small></span></header><main><div class="vazio">Carregando provas…</div></main>`;
   } else if (S.tela === 'sobre') html = telaSobre();
   else if (S.tela === 'perfil') html = telaPerfil();
   else if (S.tela === 'prova') html = telaProva();
