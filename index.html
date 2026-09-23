@@ -103,9 +103,10 @@ select{font:inherit;font-size:14px;min-height:40px;padding:0 10px;border-radius:
 .cartao:hover{border-color:var(--ouro)}
 .cartao .data{width:80px;flex:none;background:var(--verde);color:var(--ink-claro);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px 6px;gap:2px}
 .cartao .data.destaque{background:var(--ouro-escuro)}
-.cartao .data b{font-family:var(--serif);font-weight:400;font-size:26px;line-height:1.05; white-space:nowrap;letter-spacing:-,01em}
-  .cartao .data b.longo{font-size:21px}
-.cartao .data span{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-align:center}
+/* "22–25" precisa caber numa linha só */
+.cartao .data b{font-family:var(--serif);font-weight:400;font-size:26px;line-height:1.05;white-space:nowrap;letter-spacing:-.01em}
+.cartao .data b.longo{font-size:21px}
+.cartao .data span{font-size:10.5px;font-weight:700;letter-spacing:.06em;text-align:center;white-space:nowrap}
 .cartao .corpo{flex-grow:1;min-width:0;padding:12px 14px;display:flex;flex-direction:column;gap:3px}
 .cartao .nome{font-family:var(--serif);font-size:18px;line-height:1.15}
 .cartao .meta{font-size:12.5px;color:var(--muted)}
@@ -206,6 +207,18 @@ select{font:inherit;font-size:14px;min-height:40px;padding:0 10px;border-radius:
 .fonte a{font-weight:700;text-decoration:underline}
 .aviso{margin:14px 20px 0;padding:12px 14px;border:1px solid var(--linha);background:var(--surface);border-radius:4px;font-size:13.5px;color:var(--muted)}
 
+
+/* destaque editorial: leilão ou aviso ligado a um torneio */
+.selo-dest{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;margin-top:6px;font-size:11.5px;font-weight:700;letter-spacing:.04em;color:var(--ouro-escuro);background:var(--bg);border:1px solid var(--ouro);border-radius:999px;padding:4px 10px}
+.destaque-aviso{margin:16px 20px 0;background:var(--surface);border:1px solid var(--ouro);border-left:4px solid var(--ouro);border-radius:4px;padding:16px;display:flex;flex-direction:column;gap:6px}
+.destaque-aviso .chapeu{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ouro-escuro)}
+.destaque-aviso .tit{font-family:var(--serif);font-size:21px;line-height:1.15}
+.destaque-aviso .quando{font-size:13.5px;font-weight:600;color:var(--verde)}
+.destaque-aviso .txt{font-size:13.5px;line-height:1.5;color:var(--muted)}
+.destaque-aviso .btn{margin-top:6px;align-self:flex-start;flex:none;min-width:200px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .destaque-aviso .quando{color:var(--ouro-claro)}}
+:root[data-theme="dark"] .destaque-aviso .quando{color:var(--ouro-claro)}
+
 /* navegação */
 nav.abas{position:fixed;left:0;right:0;bottom:0;background:var(--bg);border-top:1px solid var(--linha);padding-bottom:env(safe-area-inset-bottom,0px);z-index:20}
 nav.abas .inner{max-width:560px;margin:0 auto;display:flex}
@@ -271,7 +284,7 @@ const categoria = m => /INICIANTE/i.test(m) ? 'Iniciantes' : (/CAVALOS?\s+NOVOS?
 // ---------- estado ----------
 const S = {
   aba: 'calendario', tela: null, erro: null,
-  dados: null, stats: null, busca: null,
+  dados: null, stats: null, busca: null, destaques: null,
   torneios: {}, perfis: {},
   cat: 'Todas', altura: 'todas', soSalvos: false,
   torneio: null, dia: null, prova: null, filtro: '',
@@ -305,6 +318,8 @@ async function carregar() {
   } catch (e) { S.erro = e.message; }
   render();
   try { S.stats = await pegar(`${BASE}/stats.json`); render(); } catch {}
+  // destaques são escritos à mão em data/hipica/destaques.json e o coletor não mexe neles
+  try { S.destaques = await pegar(`${BASE}/destaques.json`); render(); } catch {}
 }
 async function carregarTorneio(id) {
   if (S.torneios[id]) return;
@@ -391,6 +406,7 @@ function periodoLongo(t) {
 const emAndamento = t => t.inicio <= hojeISO() && t.fim >= hojeISO() && !cancelado(t);
 const cancelado = t => /cancel/i.test(t.status || '');
 const achar = id => S.dados.torneios.find(t => t.id === +id);
+const destaqueDe = t => (S.destaques && S.destaques[String(t.id)]) || null;
 const numProva = p => String(p.numero).replace(/^0+(?=\d)/, '');
 function provaDestaque(t) {
   const com = t.provas.filter(p => p.res && p.v);
@@ -409,6 +425,7 @@ function cartaoTorneio(t, comVencedor) {
       <span class="meta">${esc(titulo(t.local || 'Local a confirmar'))}</span>
       <span class="tag">${t.cat.toUpperCase()}${t.alturas.length ? ' · ' + fmtAlt(t.alturas[0]) + (t.alturas.length > 1 ? ' a ' + fmtAlt(t.alturas[t.alturas.length - 1]) : '') : ''}${venc ? '' : (t.provas.length ? ` · ${t.provas.length} PROVAS` : ' · PROGRAMAÇÃO EM BREVE')}</span>
       ${venc ? `<span class="meta">Venceu a ${fmtAlt(venc.altura)}: <strong>${esc(titulo(venc.v.c))}</strong> com ${esc(titulo(venc.v.h))}</span>` : ''}
+      ${destaqueDe(t) ? `<span class="selo-dest">${esc(destaqueDe(t).selo || 'Leilão durante o torneio')}</span>` : ''}
     </span>
     <span class="estrela" role="img" aria-hidden="true" ${salvos.includes(t.id) ? 'aria-pressed="true"' : ''}>${estrelaSvg}</span>
   </button>`;
@@ -507,6 +524,16 @@ function telaTorneio() {
         <a class="btn fantasma" href="${esc(t.url)}" target="_blank" rel="noopener">Site da FPH ↗</a>
       </div>
     </header>`;
+  const dest = destaqueDe(t);
+  if (dest) {
+    corpo += `<div class="destaque-aviso">
+      <span class="chapeu">${esc(dest.selo || 'Durante o torneio')}</span>
+      <span class="tit">${esc(dest.titulo || '')}</span>
+      ${dest.quando ? `<span class="quando">${esc(dest.quando)}</span>` : ''}
+      ${dest.texto ? `<span class="txt">${esc(dest.texto)}</span>` : ''}
+      ${dest.link ? `<a class="btn ouro" href="${esc(dest.link)}" target="_blank" rel="noopener">${esc(dest.botao || 'Ver catálogo')} ↗</a>` : ''}
+    </div>`;
+  }
   if (!t.provas.length) return corpo + `<main class="fade"><div class="vazio"><b>Programação em breve</b>A federação ainda não publicou as provas deste torneio.</div></main>`;
   corpo += '<main class="fade">';
   if (dias.length > 1) {
