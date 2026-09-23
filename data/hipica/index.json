@@ -1,6 +1,6 @@
 {
  "fonte": "Federação Paulista de Hipismo (fph.com.br)",
- "atualizadoEm": "2026-09-23T14:14:59.879Z",
+ "atualizadoEm": "2026-09-23T18:59:24.021Z",
  "torneios": [
   {
    "id": 3404,
@@ -87,7 +87,12 @@
      "hora": "09:00",
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "CARLOS FABIO FARIA VARGAS",
+      "h": "JADE 3K"
+     }
     },
     {
      "id": 13602,
@@ -99,7 +104,12 @@
      "hora": null,
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "OSMAR SOARES DE ARRUDA",
+      "h": "EMERA D OURO D AIEX"
+     }
     },
     {
      "id": 13604,
@@ -111,7 +121,12 @@
      "hora": "11:00",
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "ARTHEMUS DE ALMEIDA",
+      "h": "CASARETTO JMEN"
+     }
     },
     {
      "id": 13606,
@@ -123,7 +138,12 @@
      "hora": "13:00",
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "CHARLIE BAYS",
+      "h": "KANNANTHUS JMEN (TE)"
+     }
     },
     {
      "id": 13646,
@@ -135,7 +155,12 @@
      "hora": null,
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "LUIZ EDUARDO REQUIAO STRUTZ",
+      "h": "DARK LADY JMEN II"
+     }
     },
     {
      "id": 13633,
@@ -147,7 +172,12 @@
      "hora": "15:30",
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "JOSE ROBERTO REYNOSO FERNANDEZ FILHO",
+      "h": "VIP JCR ZIMBABWE (IA)"
+     }
     },
     {
      "id": 13645,
@@ -159,7 +189,12 @@
      "hora": "09:00",
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "CARLOS FABIO FARIA VARGAS",
+      "h": "JADE 3K"
+     }
     },
     {
      "id": 13603,
@@ -171,7 +206,12 @@
      "hora": null,
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "OSMAR SOARES DE ARRUDA",
+      "h": "EMERA D OURO D AIEX"
+     }
     },
     {
      "id": 13605,
@@ -183,7 +223,12 @@
      "hora": "11:00",
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "ARTHEMUS DE ALMEIDA",
+      "h": "CASARETTO JMEN"
+     }
     },
     {
      "id": 13607,
@@ -195,7 +240,12 @@
      "hora": "14:00",
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "RODRIGO CHAVES NUNES",
+      "h": "CARANTINA JMEN (TE)"
+     }
     },
     {
      "id": 13647,
@@ -207,7 +257,12 @@
      "hora": null,
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "JOSE ROBERTO REYNOSO FERNANDEZ FILHO",
+      "h": "CORNETINO JMEN (TE)"
+     }
     },
     {
      "id": 13634,
@@ -219,7 +274,12 @@
      "hora": "08:30",
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "JOSE ROBERTO REYNOSO FERNANDEZ FILHO",
+      "h": "VIP JCR ZIMBABWE (IA)"
+     }
     },
     {
      "id": 13624,
@@ -231,7 +291,12 @@
      "hora": "12:30",
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "GIULIA RAMOS GARCIA",
+      "h": "LG REVERIE"
+     }
     },
     {
      "id": 13621,
@@ -243,7 +308,12 @@
      "hora": "14:30",
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "RODRIGO ANDRE LEIRAS CARNEIRO",
+      "h": "CASSINO JMEN"
+     }
     },
     {
      "id": 13627,
@@ -255,7 +325,12 @@
      "hora": "16:30",
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "DANIEL ABBUD SARQUIS AIEX",
+      "h": "C-TULIPA JMEN II (IA)"
+     }
     },
     {
      "id": 13614,
@@ -267,7 +342,12 @@
      "hora": "08:30",
      "pista": "AREIA - SERGIO BRANDÃO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "LUANA BERNARDES GERMANO",
+      "h": "JL WINTAGE"
+     }
     },
     {
      "id": 13640,
@@ -279,7 +359,12 @@
      "hora": "09:00",
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "FERNANDO JOSE DE ASSIS COSTA",
+      "h": "FANDANGO DE SEMILY"
+     }
     },
     {
      "id": 13617,
@@ -291,7 +376,12 @@
      "hora": "11:00",
      "pista": "AREIA - SERGIO BRANDÃO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "LAVINIA EID SUDANO RODRIGUES",
+      "h": "GREAT FOR FUN VILA FAL"
+     }
     },
     {
      "id": 13641,
@@ -303,7 +393,12 @@
      "hora": "11:00",
      "pista": "AREIA - SERGIO BRANDÃO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "HELENA DITT MARTELETO",
+      "h": "NOBU PULLMAN (TE)"
+     }
     },
     {
      "id": 13630,
@@ -315,7 +410,12 @@
      "hora": "12:00",
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "ARTHUR HENRIQUE PINTO GONCALVES",
+      "h": "X-DEBORA TOK (TE)"
+     }
     },
     {
      "id": 13628,
@@ -327,7 +427,12 @@
      "hora": "14:30",
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "DANIEL ABBUD SARQUIS AIEX",
+      "h": "C-TULIPA JMEN II (IA)"
+     }
     },
     {
      "id": 13611,
@@ -339,7 +444,12 @@
      "hora": "15:00",
      "pista": "AREIA - SERGIO BRANDÃO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "DANIELA RIBEIRO",
+      "h": "JOLIE CZ"
+     }
     },
     {
      "id": 13608,
@@ -351,7 +461,12 @@
      "hora": "17:00",
      "pista": "AREIA - SERGIO BRANDÃO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "MARIA EDUARDA ZERBINATTI PAULUSSI",
+      "h": "HARRY POTTER LJR (IA)"
+     }
     },
     {
      "id": 13637,
@@ -363,7 +478,12 @@
      "hora": "17:00",
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "FERNANDO SAMPAIO FERREIRA FILHO",
+      "h": "GABALOU DE RUEIRE"
+     }
     },
     {
      "id": 13648,
@@ -375,7 +495,12 @@
      "hora": "17:00",
      "pista": "AREIA - SERGIO BRANDÃO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "LAURA JUNQUEIRA RIBEIRO DE MENDONÇA",
+      "h": "CASHUA-C JMEN II"
+     }
     },
     {
      "id": 13609,
@@ -387,7 +512,12 @@
      "hora": "08:00",
      "pista": "AREIA - SERGIO BRANDÃO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "RAFAELLA WOLFF FERES",
+      "h": "CATALINA HARAS TRES BARRAS (IA)"
+     }
     },
     {
      "id": 13625,
@@ -399,7 +529,12 @@
      "hora": "08:00",
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "GIOVANA CICCI FARINHA MOURA",
+      "h": "GALILEO JMEN"
+     }
     },
     {
      "id": 13649,
@@ -411,7 +546,12 @@
      "hora": "08:00",
      "pista": "AREIA - SERGIO BRANDÃO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "MANUELA GIBIN MENDES",
+      "h": "CALI V BAREELHOF Z"
+     }
     },
     {
      "id": 13622,
@@ -674,7 +814,12 @@
      "hora": "15:30",
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "JOSE ROBERTO REYNOSO FERNANDEZ FILHO",
+      "h": "CORNET SHOT JMEN"
+     }
     },
     {
      "id": 13661,
@@ -686,7 +831,12 @@
      "hora": "14:00",
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "JOSE LUIZ GUIMARAES DE CARVALHO",
+      "h": "BARBARELA JMEN"
+     }
     }
    ],
    "url": "https://www.fph.com.br/calendario/ListaProvas.aspx?ID=3407"
@@ -710,7 +860,12 @@
      "hora": "10:00",
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "BIANCA POSTAL DE OLIVEIRA",
+      "h": "OURO FINO"
+     }
     },
     {
      "id": 13663,
@@ -722,7 +877,12 @@
      "hora": "08:00",
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "MARIA VITORIA VEZZANI BRANDAO",
+      "h": "MAUI"
+     }
     },
     {
      "id": 13665,
@@ -734,7 +894,12 @@
      "hora": "10:30",
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "MARIA CAROLINA CASTELO FERRI",
+      "h": "MC QUEEN"
+     }
     },
     {
      "id": 13667,
@@ -746,7 +911,12 @@
      "hora": "14:00",
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "LAURA ERRANTE PEROBELLI",
+      "h": "SM PIC DONALD"
+     }
     },
     {
      "id": 13670,
@@ -758,7 +928,12 @@
      "hora": "17:00",
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "RENATA MARY MATUIAMA PEYSER",
+      "h": "RI BLUE BOY"
+     }
     },
     {
      "id": 13664,
@@ -770,7 +945,12 @@
      "hora": "08:00",
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "ALESSANDRA FERNANDEZ CRUZ",
+      "h": "GARFIELD"
+     }
     },
     {
      "id": 13666,
@@ -782,7 +962,12 @@
      "hora": "10:30",
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "JULIA DIAS LOPES",
+      "h": "THE BEST SHINE RCH"
+     }
     },
     {
      "id": 13668,
@@ -794,7 +979,12 @@
      "hora": "16:00",
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "SOFIA SCHETTY FERRAZ DE ARRUDA",
+      "h": "TRAMA SANTA ROSA"
+     }
     }
    ],
    "url": "https://www.fph.com.br/calendario/ListaProvas.aspx?ID=3408"
@@ -853,7 +1043,12 @@
      "hora": "08:30",
      "pista": "AREIA ESCOLA DE EQUITAÇÃO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "MAX LUCIEFER HOFFMAN BUENO",
+      "h": "MARIA BONITA"
+     }
     },
     {
      "id": 13710,
@@ -865,7 +1060,12 @@
      "hora": "11:30",
      "pista": "AREIA ESCOLA DE EQUITAÇÃO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "OLIVIA DUCA KARA JOSE",
+      "h": "FLASH (HFS)"
+     }
     },
     {
      "id": 13711,
@@ -877,7 +1077,12 @@
      "hora": "14:00",
      "pista": "AREIA ESCOLA DE EQUITAÇÃO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "HELENA DA SILVA MERCADO ARIGHI",
+      "h": "CANARINHO"
+     }
     },
     {
      "id": 13712,
@@ -889,7 +1094,12 @@
      "hora": "15:30",
      "pista": "AREIA ESCOLA DE EQUITAÇÃO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "BEATRIZ BIDUTTE DA SILVA",
+      "h": "EIVE"
+     }
     }
    ],
    "url": "https://www.fph.com.br/calendario/ListaProvas.aspx?ID=3410"
@@ -913,7 +1123,12 @@
      "hora": "08:30",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "JOSE ROBERTO REYNOSO FERNANDEZ FILHO",
+      "h": "PRIMADONNA FLORES (TE)"
+     }
     },
     {
      "id": 13673,
@@ -925,7 +1140,12 @@
      "hora": null,
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "RODRIGO LEMOS DE MORAES SARMENTO",
+      "h": "COMTESSE DW"
+     }
     },
     {
      "id": 13694,
@@ -937,7 +1157,12 @@
      "hora": "11:00",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "IVO ROZA FILHO",
+      "h": "HFB CALEDONIA"
+     }
     },
     {
      "id": 13696,
@@ -949,7 +1174,12 @@
      "hora": "15:00",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "JOSE ROBERTO REYNOSO FERNANDEZ FILHO",
+      "h": "VIP JCR ZIMBABWE (IA)"
+     }
     },
     {
      "id": 13675,
@@ -961,7 +1191,12 @@
      "hora": "08:30",
      "pista": "PICADEIRO COBERTO - Dr. Jayme Loureiro Filho",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "GABRIELLA MIGUEL",
+      "h": "LAND YANNI DO FEROLETO"
+     }
     },
     {
      "id": 13698,
@@ -973,7 +1208,12 @@
      "hora": "09:00",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "LUIZ EDUARDO REQUIAO STRUTZ",
+      "h": "DARK LADY JMEN II"
+     }
     },
     {
      "id": 13697,
@@ -985,7 +1225,12 @@
      "hora": "11:00",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "RAPHAEL MACHADO LEITE",
+      "h": "EXPLOIT D’ELLE"
+     }
     },
     {
      "id": 13705,
@@ -997,7 +1242,12 @@
      "hora": "11:00",
      "pista": "PICADEIRO COBERTO - Dr. Jayme Loureiro Filho",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "MARIA JULIA BERNARDES FREIRE",
+      "h": "SALAMANDRA MARGOT TOK"
+     }
     },
     {
      "id": 13678,
@@ -1009,7 +1259,12 @@
      "hora": null,
      "pista": "PICADEIRO COBERTO - Dr. Jayme Loureiro Filho",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "ANNA LUIZA ARRUDA BOARI",
+      "h": "VIOLETA DES FLANDRES (IA)"
+     }
     },
     {
      "id": 13691,
@@ -1021,7 +1276,12 @@
      "hora": "13:00",
      "pista": "PICADEIRO COBERTO - Dr. Jayme Loureiro Filho",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "JULIA DE ATAIDE DINIZ PASSAMANI",
+      "h": "JUST IN LOVE POLANA"
+     }
     },
     {
      "id": 13688,
@@ -1033,7 +1293,12 @@
      "hora": "14:00",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "VICTORIA JUNQUEIRA RIBEIRO DE MENDONCA",
+      "h": "CELESTINO JMEN (TE)"
+     }
     },
     {
      "id": 13695,
@@ -1045,7 +1310,12 @@
      "hora": "16:00",
      "pista": "PICADEIRO COBERTO - Dr. Jayme Loureiro Filho",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "JOSE LUIZ GUIMARAES DE CARVALHO",
+      "h": "CASSIARA C JMEN (TE)"
+     }
     },
     {
      "id": 13699,
@@ -1057,7 +1327,12 @@
      "hora": "09:00",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "DANIEL ABBUD SARQUIS AIEX",
+      "h": "C-TULIPA JMEN II (IA)"
+     }
     },
     {
      "id": 13685,
@@ -1069,7 +1344,12 @@
      "hora": "10:00",
      "pista": "PICADEIRO COBERTO - Dr. Jayme Loureiro Filho",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "MANUELLA CONDEZ ALAGIA",
+      "h": "GRETA JB (TE)"
+     }
     },
     {
      "id": 13689,
@@ -1081,7 +1361,12 @@
      "hora": "11:00",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "GUILHERME FERNANDES",
+      "h": "HPH BALOU SON TRV (TE)"
+     }
     },
     {
      "id": 13682,
@@ -1093,7 +1378,12 @@
      "hora": "12:30",
      "pista": "PICADEIRO COBERTO - Dr. Jayme Loureiro Filho",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "LUIS RENATO FLORA",
+      "h": "BRIDGIT DO REFUGIO"
+     }
     },
     {
      "id": 13703,
@@ -1105,7 +1395,12 @@
      "hora": "14:00",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "STEPHAN DE FREITAS BARCHA",
+      "h": "CHANTILY JMEN"
+     }
     },
     {
      "id": 13692,
@@ -1117,7 +1412,12 @@
      "hora": "15:30",
      "pista": "PICADEIRO COBERTO - Dr. Jayme Loureiro Filho",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "PEDRO HENRIQUE BRUNHEROTO",
+      "h": "CALBREAKER BR"
+     }
     },
     {
      "id": 13701,
@@ -1129,7 +1429,12 @@
      "hora": "18:00",
      "pista": "PICADEIRO COBERTO - Dr. Jayme Loureiro Filho",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "FILIPPO COLLI",
+      "h": "CONRAD C JMEN (TE)"
+     }
     },
     {
      "id": 13679,
@@ -1141,7 +1446,12 @@
      "hora": "08:00",
      "pista": "PICADEIRO COBERTO - Dr. Jayme Loureiro Filho",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "JULIA LACOMBE RECHE",
+      "h": "CHAMBERLAIN JMEN II"
+     }
     },
     {
      "id": 13706,
@@ -1153,7 +1463,12 @@
      "hora": null,
      "pista": "PICADEIRO COBERTO - Dr. Jayme Loureiro Filho",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "SOFIA NEGRAO MOREIRA",
+      "h": "ZAHARA DAS CATARATAS (IA)"
+     }
     },
     {
      "id": 13672,
@@ -1165,7 +1480,12 @@
      "hora": "09:00",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "JOSE ROBERTO REYNOSO FERNANDEZ FILHO",
+      "h": "PRIMADONNA FLORES (TE)"
+     }
     },
     {
      "id": 13674,
@@ -1177,7 +1497,12 @@
      "hora": "09:00",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "FELIPE JUARES DE LIMA",
+      "h": "ELISA DES FLANDRES IMPÉRIO EGÍPCIO"
+     }
     },
     {
      "id": 13676,
@@ -1189,7 +1514,12 @@
      "hora": "10:00",
      "pista": "PICADEIRO COBERTO - Dr. Jayme Loureiro Filho",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "ANA PAULA CASELANI MATTE",
+      "h": "COLT"
+     }
     },
     {
      "id": 13683,
@@ -1201,7 +1531,12 @@
      "hora": "13:30",
      "pista": "PICADEIRO COBERTO - Dr. Jayme Loureiro Filho",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "EDUARDO DA SILVA RAMOS",
+      "h": "MSC CARTIER (IA)"
+     }
     },
     {
      "id": 13702,
@@ -1213,7 +1548,12 @@
      "hora": "14:00",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "PAULO BRASILEIRO DE MIRANDA",
+      "h": "CAROLI M3 (TE)"
+     }
     },
     {
      "id": 13686,
@@ -1225,7 +1565,12 @@
      "hora": "16:30",
      "pista": "PICADEIRO COBERTO - Dr. Jayme Loureiro Filho",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "BRUNO RACA",
+      "h": "HST CHOCOLATE (IA)"
+     }
     },
     {
      "id": 13687,
@@ -1237,7 +1582,12 @@
      "hora": "00:00",
      "pista": "PICADEIRO COBERTO - Dr. Jayme Loureiro Filho",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "SOFIA JUNQUEIRA RIBEIRO DE MENDONÇA",
+      "h": "CORMINA JMEN I (TE)"
+     }
     },
     {
      "id": 13680,
@@ -1249,7 +1599,12 @@
      "hora": "08:00",
      "pista": "AREIA - Nelson Pessoa Filho (Neco)",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "LARISSA MAGAZONI ALVES",
+      "h": "DEBORAH JMEN (IA)"
+     }
     },
     {
      "id": 13707,
@@ -1261,7 +1616,12 @@
      "hora": null,
      "pista": "AREIA - Nelson Pessoa Filho (Neco)",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "LARA LIBERTO LEVEGHIN",
+      "h": "YES DO ANPAR"
+     }
     },
     {
      "id": 13690,
@@ -1273,7 +1633,12 @@
      "hora": "08:30",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "LAILA BORIN EL ALAM",
+      "h": "FRODO C"
+     }
     },
     {
      "id": 13677,
@@ -1285,7 +1650,12 @@
      "hora": "10:00",
      "pista": "PICADEIRO COBERTO - Dr. Jayme Loureiro Filho",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "ANA PAULA CASELANI MATTE",
+      "h": "COLT"
+     }
     },
     {
      "id": 13700,
@@ -1297,7 +1667,12 @@
      "hora": "11:30",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "MARCELO TOSI",
+      "h": "KATE AGROMIX (IA)"
+     }
     },
     {
      "id": 13684,
@@ -1309,7 +1684,12 @@
      "hora": "12:00",
      "pista": "PICADEIRO COBERTO - Dr. Jayme Loureiro Filho",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "RICHARD LYON THORP BILTON",
+      "h": "HFB ECCO II (IA)"
+     }
     },
     {
      "id": 13704,
@@ -1321,7 +1701,12 @@
      "hora": "15:00",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": true,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "STEPHAN DE FREITAS BARCHA",
+      "h": "CHANTILY JMEN"
+     }
     }
    ],
    "url": "https://www.fph.com.br/calendario/ListaProvas.aspx?ID=3409"
@@ -1345,7 +1730,12 @@
      "hora": "08:30",
      "pista": "AREIA-1",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "PEDRO PAULO ONETY CORDEIRO",
+      "h": "SPARTBOY TASSONI (IA)"
+     }
     },
     {
      "id": 13728,
@@ -1357,7 +1747,12 @@
      "hora": "11:30",
      "pista": "AREIA-1",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "PEDRO PAULO ONETY CORDEIRO",
+      "h": "SHY BOY"
+     }
     },
     {
      "id": 13730,
@@ -1369,7 +1764,12 @@
      "hora": "15:00",
      "pista": "AREIA-1",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "PEDRO PAULO ONETY CORDEIRO",
+      "h": "ROCCADERO JMEN DE MOR"
+     }
     },
     {
      "id": 13737,
@@ -1381,7 +1781,12 @@
      "hora": "17:00",
      "pista": "AREIA-1",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "GIOVANNA SANTANA DANGELO MAZARA",
+      "h": "CAROLI M3 (TE)"
+     }
     },
     {
      "id": 13731,
@@ -1393,7 +1798,12 @@
      "hora": "18:00",
      "pista": "AREIA-1",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "SHANNA HARROUCHE GARCIA",
+      "h": "MSC WINBISHI BOND"
+     }
     },
     {
      "id": 13757,
@@ -1405,7 +1815,12 @@
      "hora": "08:00",
      "pista": "AREIA-1",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "PEDRO PAULO ONETY CORDEIRO",
+      "h": "SPARTBOY TASSONI (IA)"
+     }
     },
     {
      "id": 13729,
@@ -1417,7 +1832,12 @@
      "hora": "11:30",
      "pista": "AREIA-1",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "FELIPE JUARES DE LIMA",
+      "h": "DURAS DE HUS IMPERIO EGIPCIO"
+     }
     },
     {
      "id": 13752,
@@ -1429,7 +1849,12 @@
      "hora": "14:30",
      "pista": "AREIA-1",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "3° SGT PASSAMANI",
+      "h": "LIKA JT PB"
+     }
     },
     {
      "id": 13738,
@@ -1441,7 +1866,12 @@
      "hora": "16:30",
      "pista": "AREIA-1",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "HELENA CHRISTINA SCHMIDT",
+      "h": "HST CHAILA (IA)"
+     }
     },
     {
      "id": 13732,
@@ -1453,7 +1883,12 @@
      "hora": "19:00",
      "pista": "AREIA-1",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "DANIELA MIRO DE CAMPOS",
+      "h": "DALIVIA Z"
+     }
     },
     {
      "id": 13753,
@@ -1465,7 +1900,12 @@
      "hora": "11:00",
      "pista": "AREIA-1",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "ALICE FALCAO MORAES CAPOVILA",
+      "h": "CARDENHO DO LIBERTE (IA)"
+     }
     },
     {
      "id": 13749,
@@ -1477,7 +1917,12 @@
      "hora": null,
      "pista": "AREIA-1",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "MARIANA VILLELA ROSA",
+      "h": "CALVADHUS JMEN"
+     }
     },
     {
      "id": 13740,
@@ -1489,7 +1934,12 @@
      "hora": null,
      "pista": "AREIA-1",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "DANIELA RIBEIRO",
+      "h": "UEGOND XANGO"
+     }
     },
     {
      "id": 13734,
@@ -1501,7 +1951,12 @@
      "hora": "15:00",
      "pista": "AREIA-1",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "HELENA CHRISTINA SCHMIDT",
+      "h": "EQUICENTER GRANDGRAAF (IA)"
+     }
     },
     {
      "id": 13745,
@@ -1513,7 +1968,12 @@
      "hora": null,
      "pista": "AREIA-1",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "JULIA NASCIMENTO SENNA DE LIMA",
+      "h": "SOLAR-DO-ENGENHO LANCELOT (IA)"
+     }
     },
     {
      "id": 13758,
@@ -1525,7 +1985,12 @@
      "hora": "18:00",
      "pista": "AREIA-1",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "MICHEL MASCIOLI LIDDLE",
+      "h": "ELVIA BR (TE)"
+     }
     },
     {
      "id": 13754,
@@ -1537,7 +2002,12 @@
      "hora": "10:00",
      "pista": "AREIA-1",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "LAURA JUNQUEIRA RIBEIRO DE MENDONÇA",
+      "h": "CONCHITA-C JMEN (TE)"
+     }
     },
     {
      "id": 13750,
@@ -1549,7 +2019,12 @@
      "hora": null,
      "pista": "AREIA-1",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "MARIA LUIZA CAMARGO BRUSCATO",
+      "h": "ORITE TER ELZEN"
+     }
     },
     {
      "id": 13741,
@@ -1561,7 +2036,12 @@
      "hora": null,
      "pista": "AREIA-1",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "AFONSO BENTO DE FIGUEIREDO",
+      "h": "HSF AGILE"
+     }
     },
     {
      "id": 13735,
@@ -1573,7 +2053,12 @@
      "hora": "12:30",
      "pista": "AREIA-1",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "HELENA CHRISTINA SCHMIDT",
+      "h": "EQUICENTER GRANDGRAAF (IA)"
+     }
     },
     {
      "id": 13746,
@@ -1585,7 +2070,12 @@
      "hora": null,
      "pista": "AREIA-1",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "JULIA NASCIMENTO SENNA DE LIMA",
+      "h": "SOLAR-DO-ENGENHO LANCELOT (IA)"
+     }
     },
     {
      "id": 13743,
@@ -1597,7 +2087,12 @@
      "hora": "16:00",
      "pista": "AREIA-1",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "JOSE ROBERTO REYNOSO FERNANDEZ FILHO",
+      "h": "GALILEO JMEN"
+     }
     },
     {
      "id": 13755,
@@ -1609,7 +2104,12 @@
      "hora": "09:30",
      "pista": "AREIA-1",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "SARAH PEPINO DONATO",
+      "h": "PSH PLATOON"
+     }
     },
     {
      "id": 13751,
@@ -1621,7 +2121,12 @@
      "hora": null,
      "pista": "AREIA-1",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "NATALIA CIAMARRO DE LA RUE",
+      "h": "HEART"
+     }
     },
     {
      "id": 13742,
@@ -1633,7 +2138,12 @@
      "hora": null,
      "pista": "AREIA-1",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "ISABEL ALMEIDA BIAGI",
+      "h": "TAORMINA TW (IA)"
+     }
     },
     {
      "id": 13736,
@@ -1645,7 +2155,12 @@
      "hora": "12:00",
      "pista": "AREIA-1",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "PRISCILLA ASTEN CATERINE BLATT",
+      "h": "BERLINDA DAS UMBURANAS (IA)"
+     }
     },
     {
      "id": 13747,
@@ -1657,7 +2172,12 @@
      "hora": null,
      "pista": "AREIA-1",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "SOFIA NEGRAO MOREIRA",
+      "h": "ZAHARA DAS CATARATAS (IA)"
+     }
     },
     {
      "id": 13744,
@@ -1669,7 +2189,12 @@
      "hora": "16:00",
      "pista": "AREIA-1",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "VITOR ALVES TEIXEIRA",
+      "h": "KANNANS BREAKER BR (IA)"
+     }
     }
    ],
    "url": "https://www.fph.com.br/calendario/ListaProvas.aspx?ID=3412"
@@ -1715,7 +2240,12 @@
      "hora": "14:00",
      "pista": "AREIA - No. PISTAS = 2 / No. BAIAS = 20",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "STELLA TORTORELLI FOLLA DE RENZIS",
+      "h": "SHARON STONE"
+     }
     },
     {
      "id": 13764,
@@ -1727,7 +2257,12 @@
      "hora": "14:00",
      "pista": "AREIA - No. PISTAS = 2 / No. BAIAS = 20",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "MANUELA GIBIN MENDES",
+      "h": "GOLDLIFE CHCP"
+     }
     },
     {
      "id": 13765,
@@ -1739,7 +2274,12 @@
      "hora": "10:00",
      "pista": "AREIA - No. PISTAS = 2 / No. BAIAS = 20",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "STELLA TORTORELLI FOLLA DE RENZIS",
+      "h": "SHARON STONE"
+     }
     }
    ],
    "url": "https://www.fph.com.br/calendario/ListaProvas.aspx?ID=3413"
@@ -1763,7 +2303,12 @@
      "hora": "08:30",
      "pista": "AREIA-1",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "MARIANA CEREZER GUARIZZO",
+      "h": "NEBRASKA JMEN (IA)"
+     }
     },
     {
      "id": 13773,
@@ -1775,7 +2320,12 @@
      "hora": "14:00",
      "pista": "AREIA-1",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "YASMIN NASCIMENTO",
+      "h": "LE MESSAGE DU PERE"
+     }
     },
     {
      "id": 13767,
@@ -1787,7 +2337,12 @@
      "hora": "08:00",
      "pista": "AREIA-1",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "JULIA MEDEIROS SILVA SALLES",
+      "h": "HTC LILIAN"
+     }
     },
     {
      "id": 13772,
@@ -1799,7 +2354,12 @@
      "hora": "09:00",
      "pista": "AREIA - No. PISTAS = 2 / No. BAIAS = 20",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "MARIA LUIZA SEQUEIRA DE OLIVEIRA MAGALHAES",
+      "h": "DINA"
+     }
     },
     {
      "id": 13769,
@@ -1811,7 +2371,12 @@
      "hora": "11:30",
      "pista": "AREIA-1",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "GUSTAVO CONDOMI ALCORTA TSUGAWA",
+      "h": "LANCELOT (HBF)"
+     }
     },
     {
      "id": 13768,
@@ -1823,7 +2388,12 @@
      "hora": "08:00",
      "pista": "AREIA-1",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "MARIA ALICE MELO BARONI",
+      "h": "APACHE SHB"
+     }
     },
     {
      "id": 13774,
@@ -1835,7 +2405,12 @@
      "hora": "08:15",
      "pista": "AREIA - No. PISTAS = 2 / No. BAIAS = 20",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "LAURA KRAFT DE FREITAS",
+      "h": "DUM DUM"
+     }
     },
     {
      "id": 13770,
@@ -1847,7 +2422,12 @@
      "hora": "12:00",
      "pista": "AREIA-1",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "GABRIEL RAMOS DE OLIVEIRA",
+      "h": "LUCKY BOY BL"
+     }
     },
     {
      "id": 13777,
@@ -1859,7 +2439,12 @@
      "hora": "13:00",
      "pista": "AREIA-1",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "LAURA ERRANTE PEROBELLI",
+      "h": "TRAMA SANTA ROSA"
+     }
     }
    ],
    "url": "https://www.fph.com.br/calendario/ListaProvas.aspx?ID=3414"
@@ -1894,7 +2479,12 @@
      "hora": "08:00",
      "pista": "AREIA",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "CARINA RODRIGUES GARBI",
+      "h": "RG BLACKOUT"
+     }
     },
     {
      "id": 13785,
@@ -1906,7 +2496,12 @@
      "hora": "09:40",
      "pista": "AREIA",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "PEDRO BLANES DE CARVALHO",
+      "h": "CAMBUI DO PATEO"
+     }
     },
     {
      "id": 13786,
@@ -1918,7 +2513,12 @@
      "hora": "11:50",
      "pista": "AREIA",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "ALICE JURADO GOMES PINHO",
+      "h": "ESPARTANO"
+     }
     },
     {
      "id": 13787,
@@ -1930,7 +2530,12 @@
      "hora": "13:30",
      "pista": "AREIA",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "ALMIR DE ANDRADE",
+      "h": "KING DA PAINEIRAS"
+     }
     }
    ],
    "url": "https://www.fph.com.br/calendario/ListaProvas.aspx?ID=3415"
@@ -1954,7 +2559,12 @@
      "hora": "08:30",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "BERNARDO BRAGA DE ALBUQUERQUE PEREIRA",
+      "h": "ROXY IHB (TE)"
+     }
     },
     {
      "id": 13887,
@@ -1966,7 +2576,12 @@
      "hora": "10:00",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "LUIS GUSTAVO GODINHO",
+      "h": "MYLORD TRV (TE)"
+     }
     },
     {
      "id": 13889,
@@ -1978,7 +2593,12 @@
      "hora": "12:30",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "KITARO FIORAVANTE BALDAIA",
+      "h": "HPH YANKO TOK (TE)"
+     }
     },
     {
      "id": 13891,
@@ -1990,7 +2610,12 @@
      "hora": "14:30",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "REMO TELLINI",
+      "h": "XAYANA TOK (TE)"
+     }
     },
     {
      "id": 13853,
@@ -2002,7 +2627,12 @@
      "hora": "09:00",
      "pista": "AREIA - Nelson Pessoa Filho (Neco)",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "CAPITAO THALES AUGUSTO DE FARIA FERREIRA",
+      "h": "CASTILIO C JMEN III (TE)"
+     }
     },
     {
      "id": 13884,
@@ -2014,7 +2644,12 @@
      "hora": "09:00",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "BERNARDO BRAGA DE ALBUQUERQUE PEREIRA",
+      "h": "ROXY IHB (TE)"
+     }
     },
     {
      "id": 13885,
@@ -2026,7 +2661,12 @@
      "hora": null,
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "EDUARDO FERREIRA SILVA MACHADO",
+      "h": "ZARA L.I. (TE)"
+     }
     },
     {
      "id": 13843,
@@ -2038,7 +2678,12 @@
      "hora": "12:00",
      "pista": "AREIA - Nelson Pessoa Filho (Neco)",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "DANIELA RIBEIRO",
+      "h": "UEGOND XANGO"
+     }
     },
     {
      "id": 13888,
@@ -2050,7 +2695,12 @@
      "hora": "12:00",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "LUIS GUSTAVO GODINHO",
+      "h": "MYLORD TRV (TE)"
+     }
     },
     {
      "id": 13855,
@@ -2062,7 +2712,12 @@
      "hora": "14:30",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "ARIE CARNEIRO",
+      "h": "GIOVANA METODO (IA)"
+     }
     },
     {
      "id": 13847,
@@ -2074,7 +2729,12 @@
      "hora": "15:30",
      "pista": "AREIA - Nelson Pessoa Filho (Neco)",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "NAZEH CAROLINA CHEDICK",
+      "h": "JAGUAR DA MATA"
+     }
     },
     {
      "id": 13886,
@@ -2086,7 +2746,12 @@
      "hora": "08:30",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "DANIEL DE MELLO GOBBO",
+      "h": "FAIRMONT MYSTIC ROSE (IA)"
+     }
     },
     {
      "id": 13844,
@@ -2098,7 +2763,12 @@
      "hora": "09:00",
      "pista": "AREIA - Nelson Pessoa Filho (Neco)",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "NILSE RAPHAELLE VALVERDE",
+      "h": "HFB DIARATHA (IA)"
+     }
     },
     {
      "id": 13890,
@@ -2110,7 +2780,12 @@
      "hora": "11:00",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "KITARO FIORAVANTE BALDAIA",
+      "h": "HPH YANKO TOK (TE)"
+     }
     },
     {
      "id": 13892,
@@ -2122,7 +2797,12 @@
      "hora": null,
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "REMO TELLINI",
+      "h": "XAYANA TOK (TE)"
+     }
     },
     {
      "id": 13848,
@@ -2134,7 +2814,12 @@
      "hora": "12:00",
      "pista": "AREIA - Nelson Pessoa Filho (Neco)",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "LINA CARNEIRO MELO",
+      "h": "HMP WALESKA FLORES"
+     }
     },
     {
      "id": 13859,
@@ -2146,7 +2831,12 @@
      "hora": "14:00",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "RIMANTAS SIPAS",
+      "h": "UMBURANAS MESO BLUE PS"
+     }
     },
     {
      "id": 13851,
@@ -2158,7 +2848,12 @@
      "hora": "15:30",
      "pista": "AREIA - Nelson Pessoa Filho (Neco)",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "LUIS RICARDO MAÇÃES COUTINHO",
+      "h": "DIN DA LAGOA (IA)"
+     }
     },
     {
      "id": 13881,
@@ -2170,7 +2865,12 @@
      "hora": "15:30",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "RUY JACINTO DE CAMARGO PACHECO",
+      "h": "CHRISTMAS C JMEN"
+     }
     },
     {
      "id": 13857,
@@ -2182,7 +2882,12 @@
      "hora": "09:00",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "CAROLINA AULICINO MACIEL",
+      "h": "MSC CARTIER (IA)"
+     }
     },
     {
      "id": 13845,
@@ -2194,7 +2899,12 @@
      "hora": "09:30",
      "pista": "AREIA - Nelson Pessoa Filho (Neco)",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "AFONSO BENTO DE FIGUEIREDO",
+      "h": "HSF AGILE"
+     }
     },
     {
      "id": 13856,
@@ -2206,7 +2916,12 @@
      "hora": "09:30",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "GABRIELA MARINHO LUTZ FERREIRA",
+      "h": "BAMAKO S (IA)"
+     }
     },
     {
      "id": 13849,
@@ -2218,7 +2933,12 @@
      "hora": "10:00",
      "pista": "AREIA - Nelson Pessoa Filho (Neco)",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "LUIZ ALCESTE DEL CISTIA THONON FILHO",
+      "h": "EMS PHARMA SHOWJUMPING HF DARK STONE"
+     }
     },
     {
      "id": 13860,
@@ -2230,7 +2950,12 @@
      "hora": "12:30",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "PAULO VICTOR ZUCCOLOTTO FORONI",
+      "h": "ICARO METODO (IA)"
+     }
     },
     {
      "id": 13852,
@@ -2242,7 +2967,12 @@
      "hora": "13:30",
      "pista": "AREIA - Nelson Pessoa Filho (Neco)",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "ARIE CARNEIRO",
+      "h": "SAN PLA VIGO XANGO (IA)"
+     }
     },
     {
      "id": 13882,
@@ -2254,7 +2984,12 @@
      "hora": "14:00",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "FERNANDO PASMANIK SCHILIS",
+      "h": "RAGNAR TW (IA)"
+     }
     }
    ],
    "url": "https://www.fph.com.br/calendario/ListaProvas.aspx?ID=3417"
@@ -2300,7 +3035,12 @@
      "hora": "08:30",
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "RAPHAEL BENEVIDES CORDEIRO",
+      "h": "CHAPO CHACCO ENTREVERO"
+     }
     },
     {
      "id": 13826,
@@ -2312,7 +3052,12 @@
      "hora": null,
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "JOSE ROBERTO REYNOSO FERNANDEZ FILHO",
+      "h": "ZIZOU FLORES (TE)"
+     }
     },
     {
      "id": 13828,
@@ -2324,7 +3069,12 @@
      "hora": "11:30",
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "FRANCISCO JOSE MESQUITA MUSA",
+      "h": "CORSALL JMEN"
+     }
     },
     {
      "id": 13830,
@@ -2336,7 +3086,12 @@
      "hora": "14:30",
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "KITARO FIORAVANTE BALDAIA",
+      "h": "HPH YANKO TOK (TE)"
+     }
     },
     {
      "id": 13832,
@@ -2348,7 +3103,12 @@
      "hora": null,
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "FELIPE JUARES DE LIMA",
+      "h": "ELISA DES FLANDRES IMPÉRIO EGÍPCIO"
+     }
     },
     {
      "id": 13893,
@@ -2360,7 +3120,12 @@
      "hora": "17:00",
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "JOSE ROBERTO REYNOSO FERNANDEZ FILHO",
+      "h": "VIP JCR ZIMBABWE (IA)"
+     }
     },
     {
      "id": 13825,
@@ -2372,7 +3137,12 @@
      "hora": "08:30",
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "3º SARGENTO THIAGO RHAVY DE SA E SILVA",
+      "h": "DAVI BR"
+     }
     },
     {
      "id": 13827,
@@ -2384,7 +3154,12 @@
      "hora": null,
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "EVERALDO DUARTE MENDES",
+      "h": "UNITED DO CACH (IA)"
+     }
     },
     {
      "id": 13829,
@@ -2396,7 +3171,12 @@
      "hora": "11:30",
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "LUIZ EDUARDO REQUIAO STRUTZ",
+      "h": "CATCHERELO JMEN (TE)"
+     }
     },
     {
      "id": 13831,
@@ -2408,7 +3188,12 @@
      "hora": "14:30",
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "RAPHAEL MACHADO LEITE",
+      "h": "J&A COMMI IL AMOUR BR IMPERIO EGIPCIO"
+     }
     },
     {
      "id": 13833,
@@ -2420,7 +3205,12 @@
      "hora": null,
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "CARLOS EDUARDO MASSENZI FILHO",
+      "h": "TRV DIVANNO FLORES (TE)"
+     }
     },
     {
      "id": 13934,
@@ -2432,7 +3222,12 @@
      "hora": "17:00",
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "JOSE ROBERTO REYNOSO FERNANDEZ FILHO",
+      "h": "SANTIAGO ROSEBUD (TE)"
+     }
     },
     {
      "id": 13800,
@@ -2444,7 +3239,12 @@
      "hora": "08:30",
      "pista": "AREIA - SERGIO BRANDÃO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "MARIA PEREZ COELHO BENTO",
+      "h": "PER CAVALLI IMPERADOR IPIRANGA"
+     }
     },
     {
      "id": 13894,
@@ -2456,7 +3256,12 @@
      "hora": "08:30",
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "IVO ROZA FILHO",
+      "h": "HFB CALEDONIA"
+     }
     },
     {
      "id": 13803,
@@ -2468,7 +3273,12 @@
      "hora": "11:30",
      "pista": "AREIA - SERGIO BRANDÃO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "GIULIA RAMOS GARCIA",
+      "h": "LG REVERIE"
+     }
     },
     {
      "id": 13806,
@@ -2480,7 +3290,12 @@
      "hora": "12:00",
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "SHANNA HARROUCHE GARCIA",
+      "h": "BF GODFATHER (TE)"
+     }
     },
     {
      "id": 13788,
@@ -2492,7 +3307,12 @@
      "hora": "14:30",
      "pista": "AREIA - SERGIO BRANDÃO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "BEATRIZ ANDRADE GARCEZ DE SOUZA",
+      "h": "VHV HFG DARINA"
+     }
     },
     {
      "id": 13836,
@@ -2504,7 +3324,12 @@
      "hora": null,
      "pista": "AREIA - SERGIO BRANDÃO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "LIVIA ALVARES DA SILVA",
+      "h": "ZIDAN ARCO IRIS (TE)"
+     }
     },
     {
      "id": 13811,
@@ -2516,7 +3341,12 @@
      "hora": "15:00",
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "ALBERTO BENTO SINIMBU",
+      "h": "JS SHANDOVA (TE)"
+     }
     },
     {
      "id": 13834,
@@ -2528,7 +3358,12 @@
      "hora": "16:30",
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "GUILHERME DUTRA FORONI",
+      "h": "ASMHERCIA JMEN (IA)"
+     }
     },
     {
      "id": 13791,
@@ -2540,7 +3375,12 @@
      "hora": "18:00",
      "pista": "AREIA - SERGIO BRANDÃO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "THAIS TEIXEIRA DE SOUZA",
+      "h": "CAMARO HR (IA)"
+     }
     },
     {
      "id": 13801,
@@ -2552,7 +3392,12 @@
      "hora": "08:30",
      "pista": "AREIA - SERGIO BRANDÃO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "FLAVIA HELENA JUNQUEIRA LOPES",
+      "h": "QUALIMAR AMOR"
+     }
     },
     {
      "id": 13814,
@@ -2564,7 +3409,12 @@
      "hora": "08:30",
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "RAFAEL MIRANDA",
+      "h": "J&A VIVIANO 4"
+     }
     },
     {
      "id": 13797,
@@ -2576,7 +3426,12 @@
      "hora": "09:00",
      "pista": "GRAMA - DR. JOÃO CARLOS KRUEL",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "JULIA DE CASTRO AGUIAR",
+      "h": "EIJKHOF ED"
+     }
     },
     {
      "id": 13804,
@@ -2588,7 +3443,12 @@
      "hora": "11:30",
      "pista": "AREIA - SERGIO BRANDÃO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "ANNA PASTORE RESENDE VILELA",
+      "h": "DISCO"
+     }
     },
     {
      "id": 13820,
@@ -2600,7 +3460,12 @@
      "hora": "11:30",
      "pista": "GRAMA - DR. JOÃO CARLOS KRUEL",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "MANOELA MULLER MICHAELIS",
+      "h": "CHANDRON JMEN (TE)"
+     }
     },
     {
      "id": 13794,
@@ -2612,7 +3477,12 @@
      "hora": null,
      "pista": "GRAMA - DR. JOÃO CARLOS KRUEL",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "PEDRO HADDAD ONCINS",
+      "h": "FRANK COSTELLO LJR"
+     }
     },
     {
      "id": 13807,
@@ -2624,7 +3494,12 @@
      "hora": "12:00",
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "SHANNA HARROUCHE GARCIA",
+      "h": "BF GODFATHER (TE)"
+     }
     },
     {
      "id": 13812,
@@ -2636,7 +3511,12 @@
      "hora": "14:00",
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "CAROLINA SOUZA CHADE",
+      "h": "FLYING-HIGH DAS UMBURANAS (IA)"
+     }
     },
     {
      "id": 13789,
@@ -2648,7 +3528,12 @@
      "hora": "14:30",
      "pista": "AREIA - SERGIO BRANDÃO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "SARAH PEPINO DONATO",
+      "h": "PSH PLATOON"
+     }
     },
     {
      "id": 13837,
@@ -2660,7 +3545,12 @@
      "hora": null,
      "pista": "AREIA - SERGIO BRANDÃO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "BIANCA PEGA ARAKELIAN",
+      "h": "CLEMENTINA DAS UMBURANAS (IA)"
+     }
     },
     {
      "id": 13838,
@@ -2684,7 +3574,12 @@
      "hora": "17:00",
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "JOSE ROBERTO REYNOSO FERNANDEZ FILHO",
+      "h": "VIP JCR ZIMBABWE (IA)"
+     }
     },
     {
      "id": 13792,
@@ -2696,7 +3591,12 @@
      "hora": "18:00",
      "pista": "AREIA - SERGIO BRANDÃO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "THAIS TEIXEIRA DE SOUZA",
+      "h": "CAMARO HR (IA)"
+     }
     },
     {
      "id": 13798,
@@ -2732,7 +3632,12 @@
      "hora": null,
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "PEDRO HADDAD ONCINS",
+      "h": "FRANK COSTELLO LJR"
+     }
     },
     {
      "id": 13839,
@@ -2756,7 +3661,12 @@
      "hora": "17:00",
      "pista": "AREIA - CEL. RENYLDO",
      "gp": true,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "GABRIEL KAYAN SOARES MAGALHAES",
+      "h": "CAREZZO DO FEROLETO (IA)"
+     }
     }
    ],
    "url": "https://www.fph.com.br/calendario/ListaProvas.aspx?ID=3416"
@@ -2780,7 +3690,12 @@
      "hora": "08:00",
      "pista": "AREIA",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "MANUELA FERNANDES VARELLA",
+      "h": "FADA MADRINHA"
+     }
     },
     {
      "id": 13944,
@@ -2792,7 +3707,12 @@
      "hora": "10:00",
      "pista": "AREIA",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "LAURA JARCEW",
+      "h": "CORBELLA GOOD SPIRIT"
+     }
     },
     {
      "id": 13945,
@@ -2804,7 +3724,12 @@
      "hora": "13:30",
      "pista": "AREIA",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "ANA LUIZA FIGUEIREDO SOUZA",
+      "h": "CANCELIER VAN DE BOSSWINNING"
+     }
     },
     {
      "id": 13946,
@@ -2816,7 +3741,12 @@
      "hora": "15:30",
      "pista": "AREIA",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "MARIA CLARA PIRES DE ANDRADE LIMA",
+      "h": "ACLANDINO JOTER"
+     }
     }
    ],
    "url": "https://www.fph.com.br/calendario/ListaProvas.aspx?ID=3427"
@@ -2840,7 +3770,12 @@
      "hora": "09:30",
      "pista": "AREIA-1",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "LIVIA SAKASHITA BRAGA",
+      "h": "SABIA"
+     }
     },
     {
      "id": 13973,
@@ -2852,7 +3787,12 @@
      "hora": null,
      "pista": "AREIA-1",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "NATHALIA CARVALHO DUTRA",
+      "h": "E3I DON JUAN"
+     }
     },
     {
      "id": 13974,
@@ -2864,7 +3804,12 @@
      "hora": "11:30",
      "pista": "AREIA-1",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "JULIA FERRO CAVALCANTE",
+      "h": "ALDEBARAN"
+     }
     },
     {
      "id": 13975,
@@ -2876,7 +3821,12 @@
      "hora": null,
      "pista": "AREIA-1",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "RAFAELA ANGULO MARQUES",
+      "h": "CARTIER"
+     }
     }
    ],
    "url": "https://www.fph.com.br/calendario/ListaProvas.aspx?ID=3434"
@@ -2900,7 +3850,12 @@
      "hora": "10:00",
      "pista": "AREIA",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "JULIA TREVISAN RODRIGUES",
+      "h": "CARLO FLORES (IA)"
+     }
     },
     {
      "id": 13902,
@@ -2912,7 +3867,12 @@
      "hora": "12:30",
      "pista": "AREIA",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "ANNA KATHARINA LAUREANO BRUKHNOVA",
+      "h": "SENNA KM"
+     }
     },
     {
      "id": 13905,
@@ -2924,7 +3884,12 @@
      "hora": "15:00",
      "pista": "AREIA",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "THEO SEEBACHER BRANCO JORDAO",
+      "h": "FANTASTIC H2O"
+     }
     },
     {
      "id": 13912,
@@ -2936,7 +3901,12 @@
      "hora": "18:00",
      "pista": "PICADEIRO COBERTO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "BRUNO CHAVES PESSANHA",
+      "h": "FIDO TW"
+     }
     },
     {
      "id": 13898,
@@ -2948,7 +3918,12 @@
      "hora": "09:00",
      "pista": "AREIA",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "MIGUEL FERNANDES BRÊDA",
+      "h": "SERRA NEGRA BÁRBARA"
+     }
     },
     {
      "id": 13903,
@@ -2960,7 +3935,12 @@
      "hora": "12:00",
      "pista": "AREIA",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "GABRIELA DE OLIVEIRA KUBA",
+      "h": "RATINA TRV (TE)"
+     }
     },
     {
      "id": 13906,
@@ -2972,7 +3952,12 @@
      "hora": "15:30",
      "pista": "AREIA",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "BRUNO DIAS CAMBRAIA HENRIQUES COSTA",
+      "h": "A3R NOTTING HILL M (IA)"
+     }
     },
     {
      "id": 13915,
@@ -2984,7 +3969,12 @@
      "hora": "18:30",
      "pista": "PICADEIRO COBERTO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "CAIO CARVALHO FILHO",
+      "h": "CASSIARA C JMEN (TE)"
+     }
     },
     {
      "id": 13899,
@@ -2996,7 +3986,12 @@
      "hora": "11:00",
      "pista": "AREIA",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "GABRIEL GUERRA BRAGA",
+      "h": "SL OPIO"
+     }
     },
     {
      "id": 13909,
@@ -3008,7 +4003,12 @@
      "hora": "14:00",
      "pista": "AREIA",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "SOFIA NEGRAO MOREIRA",
+      "h": "HFG DIVA (IA)"
+     }
     },
     {
      "id": 13900,
@@ -3020,7 +4020,12 @@
      "hora": "08:30",
      "pista": "AREIA",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "MARIA EDUARDA NONES GALVAO",
+      "h": "EC OTELO (IA)"
+     }
     },
     {
      "id": 13904,
@@ -3032,7 +4037,12 @@
      "hora": "11:00",
      "pista": "AREIA",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "LUISA LOPES BERGAMASCHI",
+      "h": "CHILENA DO ADONAI (IA)"
+     }
     },
     {
      "id": 13907,
@@ -3044,7 +4054,12 @@
      "hora": "12:30",
      "pista": "AREIA",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "THEO SEEBACHER BRANCO JORDAO",
+      "h": "FANTASTIC H2O"
+     }
     },
     {
      "id": 13910,
@@ -3056,7 +4071,12 @@
      "hora": "15:00",
      "pista": "AREIA",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "HELENA ESTELLITA FERRAZ DE SIQUEIRA",
+      "h": "VALENTINA DES FLANDRES (IA)"
+     }
     }
    ],
    "url": "https://www.fph.com.br/calendario/ListaProvas.aspx?ID=3425"
@@ -3113,7 +4133,12 @@
      "hora": "11:30",
      "pista": "GRAMA",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "GUILHERME FRATA CINTRA",
+      "h": "TATABRA DEMIAN"
+     }
     },
     {
      "id": 14013,
@@ -3125,7 +4150,12 @@
      "hora": "13:00",
      "pista": "GRAMA",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "SOPHIE FROHLICH ARCHANGELO",
+      "h": "CHALISE JMEN (TE)"
+     }
     },
     {
      "id": 14009,
@@ -3137,7 +4167,12 @@
      "hora": "15:00",
      "pista": "GRAMA",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "RICARDO MASSAITI KOSHIBA DO AMARAL",
+      "h": "CARTHEZINA JMEN I (TE)"
+     }
     },
     {
      "id": 14018,
@@ -3149,7 +4184,12 @@
      "hora": "08:30",
      "pista": "GRAMA",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "GUILHERME FRATA CINTRA",
+      "h": "CEREZO DE RIVERLAND"
+     }
     },
     {
      "id": 14014,
@@ -3161,7 +4201,12 @@
      "hora": "11:00",
      "pista": "GRAMA",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "GIULIA RAMOS GARCIA",
+      "h": "LG REVERIE"
+     }
     },
     {
      "id": 14027,
@@ -3173,7 +4218,12 @@
      "hora": "13:00",
      "pista": "GRAMA",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "JULIA BORMANN FAVARETTO",
+      "h": "EC PRESLEY (IA)"
+     }
     },
     {
      "id": 14028,
@@ -3185,7 +4235,12 @@
      "hora": "08:30",
      "pista": "GRAMA",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "MARIA PASTORI SOARES",
+      "h": "ERNEST RJ"
+     }
     },
     {
      "id": 14010,
@@ -3197,7 +4252,12 @@
      "hora": "11:30",
      "pista": "GRAMA",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "SOPHIA LAURA LIMA DO VALE",
+      "h": "BAILARINA"
+     }
     },
     {
      "id": 14019,
@@ -3209,7 +4269,12 @@
      "hora": "13:30",
      "pista": "GRAMA",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "GUILHERME FRATA CINTRA",
+      "h": "TATABRA DEMIAN"
+     }
     },
     {
      "id": 14029,
@@ -3221,7 +4286,12 @@
      "hora": "08:00",
      "pista": "GRAMA",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "VALENTINA IDENAGA NAVARRO",
+      "h": "UL MANNEKEN PIS"
+     }
     },
     {
      "id": 14011,
@@ -3233,7 +4303,12 @@
      "hora": "10:30",
      "pista": "GRAMA",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "FIORELLA RAMOS GONZAGA",
+      "h": "RI OLIMPIA"
+     }
     },
     {
      "id": 14015,
@@ -3245,7 +4320,12 @@
      "hora": "13:00",
      "pista": "GRAMA",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "GIULIA RAMOS GARCIA",
+      "h": "LG REVERIE"
+     }
     }
    ],
    "url": "https://www.fph.com.br/calendario/ListaProvas.aspx?ID=3436"
@@ -3269,7 +4349,12 @@
      "hora": "10:00",
      "pista": "PICADEIRO COBERTO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "VALENTINA CLEMENTE MARTIN DE CASTRO E SILVA",
+      "h": "LUA."
+     }
     },
     {
      "id": 13941,
@@ -3281,7 +4366,12 @@
      "hora": "13:00",
      "pista": "PICADEIRO COBERTO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "MATEUS SILVA OLIVEIRA",
+      "h": "SM PIC DONALD"
+     }
     },
     {
      "id": 13935,
@@ -3293,7 +4383,12 @@
      "hora": "08:00",
      "pista": "PICADEIRO COBERTO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "MARIA ANTONIA CARDOSO CANCADO",
+      "h": "INDIO HVR"
+     }
     },
     {
      "id": 13937,
@@ -3305,7 +4400,12 @@
      "hora": "10:30",
      "pista": "PICADEIRO COBERTO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "MARIA VITORIA VEZZANI BRANDAO",
+      "h": "ROCKY BALBOA"
+     }
     },
     {
      "id": 13940,
@@ -3317,7 +4417,12 @@
      "hora": "14:00",
      "pista": "PICADEIRO COBERTO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "CATHARINA SUAREZ CONDE IATAURO",
+      "h": "INDIRA REC"
+     }
     },
     {
      "id": 13936,
@@ -3329,7 +4434,12 @@
      "hora": "08:00",
      "pista": "PICADEIRO COBERTO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "LAURA FRAGOSO SIMONETTI",
+      "h": "INDIO HVR"
+     }
     },
     {
      "id": 13938,
@@ -3341,7 +4451,12 @@
      "hora": "10:30",
      "pista": "PICADEIRO COBERTO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "LAURA JARCEW",
+      "h": "CORBELLA GOOD SPIRIT"
+     }
     },
     {
      "id": 13942,
@@ -3353,7 +4468,12 @@
      "hora": "14:00",
      "pista": "PICADEIRO COBERTO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "VICTORIA PEREIRA RIBEIRO",
+      "h": "MAUI DE CHANTEBLED"
+     }
     }
    ],
    "url": "https://www.fph.com.br/calendario/ListaProvas.aspx?ID=3426"
@@ -3388,7 +4508,12 @@
      "hora": "09:30",
      "pista": "PISTA DE AREIA",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "LAURA APARECIDA MONTEIRO",
+      "h": "CECI"
+     }
     },
     {
      "id": 14150,
@@ -3400,7 +4525,12 @@
      "hora": null,
      "pista": "PISTA DE AREIA",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "CATHARINA CRISTINA SILVA EMERICK",
+      "h": "RAMONA RI"
+     }
     },
     {
      "id": 14151,
@@ -3412,7 +4542,12 @@
      "hora": "11:00",
      "pista": "PISTA DE AREIA",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "LUCAS HENRIQUE FRIGIERI",
+      "h": "IMPERIO"
+     }
     },
     {
      "id": 14152,
@@ -3424,7 +4559,12 @@
      "hora": null,
      "pista": "PISTA DE AREIA",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "LARISSA COSTA CAVALLARI",
+      "h": "HAVANA"
+     }
     }
    ],
    "url": "https://www.fph.com.br/calendario/ListaProvas.aspx?ID=3451"
@@ -3448,7 +4588,12 @@
      "hora": "08:00",
      "pista": "AREIA",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "BIANCA KAORI TSUKUDA TAKEDA",
+      "h": "DEXTER"
+     }
     },
     {
      "id": 14146,
@@ -3460,7 +4605,12 @@
      "hora": "10:00",
      "pista": "AREIA",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "DAVI DE LIMA FERREIRA",
+      "h": "LUA"
+     }
     },
     {
      "id": 14147,
@@ -3472,7 +4622,12 @@
      "hora": "13:30",
      "pista": "AREIA",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "MARIANA MOTA SILVEIRA",
+      "h": "RUBI ALBAR"
+     }
     },
     {
      "id": 14148,
@@ -3484,7 +4639,12 @@
      "hora": "15:30",
      "pista": "AREIA",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "MARIA HELENA YANG PEREIRA",
+      "h": "JAZZ FLY"
+     }
     }
    ],
    "url": "https://www.fph.com.br/calendario/ListaProvas.aspx?ID=3445"
@@ -3508,7 +4668,12 @@
      "hora": "08:30",
      "pista": "AREIA - Nelson Pessoa Filho (Neco)",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "JOSE ROBERTO REYNOSO FERNANDEZ FILHO",
+      "h": "VIP JCR PRINCE EMERALD"
+     }
     },
     {
      "id": 13952,
@@ -3520,7 +4685,12 @@
      "hora": "10:30",
      "pista": "AREIA - Nelson Pessoa Filho (Neco)",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "LUIS GUSTAVO GODINHO",
+      "h": "MYLORD TRV (TE)"
+     }
     },
     {
      "id": 13954,
@@ -3532,7 +4702,12 @@
      "hora": "12:30",
      "pista": "AREIA - Nelson Pessoa Filho (Neco)",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "JOSE ROBERTO REYNOSO FERNANDEZ FILHO",
+      "h": "PRIMADONNA FLORES (TE)"
+     }
     },
     {
      "id": 13956,
@@ -3544,7 +4719,12 @@
      "hora": "14:00",
      "pista": "AREIA - Nelson Pessoa Filho (Neco)",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "MAIQUE WILLIAN VENANCIO",
+      "h": "EVOLET TW BR"
+     }
     },
     {
      "id": 13966,
@@ -3556,7 +4736,12 @@
      "hora": "14:30",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "LUISA LOPES BERGAMASCHI",
+      "h": "CHILENA DO ADONAI (IA)"
+     }
     },
     {
      "id": 13969,
@@ -3568,7 +4753,12 @@
      "hora": "16:00",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "BERNARDO KRAUS GUERRA",
+      "h": "SINDY LAND ALR"
+     }
     },
     {
      "id": 13950,
@@ -3580,7 +4770,12 @@
      "hora": "08:30",
      "pista": "AREIA - Nelson Pessoa Filho (Neco)",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "ALYSSON KALEB BERNARDINO DE SOUZA",
+      "h": "CELERINA II JMEN (TE)"
+     }
     },
     {
      "id": 13958,
@@ -3592,7 +4787,12 @@
      "hora": "09:00",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "JULIA DIENER FREIRE",
+      "h": "LOKI TB (IA)"
+     }
     },
     {
      "id": 13953,
@@ -3604,7 +4804,12 @@
      "hora": "11:00",
      "pista": "AREIA - Nelson Pessoa Filho (Neco)",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "JOSE ROBERTO REYNOSO FERNANDEZ FILHO",
+      "h": "FJ ANUNÁKI"
+     }
     },
     {
      "id": 13964,
@@ -3616,7 +4821,12 @@
      "hora": "11:30",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "GABRIELA NAGY KOVALSKI SHOEL",
+      "h": "CHIYA Z"
+     }
     },
     {
      "id": 13955,
@@ -3628,7 +4838,12 @@
      "hora": "13:30",
      "pista": "AREIA - Nelson Pessoa Filho (Neco)",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "IVO ROZA FILHO",
+      "h": "UMBURANAS TIP TOP TER SPELONCK"
+     }
     },
     {
      "id": 13957,
@@ -3640,7 +4855,12 @@
      "hora": null,
      "pista": "AREIA - Nelson Pessoa Filho (Neco)",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "JOSE ROBERTO REYNOSO FERNANDEZ FILHO",
+      "h": "CORNETINO JMEN (TE)"
+     }
     },
     {
      "id": 13970,
@@ -3652,7 +4872,12 @@
      "hora": "14:00",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "BERNARDO KRAUS GUERRA",
+      "h": "CEHJUR DIAMOON (IA)"
+     }
     },
     {
      "id": 13959,
@@ -3664,7 +4889,12 @@
      "hora": "09:00",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "GABRIELLA ROSSI HYPOLITO DA COSTA MARQUES",
+      "h": "RHL ETNA CARAVELA"
+     }
     },
     {
      "id": 13962,
@@ -3676,7 +4906,12 @@
      "hora": "11:30",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "MARIANA VICENTE MOREIRA FERREIRA",
+      "h": "CALIXTO FLORES"
+     }
     },
     {
      "id": 13967,
@@ -3688,7 +4923,12 @@
      "hora": "14:30",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "ANA LIVIA ANTONIO",
+      "h": "CALLOUETTE BR"
+     }
     },
     {
      "id": 13960,
@@ -3700,7 +4940,12 @@
      "hora": "08:30",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "JOAO PEDRO GOMIERI FRANGE",
+      "h": "HEARTSTAR JM (IA)"
+     }
     },
     {
      "id": 13963,
@@ -3712,7 +4957,12 @@
      "hora": "11:00",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "ALICE TEDESCO GUTIERREZ",
+      "h": "HPH CORADA (IA)"
+     }
     },
     {
      "id": 13968,
@@ -3724,7 +4974,12 @@
      "hora": "13:00",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "ANA RUTH RAMOS MANSUR",
+      "h": "BLUE BELL ZA (TE)"
+     }
     },
     {
      "id": 13971,
@@ -3736,7 +4991,12 @@
      "hora": "15:00",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "VALENTINA ESMAIL SANDOVAL SAFADDINE",
+      "h": "HERO"
+     }
     }
    ],
    "url": "https://www.fph.com.br/calendario/ListaProvas.aspx?ID=3433"
@@ -3771,7 +5031,12 @@
      "hora": "09:00",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "RODRIGO CHAVES NUNES",
+      "h": "KANNADIA REC DAS UMBURANAS (IA)"
+     }
     },
     {
      "id": 14113,
@@ -3783,7 +5048,12 @@
      "hora": "12:00",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "ANDREA MACEDO CUNHA CAMARA",
+      "h": "JLP XERETA DAS CATARATAS (IA)"
+     }
     },
     {
      "id": 14116,
@@ -3795,7 +5065,12 @@
      "hora": "14:00",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "MANUELA VILELA GUERRA",
+      "h": "CHARLOTTE DA CECILIANA (IA)"
+     }
     },
     {
      "id": 14143,
@@ -3807,7 +5082,12 @@
      "hora": null,
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "GABRIELA SANCHES PEIXOTO",
+      "h": "ZIRADA TRV (IA)"
+     }
     },
     {
      "id": 14128,
@@ -3819,7 +5099,12 @@
      "hora": "08:30",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "ANNA KATHARINA LAUREANO BRUKHNOVA",
+      "h": "SENNA KM"
+     }
     },
     {
      "id": 14136,
@@ -3831,7 +5116,12 @@
      "hora": "09:00",
      "pista": "GRAMA - Gianni Samaia",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "PEDRO HENRIQUE ARANTES TAVORA DE MATOS",
+      "h": "GR JAVA"
+     }
     },
     {
      "id": 14122,
@@ -3843,7 +5133,12 @@
      "hora": "10:30",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "BERNARDO KRAUS GUERRA",
+      "h": "EMPIRE IPIRANGA (IA)"
+     }
     },
     {
      "id": 14131,
@@ -3855,7 +5150,12 @@
      "hora": "12:00",
      "pista": "GRAMA - Gianni Samaia",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "THOMAS DE CASTRO GOUVEA",
+      "h": "DON DUDA TOK (TE)"
+     }
     },
     {
      "id": 14119,
@@ -3867,7 +5167,12 @@
      "hora": "13:00",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "FLAVIA HELENA JUNQUEIRA LOPES",
+      "h": "CRYSTAL SANTA DALILA (IA)"
+     }
     },
     {
      "id": 14138,
@@ -3879,7 +5184,12 @@
      "hora": "14:00",
      "pista": "GRAMA - Gianni Samaia",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "FELIPE JUARES DE LIMA",
+      "h": "SCHWEINSTEIGER"
+     }
     },
     {
      "id": 14135,
@@ -3891,7 +5201,12 @@
      "hora": "16:00",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "RAFAEL RIBEIRO",
+      "h": "QUEEN CLASS KANNAN SM (IA)"
+     }
     },
     {
      "id": 14114,
@@ -3903,7 +5218,12 @@
      "hora": "09:00",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "MANUELA MENDES GONCALVES MOTTA",
+      "h": "NONIX PULLMAN"
+     }
     },
     {
      "id": 14125,
@@ -3915,7 +5235,12 @@
      "hora": "09:30",
      "pista": "GRAMA - Gianni Samaia",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "DANIELA AQUINO DE ARRUDA MARTINS",
+      "h": "HSL KRUMP (IA)"
+     }
     },
     {
      "id": 14117,
@@ -3927,7 +5252,12 @@
      "hora": "11:30",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "MANUELA VILELA GUERRA",
+      "h": "CHARLOTTE DA CECILIANA (IA)"
+     }
     },
     {
      "id": 14141,
@@ -3939,7 +5269,12 @@
      "hora": null,
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "MARIA ESTHER MORELLI ESPARRACHIARI",
+      "h": "DTC RORI"
+     }
     },
     {
      "id": 14132,
@@ -3951,7 +5286,12 @@
      "hora": "12:30",
      "pista": "GRAMA - Gianni Samaia",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "CLEO CESNIK",
+      "h": "KINSEC PHANTON PULLMAN"
+     }
     },
     {
      "id": 14129,
@@ -3963,7 +5303,12 @@
      "hora": "13:30",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "OLIVIA PASTORE VILELA",
+      "h": "COPA HARE KRISHNA"
+     }
     },
     {
      "id": 14137,
@@ -3975,7 +5320,12 @@
      "hora": "14:00",
      "pista": "GRAMA - Gianni Samaia",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "JOSE ROBERTO REYNOSO FERNANDEZ FILHO",
+      "h": "CORNET LORD JMEN"
+     }
     },
     {
      "id": 14139,
@@ -3987,7 +5337,12 @@
      "hora": "16:00",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "GUILHERME DUTRA FORONI",
+      "h": "DANESSA JMEN II (TE)"
+     }
     },
     {
      "id": 14123,
@@ -3999,7 +5354,12 @@
      "hora": "09:00",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "BERNARDO KRAUS GUERRA",
+      "h": "EMPIRE IPIRANGA (IA)"
+     }
     },
     {
      "id": 14126,
@@ -4011,7 +5371,12 @@
      "hora": "10:00",
      "pista": "GRAMA - Gianni Samaia",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "GABRIEL RUAN FERRAO CHAVES",
+      "h": "KUSKOA DU GIBET"
+     }
     },
     {
      "id": 14120,
@@ -4023,7 +5388,12 @@
      "hora": "11:00",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "FLAVIA HELENA JUNQUEIRA LOPES",
+      "h": "CRYSTAL SANTA DALILA (IA)"
+     }
     },
     {
      "id": 14144,
@@ -4035,7 +5405,12 @@
      "hora": "14:00",
      "pista": "GRAMA - Gianni Samaia",
      "gp": true,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "FELIPE JUARES DE LIMA",
+      "h": "(W) EL MILAGRO IMPÉRIO EGÍPCIO"
+     }
     },
     {
      "id": 14130,
@@ -4047,7 +5422,12 @@
      "hora": "17:00",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "ANNA KATHARINA LAUREANO BRUKHNOVA",
+      "h": "SENNA KM"
+     }
     },
     {
      "id": 14118,
@@ -4059,7 +5439,12 @@
      "hora": "08:30",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "GABRIELA NAGY KOVALSKI SHOEL",
+      "h": "A K NO LIMIT FLORES"
+     }
     },
     {
      "id": 14142,
@@ -4071,7 +5456,12 @@
      "hora": null,
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "MARIA EDUARDA GUERRA SAMPAIO",
+      "h": "MADAME DOUGLAS"
+     }
     },
     {
      "id": 14127,
@@ -4083,7 +5473,12 @@
      "hora": "09:00",
      "pista": "GRAMA - Gianni Samaia",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "MARIO JOAO BOFF NETO",
+      "h": "DIAMANTHUS JMEN (TE)"
+     }
     },
     {
      "id": 14115,
@@ -4095,7 +5490,12 @@
      "hora": "11:00",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "GIOVANA ZAMITH",
+      "h": "WHITNEY DES FLANDRES"
+     }
     },
     {
      "id": 14133,
@@ -4107,7 +5507,12 @@
      "hora": "11:30",
      "pista": "GRAMA - Gianni Samaia",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "THALES GABRIEL DE LIMA MARINO",
+      "h": "SIR ACALINO JOTER (*)"
+     }
     },
     {
      "id": 14124,
@@ -4119,7 +5524,12 @@
      "hora": "13:30",
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "HELENA CHRISTINA SCHMIDT",
+      "h": "HST CHAILA (IA)"
+     }
     },
     {
      "id": 14121,
@@ -4131,7 +5541,12 @@
      "hora": null,
      "pista": "AREIA - Eduardo de Moraes Dantas",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "FLAVIA HELENA JUNQUEIRA LOPES",
+      "h": "CRYSTAL SANTA DALILA (IA)"
+     }
     },
     {
      "id": 14140,
@@ -4143,7 +5558,12 @@
      "hora": "14:00",
      "pista": "GRAMA - Gianni Samaia",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "CAIO CARVALHO FILHO",
+      "h": "CORNET'S LADY JMEN"
+     }
     }
    ],
    "url": "https://www.fph.com.br/calendario/ListaProvas.aspx?ID=3444"
@@ -4167,7 +5587,12 @@
      "hora": "09:00",
      "pista": "CARBACAN",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "ALYSSON KALEB BERNARDINO DE SOUZA",
+      "h": "CELERINA II JMEN (TE)"
+     }
     },
     {
      "id": 14047,
@@ -4179,7 +5604,12 @@
      "hora": "12:30",
      "pista": "CARBACAN",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "BARTHOLOMEU BUENO DE MIRANDA NETO",
+      "h": "C-TALISKA JMEN (TE)"
+     }
     },
     {
      "id": 14051,
@@ -4191,7 +5621,12 @@
      "hora": "15:00",
      "pista": "CARBACAN",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "JOSE ROBERTO REYNOSO FERNANDEZ FILHO",
+      "h": "CORNETINO JMEN (TE)"
+     }
     },
     {
      "id": 14038,
@@ -4203,7 +5638,12 @@
      "hora": "08:00",
      "pista": "CARBACAN",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "LUIZ BENTO MARTINS JUNIOR",
+      "h": "DORMELA JMEN"
+     }
     },
     {
      "id": 14041,
@@ -4215,7 +5655,12 @@
      "hora": "11:00",
      "pista": "CARBACAN",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "JOSE ROBERTO REYNOSO FERNANDEZ FILHO",
+      "h": "BERENICE ENTREVERO (TE)"
+     }
     },
     {
      "id": 14043,
@@ -4227,7 +5672,12 @@
      "hora": "14:30",
      "pista": "CARBACAN",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "JOSE ROBERTO REYNOSO FERNANDEZ FILHO",
+      "h": "FJ ANUNÁKI"
+     }
     },
     {
      "id": 14044,
@@ -4239,7 +5689,12 @@
      "hora": "09:00",
      "pista": "CARBACAN",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "JOSE ROBERTO REYNOSO FERNANDEZ FILHO",
+      "h": "MERANO JMEN I (TE)"
+     }
     },
     {
      "id": 14048,
@@ -4251,7 +5706,12 @@
      "hora": "12:30",
      "pista": "CARBACAN",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "FRANCISCO JOSE MESQUITA MUSA",
+      "h": "CARIBIK JMEN"
+     }
     },
     {
      "id": 14052,
@@ -4263,7 +5723,12 @@
      "hora": "14:30",
      "pista": "CARBACAN",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "JOSE ROBERTO REYNOSO FERNANDEZ FILHO",
+      "h": "NC GLASGOW BOY (TE)"
+     }
     },
     {
      "id": 14039,
@@ -4275,7 +5740,12 @@
      "hora": "08:30",
      "pista": "CARBACAN",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "ADIR DIAS DE ABREU JUNIOR",
+      "h": "CHACCO BOY DO IGARAPÉ"
+     }
     },
     {
      "id": 14042,
@@ -4287,7 +5757,12 @@
      "hora": "11:30",
      "pista": "CARBACAN",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "ADIR DIAS DE ABREU JUNIOR",
+      "h": "BRENDA VAN'T WAL (IA)"
+     }
     },
     {
      "id": 14045,
@@ -4299,7 +5774,12 @@
      "hora": "08:30",
      "pista": "CARBACAN",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "JOSE ROBERTO REYNOSO FERNANDEZ FILHO",
+      "h": "VERSACE DES FLANDRES"
+     }
     },
     {
      "id": 14049,
@@ -4311,7 +5791,12 @@
      "hora": "11:30",
      "pista": "CARBACAN",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "MAURICIO DE OLIVEIRA FRANCO",
+      "h": "BALDWIN JMEN II (TE)"
+     }
     },
     {
      "id": 14053,
@@ -4323,7 +5808,12 @@
      "hora": null,
      "pista": "CARBACAN",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "JOSE ROBERTO REYNOSO FERNANDEZ FILHO",
+      "h": "SIGNAL TW (TE)"
+     }
     }
    ],
    "url": "https://www.fph.com.br/calendario/ListaProvas.aspx?ID=3438"
@@ -4381,7 +5871,12 @@
      "hora": "14:30",
      "pista": "CARBACAN",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "OTAVIO CESAR TOME DE CASTRO",
+      "h": "JESSICA CHARMOSA CHX"
+     }
     },
     {
      "id": 13979,
@@ -4393,7 +5888,12 @@
      "hora": "17:30",
      "pista": "CARBACAN",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "BERNARDO BRAGA DE ALBUQUERQUE PEREIRA",
+      "h": "KANTHAGO DO DROSA (TE)"
+     }
     }
    ],
    "url": "https://www.fph.com.br/calendario/ListaProvas.aspx?ID=3362"
@@ -4417,7 +5917,12 @@
      "hora": "08:00",
      "pista": "POTENCIAL",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "STELLA TORTORELLI FOLLA DE RENZIS",
+      "h": "SHARON STONE"
+     }
     },
     {
      "id": 13991,
@@ -4429,7 +5934,12 @@
      "hora": null,
      "pista": "POTENCIAL",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "DAVI GALVAO FREIRE SERAPIAO",
+      "h": "BALAZO 3K (IA)"
+     }
     },
     {
      "id": 13989,
@@ -4441,7 +5951,12 @@
      "hora": "11:00",
      "pista": "POTENCIAL",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "SOFIA JUNQUEIRA RIBEIRO DE MENDONÇA",
+      "h": "CORMINA JMEN I (TE)"
+     }
     },
     {
      "id": 13984,
@@ -4453,7 +5968,12 @@
      "hora": "14:00",
      "pista": "POTENCIAL",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "LUIZ HENRIQUE DEL CISTIA THONON",
+      "h": "ROI DIONISIO"
+     }
     },
     {
      "id": 13982,
@@ -4465,7 +5985,12 @@
      "hora": "16:30",
      "pista": "POTENCIAL",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "LUIZ HENRIQUE DEL CISTIA THONON",
+      "h": "BETHOVEN DAS UMBURANAS (IA)"
+     }
     },
     {
      "id": 14004,
@@ -4477,7 +6002,12 @@
      "hora": "08:30",
      "pista": "POTENCIAL",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "LAURA JUNQUEIRA RIBEIRO DE MENDONÇA",
+      "h": "CASHUA-C JMEN II"
+     }
     },
     {
      "id": 13992,
@@ -4489,7 +6019,12 @@
      "hora": null,
      "pista": "POTENCIAL",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "GIOVANA VENDRAMI SCHINCARIOL",
+      "h": "SL BIZANTINA"
+     }
     },
     {
      "id": 13986,
@@ -4501,7 +6036,12 @@
      "hora": "11:30",
      "pista": "POTENCIAL",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "LUIS EDUARDO DOS SANTOS DE SOUTO",
+      "h": "CUPCAKE JMEN (TE)"
+     }
     },
     {
      "id": 13990,
@@ -4513,7 +6053,12 @@
      "hora": "14:30",
      "pista": "POTENCIAL",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "SOFIA JUNQUEIRA RIBEIRO DE MENDONÇA",
+      "h": "CORMINA JMEN I (TE)"
+     }
     },
     {
      "id": 13987,
@@ -4525,7 +6070,12 @@
      "hora": "08:30",
      "pista": "POTENCIAL",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "FELIPE TADEU DA SILVA MARTHA MANDALITI",
+      "h": "LF JOLLY GIRL (IA)"
+     }
     },
     {
      "id": 13985,
@@ -4537,7 +6087,12 @@
      "hora": "11:30",
      "pista": "POTENCIAL",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "VICTORIA JUNQUEIRA RIBEIRO DE MENDONCA",
+      "h": "CELESTINO JMEN (TE)"
+     }
     },
     {
      "id": 13983,
@@ -4549,7 +6104,12 @@
      "hora": null,
      "pista": "POTENCIAL",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "CAMILA JUNQUEIRA RIBEIRO DE MENDONCA",
+      "h": "ZIAH HV"
+     }
     }
    ],
    "url": "https://www.fph.com.br/calendario/ListaProvas.aspx?ID=3435"
@@ -4573,7 +6133,12 @@
      "hora": "08:30",
      "pista": "ALMÉ STAR",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "EMILY DOS SANTOS CABRAL",
+      "h": "TRAMA SANTA ROSA"
+     }
     },
     {
      "id": 14034,
@@ -4585,7 +6150,12 @@
      "hora": "11:00",
      "pista": "ALMÉ STAR",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "RAFAELLA CATAPANO SONDA",
+      "h": "RI ASHELEY"
+     }
     },
     {
      "id": 14036,
@@ -4597,7 +6167,12 @@
      "hora": "14:30",
      "pista": "ALMÉ STAR",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "ALEXANDRA GERNER DE ALBUQUERQUE FELIZOLA",
+      "h": "MADDOX"
+     }
     },
     {
      "id": 14030,
@@ -4609,7 +6184,12 @@
      "hora": "08:30",
      "pista": "ALMÉ STAR",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "LAURA FRAGOSO SIMONETTI",
+      "h": "DIAMANTE HVR"
+     }
     },
     {
      "id": 14033,
@@ -4621,7 +6201,12 @@
      "hora": "11:00",
      "pista": "ALMÉ STAR",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "BARBARA NOGUEIRA",
+      "h": "ACLANDINO JOTER"
+     }
     },
     {
      "id": 14037,
@@ -4633,7 +6218,12 @@
      "hora": "14:30",
      "pista": "ALMÉ STAR",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "VALENTINA DE LUCA E SOUZA",
+      "h": "NEGRO OCHO"
+     }
     },
     {
      "id": 14031,
@@ -4645,7 +6235,12 @@
      "hora": "08:00",
      "pista": "ALMÉ STAR",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "PIETRA BRAGA FEITOSA CARRETERO",
+      "h": "INDIO HVR"
+     }
     },
     {
      "id": 14035,
@@ -4657,7 +6252,12 @@
      "hora": "11:00",
      "pista": "ALMÉ STAR",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "SIMONE GALLAO",
+      "h": "LADY TABLITA CHANTEBLED"
+     }
     }
    ],
    "url": "https://www.fph.com.br/calendario/ListaProvas.aspx?ID=3437"
@@ -5502,7 +7102,12 @@
      "hora": "08:30",
      "pista": "AREIA 03",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "VALLENTINA PERES",
+      "h": "CENTAURO LOUVER BOY"
+     }
     },
     {
      "id": 14162,
@@ -8313,7 +9918,12 @@
      "hora": "08:30",
      "pista": "PICADEIRO COBERTO - Dr. Jayme Loureiro Filho",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "BRUNA GEO VENTURA",
+      "h": "CORTTEZ G (IA)"
+     }
     },
     {
      "id": 14438,
@@ -8385,7 +9995,7 @@
    "nome": "CAMPEONATO PAULISTA AMAZONAS INICIANTE - 2026.",
    "modalidade": "SALTO PARA INICIANTES",
    "local": "SOCIEDADE HIPICA DE CAMPINAS",
-   "status": "Inscrições Encerradas",
+   "status": "Torneio em Andamento",
    "inicio": "2026-09-23",
    "fim": "2026-09-27",
    "provas": [
