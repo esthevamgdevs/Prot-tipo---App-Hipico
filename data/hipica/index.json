@@ -1,6 +1,6 @@
 {
  "fonte": "Federação Paulista de Hipismo (fph.com.br)",
- "atualizadoEm": "2026-09-24T12:35:26.239Z",
+ "atualizadoEm": "2026-09-24T16:50:25.110Z",
  "torneios": [
   {
    "id": 3404,
@@ -10117,8 +10117,8 @@
      "linkResultado": true,
      "res": true,
      "v": {
-      "c": "",
-      "h": "BEATRIZ FREITAS LUNA"
+      "c": "HELOISA DE ALMEIDA RUIZ",
+      "h": "DELTA"
      }
     },
     {
@@ -10134,7 +10134,7 @@
      "linkResultado": false
     },
     {
-     "id": null,
+     "id": 14643,
      "numero": "03",
      "nome": "MMR ASP",
      "desc": "0,40M - 0,40M - MMR ASP - 0,40M/JC ASP - 0,40M/AM ASP - 0,40M",
@@ -10146,7 +10146,7 @@
      "linkResultado": false
     },
     {
-     "id": null,
+     "id": 14645,
      "numero": "04",
      "nome": "MMR PREL",
      "desc": "0,60M - 0,60M - MMR PREL - 0,60M/JC PREL - 0,60M/AM PREL - 0,60M",
@@ -10535,7 +10535,7 @@
    "nome": "CAMPEONATO PAULISTA AMAZONAS SALTO",
    "modalidade": "SALTO",
    "local": "SOCIEDADE HIPICA DE CAMPINAS",
-   "status": "Inscrições Encerradas",
+   "status": "Inscrições Abertas",
    "inicio": "2026-10-06",
    "fim": "2026-10-11",
    "provas": [
