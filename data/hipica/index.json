@@ -1,6 +1,6 @@
 {
  "fonte": "Federação Paulista de Hipismo (fph.com.br)",
- "atualizadoEm": "2026-09-23T23:33:58.683Z",
+ "atualizadoEm": "2026-09-24T12:35:26.239Z",
  "torneios": [
   {
    "id": 3404,
@@ -10114,7 +10114,12 @@
      "hora": "08:30",
      "pista": "AREIA-1",
      "gp": false,
-     "linkResultado": false
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "",
+      "h": "BEATRIZ FREITAS LUNA"
+     }
     },
     {
      "id": 14649,
