@@ -2,7 +2,7 @@ name: Coletar dados do hipismo (FPH)
 
 on:
   schedule:
-    - cron: "17 */6 * * *"   # a cada 6 horas (horário UTC)
+    - cron: "10 */6 * * *"   # a cada 6 horas (horário UTC)
   workflow_dispatch:          # botão "Run workflow" pra rodar na hora
 
 permissions:
