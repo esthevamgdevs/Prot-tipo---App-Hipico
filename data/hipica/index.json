@@ -784,7 +784,12 @@
      "hora": "10:00",
      "pista": "AREIA - CEL. RENYLDO",
      "gp": false,
-     "linkResultado": true
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "DANIEL ABBUD SARQUIS AIEX",
+      "h": "C-TULIPA JMEN II (IA)"
+     }
     },
     {
      "id": 13639,
