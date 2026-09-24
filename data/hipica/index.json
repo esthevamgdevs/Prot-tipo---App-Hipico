@@ -1,6 +1,6 @@
 {
  "fonte": "Federação Paulista de Hipismo (fph.com.br)",
- "atualizadoEm": "2026-09-24T16:50:25.110Z",
+ "atualizadoEm": "2026-09-24T18:31:36.063Z",
  "torneios": [
   {
    "id": 3404,
@@ -10131,7 +10131,12 @@
      "hora": "15:00",
      "pista": "AREIA-1",
      "gp": false,
-     "linkResultado": false
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "",
+      "h": "ALICE BENATTI"
+     }
     },
     {
      "id": 14643,
