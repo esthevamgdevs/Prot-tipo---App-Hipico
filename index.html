@@ -655,11 +655,14 @@ function telaTorneio() {
     const info = [p.hora, p.pista ? 'Pista ' + titulo(p.pista) : ''].filter(Boolean).join(' · ');
     const corpoProva = p.res && p.v
       ? `<span class="tag">VENCEDOR${dest ? ' · MAIOR PROVA DO DIA' : ''}</span><span class="venc">${esc(titulo(p.v.c))}</span><span class="meta">${esc(titulo(p.v.h))}${info ? ' · ' + esc(info) : ''}</span>`
-      : `<span class="tag">${esc(titulo(p.nome || 'A realizar'))}${dest ? ' · MAIOR PROVA DO DIA' : ''}</span><span class="venc">${p.dia && p.dia < hojeISO() ? 'Resultado ainda não publicado' : 'Ainda não disputada'}</span><span class="meta">${esc(info || 'Horário a confirmar')}</span>`;
-    return `<button class="prova${dest ? ' destaque' : ''}" ${p.res ? `data-prova="${p.id}"` : 'disabled aria-disabled="true"'}>
+      : `<span class="tag">${esc(titulo(p.nome || 'A realizar'))}${dest ? ' · MAIOR PROVA DO DIA' : ''}</span><span class="venc">${
+          p.oe ? `${p.oe} conjunto${p.oe > 1 ? 's' : ''} inscrito${p.oe > 1 ? 's' : ''}` : (p.dia && p.dia < hojeISO() ? 'Resultado ainda não publicado' : 'Ainda não disputada')
+        }</span><span class="meta">${esc(info || 'Horário a confirmar')}${p.oe ? ' · ver ordem de entrada' : ''}</span>`;
+    const abre = p.res || p.oe;
+    return `<button class="prova${dest ? ' destaque' : ''}" ${abre ? `data-prova="${p.id}"` : 'disabled aria-disabled="true"'}>
       <span class="alt"><b>${p.altura != null ? p.altura.toFixed(2).replace('.', ',') : '–'}</b><span>PROVA ${numProva(p)}</span></span>
       <span class="corpo">${corpoProva}</span>
-      ${p.res ? seta : ''}
+      ${abre ? seta : ''}
     </button>`;
   }).join('')}</div>`;
   return corpo + rodape() + '</main>';
@@ -677,6 +680,7 @@ function telaProva() {
   const dados = S.torneios[t.id];
   if (!dados || dados === 'carregando') { carregarTorneio(t.id); return cab + '</header><main><div class="vazio">Carregando resultado…</div></main>'; }
   if (dados === 'erro') return cab + `</header><main><div class="vazio"><b>Não deu para carregar</b><button class="btn clara" style="margin-top:12px;flex:none" data-acao="recarregarProva">Tentar de novo</button></div></main>`;
+  if (!p.res) return cab + '</header>' + telaOrdem(p, (dados.ordem || {})[String(p.id)] || []);
   const linhas = dados.provas[String(p.id)] || [];
   const fed = i => i != null ? dados.fed[i] : null;
   const q = S.filtro.trim().toLowerCase();
@@ -707,6 +711,27 @@ function telaProva() {
   corpo += `<div class="tabela"><div class="cab"><span class="p">#</span><span class="c">CONJUNTO</span><span class="f">FALTAS</span><span class="t">TEMPO</span></div><div id="linhas">${corpoLinhas(resto, fed)}</div></div>`;
   corpo += rodape(`<a href="${URL_FPH_PROVA(p.id)}" target="_blank" rel="noopener">Ver resultado oficial no site da FPH ↗</a>. `);
   return corpo + '</main>';
+}
+function telaOrdem(p, ordem) {
+  if (!ordem.length) return `<main><div class="vazio"><b>Ordem de entrada ainda não publicada</b>Ela costuma sair na véspera da prova.</div></main>`;
+  const q = S.filtro.trim().toLowerCase();
+  const lista = q ? ordem.filter(l => (l.c + ' ' + l.h).toLowerCase().includes(q)) : ordem;
+  return `<main class="fade">
+    <div class="secao"><h2>Ordem de entrada</h2><span class="risco"></span><span class="aux">${ordem.length} conjuntos</span></div>
+    <div class="barra-filtros" style="padding-top:0"><label class="sr" for="filtroOrdem">Buscar cavaleiro ou cavalo</label>
+      <input class="busca" id="filtroOrdem" type="search" placeholder="Buscar cavaleiro ou cavalo" value="${esc(S.filtro)}"></div>
+    <div class="tabela"><div class="cab"><span class="p">#</span><span class="c">CONJUNTO</span><span class="f" style="width:70px">CATEG.</span></div>
+      <div id="linhasOrdem">${linhasOrdem(lista)}</div></div>
+    <p class="fonte">A ordem pode mudar até o início da prova. <a href="https://www.fph.com.br/calendario/OrdemEntrada.aspx?ID=${p.id}" target="_blank" rel="noopener">Ver no site da FPH ↗</a></p>
+  </main>`;
+}
+function linhasOrdem(lista) {
+  if (!lista.length) return `<div class="vazio">Ninguém encontrado com esse nome.</div>`;
+  return lista.map(l => `<button class="linha" data-perfil="cavaleiros" data-k="${esc(chave(l.c))}">
+      <span class="pos">${l.o}</span>
+      <span class="conj"><span class="cav">${esc(titulo(l.c))}</span><span class="cavalo">${esc(titulo(l.h))}</span></span>
+      <span class="f" style="width:70px;font-weight:600;font-size:12.5px;color:var(--muted)">${esc(l.cat || '')}</span>
+    </button>`).join('');
 }
 function corpoLinhas(linhas, fed) {
   if (!linhas.length) return `<div class="vazio">Ninguém encontrado com esse nome.</div>`;
@@ -1023,6 +1048,15 @@ document.addEventListener('click', e => {
 });
 document.addEventListener('change', e => { if (e.target.id === 'altura') { S.altura = e.target.value; render(); } });
 document.addEventListener('input', e => {
+  if (e.target.id === 'filtroOrdem') {
+    S.filtro = e.target.value;
+    const dados = S.torneios[S.torneio];
+    const ordem = (dados && dados.ordem && dados.ordem[String(S.prova)]) || [];
+    const q = S.filtro.trim().toLowerCase();
+    const alvo = document.getElementById('linhasOrdem');
+    if (alvo) alvo.innerHTML = linhasOrdem(q ? ordem.filter(l => (l.c + ' ' + l.h).toLowerCase().includes(q)) : ordem);
+    return;
+  }
   if (e.target.id !== 'filtro') return;
   S.filtro = e.target.value;
   const t = achar(S.torneio), dados = S.torneios[t.id];
