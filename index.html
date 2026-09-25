@@ -8,7 +8,7 @@
 <meta property="og:title" content="Salta · Provas e resultados de salto">
 <meta property="og:description" content="Calendário, resultados, ranking e perfis de cavaleiros e cavalos. Um projeto Opportunity Leilões.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="./icon-512.png">
+<meta property="og:image" content="./icon-512-v2.png">
 <meta name="twitter:card" content="summary">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -16,8 +16,8 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#123D30">
 <link rel="manifest" href="./manifest.json">
-<link rel="icon" href="./icon-192.png">
-<link rel="apple-touch-icon" href="./icon-192.png">
+<link rel="icon" href="./icon-192-v2.png">
+<link rel="apple-touch-icon" href="./icon-192-v2.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
@@ -282,6 +282,17 @@ const SIGLAS_FED = [[/PAULISTA/i,'FPH'],[/PARANAENSE/i,'FPrH'],[/BRAS[ÍI]LIA/i,
 const fedCurta = f => { for (const [re, s] of SIGLAS_FED) if (re.test(f || '')) return s; return titulo(f || ''); };
 const categoria = m => /INICIANTE/i.test(m) ? 'Iniciantes' : (/CAVALOS?\s+NOVOS?/i.test(m) ? 'Cavalos novos' : (/ESCOLA/i.test(m) ? 'Escola' : 'Salto'));
 
+// ---------- notificações (push) ----------
+// Endereço e chave pública do Supabase do Salta e a chave pública VAPID: tudo aqui é público por natureza.
+const PUSH = {
+  url: 'https://ktwbausxxyklpasbteko.supabase.co',
+  chave: 'sb_publishable_DdzT-3q2iKSCkiPthpQNIg_Ld2TW085',
+  vapid: 'BI3FW_6kvI1HBBpZqDFtRj7llwE63lnR-oL-TRKNu4WvhSVaP614lo0OVIkkebDuUaE7ciLFI1h0XKCKb163saQ',
+};
+const ehIOS = /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+const naTelaDeInicio = () => window.matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
+const push = { estado: 'verificando', reg: null, sub: null, ocupado: false, erro: null };
+
 // ---------- estado ----------
 const S = {
   aba: 'calendario', tela: null, erro: null,
@@ -354,6 +365,7 @@ function alternar(lista, chaveArmazenada, valor) {
   const i = lista.indexOf(valor);
   if (i >= 0) lista.splice(i, 1); else lista.push(valor);
   guarda.gravar(chaveArmazenada, lista);
+  sincronizarAvisos();
   render();
 }
 const estaSeguindo = (tipo, k) => seguindo.some(s => s.tipo === tipo && s.k === k);
@@ -361,7 +373,96 @@ function seguir(tipo, k, nome) {
   const i = seguindo.findIndex(s => s.tipo === tipo && s.k === k);
   if (i >= 0) seguindo.splice(i, 1); else seguindo.push({ tipo, k, nome });
   guarda.gravar('pista-seguindo', seguindo);
+  sincronizarAvisos();
   render();
+}
+
+function base64ParaBytes(b) {
+  const s = atob((b + '='.repeat((4 - b.length % 4) % 4)).replace(/-/g, '+').replace(/_/g, '/'));
+  return Uint8Array.from(s, c => c.charCodeAt(0));
+}
+async function iniciarPush() {
+  const suportado = 'serviceWorker' in navigator && 'PushManager' in window && 'Notification' in window;
+  if (!suportado) { push.estado = ehIOS && !naTelaDeInicio() ? 'ios-instalar' : 'sem-suporte'; return render(); }
+  try {
+    push.reg = await navigator.serviceWorker.register('./sw.js');
+    push.sub = await push.reg.pushManager.getSubscription();
+  } catch { push.estado = 'sem-suporte'; return render(); }
+  push.estado = Notification.permission === 'denied' ? 'bloqueado' : (push.sub ? 'ativo' : 'inativo');
+  render();
+  if (push.sub) salvarInscricao().catch(() => {}); // mantém o servidor em dia com o que a pessoa segue
+}
+async function rpc(nome, corpo) {
+  const r = await fetch(`${PUSH.url}/rest/v1/rpc/${nome}`, {
+    method: 'POST',
+    headers: { apikey: PUSH.chave, 'Content-Type': 'application/json' },
+    body: JSON.stringify(corpo),
+  });
+  if (!r.ok) throw new Error('Servidor respondeu ' + r.status);
+}
+function salvarInscricao() {
+  if (!push.sub) return Promise.resolve();
+  const j = push.sub.toJSON();
+  return rpc('salvar_inscricao', {
+    p_endpoint: j.endpoint, p_p256dh: j.keys.p256dh, p_auth: j.keys.auth,
+    p_seguindo: seguindo.map(x => ({ tipo: x.tipo, k: x.k, nome: x.nome })),
+    p_torneios: salvos,
+    p_avisos: avisos,
+    p_plataforma: ehIOS ? 'ios' : (/android/i.test(navigator.userAgent) ? 'android' : 'computador'),
+  });
+}
+let esperaSinc;
+function sincronizarAvisos() {
+  if (push.estado !== 'ativo') return;
+  clearTimeout(esperaSinc);
+  esperaSinc = setTimeout(() => salvarInscricao().catch(() => {}), 800);
+}
+async function ativarAvisos() {
+  if (push.ocupado) return;
+  push.ocupado = true; push.erro = null; render();
+  try {
+    const perm = await Notification.requestPermission();
+    if (perm !== 'granted') { push.estado = perm === 'denied' ? 'bloqueado' : 'inativo'; return; }
+    push.sub = await push.reg.pushManager.subscribe({ userVisibleOnly: true, applicationServerKey: base64ParaBytes(PUSH.vapid) });
+    await salvarInscricao();
+    push.estado = 'ativo';
+    push.reg.showNotification('Avisos ativados', { body: 'Você vai saber quando quem você segue subir no pódio.', icon: './icon-192.png' });
+  } catch (e) {
+    push.erro = 'Não deu para ativar agora. Verifique a conexão e tente de novo.';
+  } finally { push.ocupado = false; render(); }
+}
+async function desativarAvisos() {
+  if (push.ocupado || !push.sub) return;
+  push.ocupado = true; render();
+  try {
+    await rpc('remover_inscricao', { p_endpoint: push.sub.endpoint }).catch(() => {});
+    await push.sub.unsubscribe();
+    push.sub = null; push.estado = 'inativo';
+  } finally { push.ocupado = false; render(); }
+}
+function blocoAvisos() {
+  const opcoes = `<div class="opcoes">
+      ${[['podio', 'Vitórias e pódios'], ['programa', 'Programação publicada nos torneios salvos']].map(([k, t]) =>
+        `<button class="opcao" data-aviso="${k}" aria-pressed="${!!avisos[k]}"><span>${t}</span><span class="switch"><i></i></span></button>`).join('')}
+      <div class="opcao" aria-disabled="true"><span style="color:var(--muted)">Quando entrar na pista ao vivo · em breve</span></div>
+    </div>`;
+  const msg = {
+    'verificando': 'Verificando se este aparelho aceita avisos…',
+    'sem-suporte': 'Este navegador não recebe avisos. No computador, use Chrome, Edge ou Firefox; no Android, o Chrome.',
+    'ios-instalar': 'No iPhone, os avisos só funcionam com o Salta na tela de início. No Safari, toque em Compartilhar e depois em "Adicionar à Tela de Início", e abra o Salta por lá.',
+    'bloqueado': 'Os avisos estão bloqueados para o Salta nas configurações do navegador ou do celular. Libere por lá e volte aqui.',
+  }[push.estado];
+  let html = `<div class="secao"><h2>Avisos no celular</h2><span class="risco"></span></div>`;
+  if (msg) return html + `<div class="aviso">${esc(msg)}</div>`;
+  if (push.estado === 'inativo') {
+    return html + `<div class="painel" style="margin-top:0">
+        <p style="margin:0;font-size:14px;line-height:1.55;color:var(--muted)">Receba um aviso quando quem você segue subir no pódio ou quando um torneio salvo publicar a programação.</p>
+        <button class="btn ouro" data-acao="ativarAvisos" ${push.ocupado ? 'disabled' : ''} style="flex:none">${push.ocupado ? 'Ativando…' : 'Ativar avisos neste aparelho'}</button>
+        ${push.erro ? `<p style="margin:0;font-size:13px;color:var(--vivo)">${esc(push.erro)}</p>` : ''}
+      </div>`;
+  }
+  return html + opcoes + `<div class="barra-filtros"><button class="btn clara" data-acao="desativarAvisos" style="flex:none" ${push.ocupado ? 'disabled' : ''}>Desativar avisos neste aparelho</button></div>
+    <p class="fonte">Os avisos chegam logo depois de cada atualização dos resultados, que acontece algumas vezes por dia.</p>`;
 }
 
 // ---------- peças ----------
@@ -625,7 +726,7 @@ function telaSeguindo() {
     <h1>Seguindo</h1><span class="sub">Cavaleiros, cavalos e torneios que você acompanha</span></header>`;
   const salvosT = salvos.map(id => achar(id)).filter(Boolean);
   if (!seguindo.length && !salvosT.length) {
-    return capa + `<main><div class="vazio"><b>Você ainda não segue ninguém</b>Toque na estrela de um torneio ou no nome de um cavaleiro nos resultados para acompanhá-lo por aqui.</div></main>`;
+    return capa + `<main><div class="vazio"><b>Você ainda não segue ninguém</b>Toque na estrela de um torneio ou no nome de um cavaleiro nos resultados para acompanhá-lo por aqui.</div>${blocoAvisos()}</main>`;
   }
   let corpo = '<main class="fade">';
   if (seguindo.length || salvosT.length) {
@@ -641,12 +742,7 @@ function telaSeguindo() {
         <span class="topo"><span class="tag" style="color:${n.cor}">${n.tag}</span><span class="meta" style="font-size:12px;color:var(--muted)">${n.quando}</span></span>
         <span class="txt">${esc(n.texto)}</span><span class="onde">${esc(n.onde)}</span></button>`).join('')}</div>`
     : `<div class="vazio">Nada novo por enquanto. Assim que alguém que você segue competir, aparece aqui.</div>`;
-  corpo += `<div class="secao"><h2>Avisos no celular</h2><span class="risco"></span></div>
-    <div class="opcoes">
-      ${[['podio', 'Vitórias e pódios'], ['programa', 'Programação publicada'], ['aovivo', 'Quando entrar na pista']].map(([k, t]) =>
-        `<button class="opcao" data-aviso="${k}" aria-pressed="${!!avisos[k]}"><span>${t}</span><span class="switch"><i></i></span></button>`).join('')}
-    </div>
-    <p class="fonte">Os avisos usam as notificações que o Rotina já tem configuradas neste aparelho.</p>`;
+  corpo += blocoAvisos();
   return capa + corpo + '</main>';
 }
 const iniciais = n => titulo(n).split(/\s+/).filter(w => /[A-Za-zÀ-ÿ]/.test(w[0])).slice(0, 2).map(w => w[0].toUpperCase()).join('');
@@ -915,7 +1011,9 @@ document.addEventListener('click', e => {
   if (d.acao === 'compartilhar') { S.compartilhar = cartaoSVG(); return render(); }
   if (d.acao === 'fecharFolha') { S.compartilhar = null; return render(); }
   if (d.acao === 'baixarCard') return baixarCard();
-  if (d.aviso) { avisos[d.aviso] = !avisos[d.aviso]; guarda.gravar('pista-avisos', avisos); return render(); }
+  if (d.aviso) { avisos[d.aviso] = !avisos[d.aviso]; guarda.gravar('pista-avisos', avisos); sincronizarAvisos(); return render(); }
+  if (d.acao === 'ativarAvisos') return ativarAvisos();
+  if (d.acao === 'desativarAvisos') return desativarAvisos();
   if (d.cat) { S.cat = d.cat; return render(); }
   if (d.dia) { S.dia = d.dia; return render(); }
   if (d.rank) { S.rankTipo = d.rank; return render(); }
@@ -936,8 +1034,19 @@ document.addEventListener('input', e => {
 });
 document.addEventListener('keydown', e => { if (e.key === 'Escape' && S.compartilhar) { S.compartilhar = null; render(); } });
 
+function abrirPeloEndereco() {
+  const h = new URLSearchParams(location.hash.slice(1));
+  const t = +h.get('t'), p = +h.get('p');
+  if (!t || !S.dados || !achar(t)) return;
+  Object.assign(S, { torneio: t, dia: null, prova: p || null, filtro: '', tela: p ? 'prova' : 'torneio' });
+  history.replaceState(null, '', location.pathname);
+  render();
+}
+window.addEventListener('hashchange', abrirPeloEndereco);
+
 render();
-carregar();
+carregar().then(abrirPeloEndereco);
+iniciarPush();
 </script>
 </body>
 </html>
