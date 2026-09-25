@@ -2,7 +2,7 @@ name: Coletar dados do hipismo (FPH)
 
 on:
   schedule:
-    - cron: "10 */1 * * *"   # a cada 6 horas (horário UTC)
+    - cron: "17 */6 * * *"   # a cada 6 horas (horário UTC)
   workflow_dispatch:          # botão "Run workflow" pra rodar na hora
 
 permissions:
@@ -28,9 +28,14 @@ jobs:
         working-directory: scripts/hipica
         run: npm install --no-audit --no-fund
 
-
       - name: Coletar calendário e resultados
         working-directory: scripts/hipica
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+          VAPID_PUBLIC_KEY: ${{ secrets.VAPID_PUBLIC_KEY }}
+          VAPID_PRIVATE_KEY: ${{ secrets.VAPID_PRIVATE_KEY }}
+          VAPID_SUBJECT: ${{ secrets.VAPID_SUBJECT }}
         run: node coletar.mjs
 
       - name: Salvar dados no repositório
