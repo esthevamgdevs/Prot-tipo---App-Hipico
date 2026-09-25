@@ -8,8 +8,8 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { parseTorneio, parseResultados, idsDoCalendario } from './parsers.mjs';
-import { gerarEstatisticas } from './estatisticas.mjs';
+import { parseTorneio, parseResultados, parseOrdemEntrada, idsDoCalendario } from './parsers.mjs';
+import { gerarEstatisticas, CAT_INFANTIL, abreviar } from './estatisticas.mjs';
 import { enviarAvisos } from './avisos.mjs';
 
 const DIR = path.dirname(fileURLToPath(import.meta.url));
@@ -24,6 +24,9 @@ const DESDE = process.env.DESDE || A_PARTIR;               // resultados a parti
 const UA = 'SaltaApp/0.2 (app de hipismo; +https://github.com/esthevamgdevs/Prototipo-Hipismo)';
 
 const hoje = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Sao_Paulo' }).format(new Date());
+// Coleta completa (descobre torneios novos) quatro vezes por dia; nas outras horas, só os torneios em andamento.
+const MODO = process.env.MODO || ([12, 17, 21, 0].includes(new Date().getUTCHours()) ? 'completo' : 'rapido'); // 9h, 14h, 18h e 21h em Brasília
+const MIN_ENTRE_REVISOES = 50 * 60e3; // uma prova de hoje ou de ontem é revista no máximo a cada ~50 min
 const somarDias = (d, n) => { const x = new Date(d + 'T12:00:00Z'); x.setUTCDate(x.getUTCDate() + n); return x.toISOString().slice(0, 10); };
 const dormir = ms => new Promise(r => setTimeout(r, ms));
 
@@ -34,6 +37,19 @@ async function guardarAmostra(nome, html) {
   await fs.mkdir(path.dirname(arq), { recursive: true });
   await fs.writeFile(arq, html.slice(0, 400000));
   console.log(`  ? página não reconhecida guardada em data/hipica/_diagnostico/${nome}`);
+}
+
+// Decide se o resultado de uma prova precisa ser baixado de novo nesta execução
+function precisaRever(p, ultima, refazerAte) {
+  if (!ultima) return true;                              // nunca lido
+  if (ultima === 'vazio') return false;                  // prova que nunca teve resultado publicado
+  if (ultima.slice(0, 10) > refazerAte) return false;    // já passou a janela de correções
+  const recente = p.dia && p.dia >= somarDias(hoje, -1); // prova de hoje ou de ontem
+  if (recente) {
+    const quando = Date.parse(ultima.length > 10 ? ultima : ultima + 'T12:00:00Z');
+    return Date.now() - quando > MIN_ENTRE_REVISOES;
+  }
+  return ultima.slice(0, 10) < hoje;                     // provas mais antigas: uma revisão por dia
 }
 
 class LimiteAtingido extends Error {}
@@ -95,7 +111,7 @@ async function gravarJSON(arquivo, dados, identar = 0) {
 }
 
 async function main() {
-  console.log(`Pista · coleta FPH · ${hoje}`);
+  console.log(`Salta · coleta FPH · ${hoje} · modo ${MODO}`);
   if (!(await robotsPermite())) {
     console.error('O robots.txt da FPH não permite acesso a estas páginas. Nada foi coletado.');
     process.exit(1);
@@ -113,15 +129,25 @@ async function main() {
   let cal = null;
 
   try {
-    // 1) Descobrir torneios: calendário do mês + IDs novos + torneios ainda abertos
-    cal = await baixar('/calendario/Default');
-    const doCalendario = cal ? idsDoCalendario(cal) : [];
-    const candidatos = new Set(doCalendario);
-    const topo = Math.max(estado.maiorId || ID_INICIAL - 1, ...doCalendario, 0);
-    for (let id = (estado.maiorId ? estado.maiorId + 1 : ID_INICIAL); id <= topo + JANELA_NOVOS; id++) candidatos.add(id);
-    for (const t of torneios.values()) {
-      const aberto = !/conclu|cancel/i.test(t.status || '');
-      if (aberto || (t.fim && t.fim >= somarDias(hoje, -3))) candidatos.add(t.id);
+    // 1) Descobrir torneios
+    const candidatos = new Set();
+    if (MODO === 'completo') {
+      // calendário do mês + IDs novos + torneios ainda abertos
+      cal = await baixar('/calendario/Default');
+      const doCalendario = cal ? idsDoCalendario(cal) : [];
+      doCalendario.forEach(id => candidatos.add(id));
+      const topo = Math.max(estado.maiorId || ID_INICIAL - 1, ...doCalendario, 0);
+      for (let id = (estado.maiorId ? estado.maiorId + 1 : ID_INICIAL); id <= topo + JANELA_NOVOS; id++) candidatos.add(id);
+      for (const t of torneios.values()) {
+        const aberto = !/conclu|cancel/i.test(t.status || '');
+        if (aberto || (t.fim && t.fim >= somarDias(hoje, -3))) candidatos.add(t.id);
+      }
+    } else {
+      // só o que está acontecendo ou começa nos próximos dias (programação e resultados)
+      for (const t of torneios.values()) {
+        if (/cancel/i.test(t.status || '')) continue;
+        if (t.inicio && t.fim && t.inicio <= somarDias(hoje, 3) && t.fim >= somarDias(hoje, -2)) candidatos.add(t.id);
+      }
     }
 
     const lista = [...candidatos].filter(id => !ignorados.has(id)).sort((a, b) => a - b);
@@ -144,7 +170,7 @@ async function main() {
       // mantém o que já sabíamos sobre resultados de cada prova
       if (antes) for (const p of t.provas) {
         const velha = antes.provas.find(x => x.id === p.id);
-        if (velha) { p.res = velha.res; p.v = velha.v; }
+        if (velha) { p.res = velha.res; p.v = velha.v; if (velha.oe) p.oe = velha.oe; }
       }
       t.url = `${BASE}/calendario/ListaProvas.aspx?ID=${id}`;
       torneios.set(id, t);
@@ -162,8 +188,7 @@ async function main() {
       const refazerAte = somarDias(t.fim, 2); // correções costumam sair em até 2 dias
       for (const p of t.provas) {
         if (!p.id || (p.dia && p.dia > hoje)) continue;
-        const ultima = estado.resultados[p.id];
-        if (ultima && (ultima === 'vazio' || ultima > refazerAte)) continue;
+        if (!precisaRever(p, estado.resultados[p.id], refazerAte)) continue;
         const html = await baixar(`/calendario/Resultados.aspx?ID=${p.id}`);
         if (!html) continue;
         const linhas = parseResultados(html);
@@ -179,12 +204,43 @@ async function main() {
           });
           p.res = true;
           p.v = { c: linhas[0].cavaleiro, h: linhas[0].cavalo };
-          estado.resultados[p.id] = hoje;
+          estado.resultados[p.id] = new Date().toISOString();
         } else if (hoje > somarDias(t.fim, 7)) {
           estado.resultados[p.id] = 'vazio'; // prova sem resultado publicado (ex.: cancelada)
         }
       }
       console.log(`  ✓ resultados ${t.id} ${t.nome}`);
+    }
+
+    // 3) Ordem de entrada: provas de hoje e dos próximos dois dias que ainda não têm resultado
+    const ateDia = somarDias(hoje, 2);
+    estado.ordem = estado.ordem || {};
+    const comOrdem = [...torneios.values()].filter(t => !/cancel/i.test(t.status || '') &&
+      t.provas.some(p => p.id && !p.res && p.dia && p.dia >= hoje && p.dia <= ateDia));
+    for (const t of comOrdem) {
+      const arq = path.join(SAIDA, 't', `${t.id}.json`);
+      const dados = arquivosTorneio.get(t.id) || await lerJSON(arq, { id: t.id, fed: [], provas: {} });
+      dados.ordem = dados.ordem || {};
+      arquivosTorneio.set(t.id, dados);
+      for (const p of t.provas) {
+        if (!p.id || p.res || !p.dia || p.dia < hoje || p.dia > ateDia) continue;
+        const ultima = estado.ordem[p.id];
+        const intervalo = p.dia === hoje ? MIN_ENTRE_REVISOES : 3 * 3600e3; // no dia, de hora em hora; antes, a cada 3 h
+        if (ultima && Date.now() - Date.parse(ultima) < intervalo) continue;
+        const html = await baixar(`/calendario/OrdemEntrada.aspx?ID=${p.id}`);
+        if (!html) continue;
+        estado.ordem[p.id] = new Date().toISOString();
+        const linhas = parseOrdemEntrada(html);
+        const provaInfantil = CAT_INFANTIL.test(`${p.nome || ''} ${p.desc || ''}`);
+        dados.ordem[p.id] = linhas.map(l => {
+          const protegido = provaInfantil || CAT_INFANTIL.test(l.cat || '');
+          const linha = { o: l.o, c: protegido ? abreviar(l.c) : l.c, h: l.h };
+          if (l.cat) linha.cat = l.cat;
+          return linha;
+        });
+        p.oe = linhas.length;
+      }
+      console.log(`  ✓ ordem de entrada ${t.id} ${t.nome}`);
     }
   } catch (e) {
     if (e instanceof LimiteAtingido) {
@@ -195,7 +251,7 @@ async function main() {
 
   // 3) Gravar
   for (const [id, dados] of arquivosTorneio) {
-    if (Object.keys(dados.provas).length) await gravarJSON(path.join(SAIDA, 't', `${id}.json`), dados);
+    if (Object.keys(dados.provas).length || Object.keys(dados.ordem || {}).length) await gravarJSON(path.join(SAIDA, 't', `${id}.json`), dados);
   }
   const listaTorneios = [...torneios.values()].filter(t => !t.fim || t.fim >= A_PARTIR).sort((a, b) => (a.inicio || '').localeCompare(b.inicio || ''));
   const mudou = JSON.stringify(listaTorneios) !== JSON.stringify(indice.torneios);

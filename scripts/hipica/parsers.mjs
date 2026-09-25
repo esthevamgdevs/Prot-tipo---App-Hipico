@@ -200,3 +200,21 @@ export function parseResultados(html) {
 }
 
 function num(s) { return +String(s).replace(',', '.'); }
+
+// Página "Ordem de Entrada" de uma prova: quem está inscrito, na ordem em que entra na pista
+export function parseOrdemEntrada(html) {
+  const $ = load(html);
+  const linhas = [];
+  $('tr').each((_, tr) => {
+    const tds = $(tr).children('td');
+    if (tds.length < 4) return;
+    const ordem = limpar($(tds[0]).text()).match(/^(\d+)/);
+    if (!ordem) return;
+    const cavaleiro = limpar($(tds[1]).find('strong,b').first().text()) || limpar($(tds[1]).text());
+    const cavalo = limpar($(tds[2]).find('strong,b').first().text());
+    const categoria = limpar($(tds[3]).find('strong,b').first().text()).replace(/\s*-\s*$/, '');
+    if (!cavaleiro || !cavalo) return;
+    linhas.push({ o: +ordem[1], c: cavaleiro, h: cavalo, cat: categoria || null });
+  });
+  return linhas;
+}
