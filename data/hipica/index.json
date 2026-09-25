@@ -1,6 +1,6 @@
 {
  "fonte": "Federação Paulista de Hipismo (fph.com.br)",
- "atualizadoEm": "2026-09-24T21:56:10.448Z",
+ "atualizadoEm": "2026-09-25T01:26:10.277Z",
  "torneios": [
   {
    "id": 3404,
@@ -10119,7 +10119,9 @@
      "v": {
       "c": "HELOISA DE ALMEIDA RUIZ",
       "h": "DELTA"
-     }
+     },
+     "n": 102,
+     "oe": 102
     },
     {
      "id": 14649,
@@ -10136,7 +10138,9 @@
      "v": {
       "c": "ISABELA VEREISKI LANDOLT",
       "h": "TEXAS"
-     }
+     },
+     "n": 97,
+     "oe": 97
     },
     {
      "id": 14643,
@@ -10148,7 +10152,8 @@
      "hora": "08:30",
      "pista": "AREIA-1",
      "gp": false,
-     "linkResultado": false
+     "linkResultado": false,
+     "oe": 57
     },
     {
      "id": 14645,
@@ -10160,7 +10165,8 @@
      "hora": "12:30",
      "pista": "AREIA-1",
      "gp": false,
-     "linkResultado": false
+     "linkResultado": false,
+     "oe": 140
     },
     {
      "id": null,
