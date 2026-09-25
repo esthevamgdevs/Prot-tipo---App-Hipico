@@ -653,8 +653,9 @@ function telaTorneio() {
   corpo += `<div class="lista">${doDia.map(p => {
     const dest = p.altura && p.altura === maiorDoDia && doDia.length > 1;
     const info = [p.hora, p.pista ? 'Pista ' + titulo(p.pista) : ''].filter(Boolean).join(' · ');
+    const parcial = p.res && p.oe && p.n && p.n < p.oe && p.dia >= hojeISO();
     const corpoProva = p.res && p.v
-      ? `<span class="tag">VENCEDOR${dest ? ' · MAIOR PROVA DO DIA' : ''}</span><span class="venc">${esc(titulo(p.v.c))}</span><span class="meta">${esc(titulo(p.v.h))}${info ? ' · ' + esc(info) : ''}</span>`
+      ? `<span class="tag">${parcial ? `LIDERANDO · ${p.n} DE ${p.oe} JÁ SALTARAM` : 'VENCEDOR'}${dest ? ' · MAIOR PROVA DO DIA' : ''}</span><span class="venc">${esc(titulo(p.v.c))}</span><span class="meta">${esc(titulo(p.v.h))}${info ? ' · ' + esc(info) : ''}</span>`
       : `<span class="tag">${esc(titulo(p.nome || 'A realizar'))}${dest ? ' · MAIOR PROVA DO DIA' : ''}</span><span class="venc">${
           p.oe ? `${p.oe} conjunto${p.oe > 1 ? 's' : ''} inscrito${p.oe > 1 ? 's' : ''}` : (p.dia && p.dia < hojeISO() ? 'Resultado ainda não publicado' : 'Ainda não disputada')
         }</span><span class="meta">${esc(info || 'Horário a confirmar')}${p.oe ? ' · ver ordem de entrada' : ''}</span>`;
@@ -689,10 +690,21 @@ function telaProva() {
   const resto = q ? filtradas : filtradas.filter(l => l.p > 3);
   const temDesempate = linhas.some(l => l.r && l.r.length > 1);
 
-  let corpo = cab + `<span class="sub">${linhas.length} conjuntos${temDesempate ? ' · com desempate' : ''}</span>
+  const ordem = (dados.ordem || {})[String(p.id)] || [];
+  const ordemDoCavalo = new Map(ordem.map(o => [chave(o.h), o.o]));
+  const faltam = ordem.length ? ordem.filter(o => !linhas.some(l => chave(l.h) === chave(o.h))).length : 0;
+  const emAndamentoProva = faltam > 0 && p.dia >= hojeISO();
+  let corpo = cab + `<span class="sub">${emAndamentoProva ? `${ordem.length - faltam} de ${ordem.length} já saltaram` : `${linhas.length} conjuntos`}${temDesempate ? ' · com desempate' : ''}</span>
     <div class="acoes">
-      <button class="btn ouro" data-acao="compartilhar">${svg('<path d="M12 15V3M7 8l5-5 5 5M5 13v6a2 2 0 002 2h10a2 2 0 002-2v-6"/>', 18)}Compartilhar campeão</button>
+      <button class="btn ouro" data-acao="compartilhar">${svg('<path d="M12 15V3M7 8l5-5 5 5M5 13v6a2 2 0 002 2h10a2 2 0 002-2v-6"/>', 18)}${emAndamentoProva ? 'Compartilhar líder' : 'Compartilhar campeão'}</button>
     </div></header><main class="fade">`;
+  if (ordem.length) {
+    corpo += `<div class="chips clara" role="group" aria-label="Visão da prova" style="padding:16px 20px 0">
+      <button class="chip" data-aba-prova="classificacao" aria-pressed="${S.abaProva !== 'ordem'}">Classificação</button>
+      <button class="chip" data-aba-prova="ordem" aria-pressed="${S.abaProva === 'ordem'}">Ordem de entrada</button>
+    </div>`;
+    if (S.abaProva === 'ordem') return corpo + telaCruzada(p, ordem, linhas, fed, faltam) + '</main>';
+  }
   if (podio.length) {
     corpo += `<div class="podio">${podio.map(l => {
       const f = fed(l.f), perc = l.r?.[0], des = l.r?.length > 1 ? l.r[l.r.length - 1] : null;
@@ -706,11 +718,53 @@ function telaProva() {
       </button>`;
     }).join('')}</div>`;
   }
-  corpo += `<div class="barra-filtros"><label class="sr" for="filtro">Buscar cavaleiro ou cavalo</label>
-    <input class="busca" id="filtro" type="search" placeholder="Buscar cavaleiro ou cavalo" value="${esc(S.filtro)}"></div>`;
-  corpo += `<div class="tabela"><div class="cab"><span class="p">#</span><span class="c">CONJUNTO</span><span class="f">FALTAS</span><span class="t">TEMPO</span></div><div id="linhas">${corpoLinhas(resto, fed)}</div></div>`;
+  // só pódio (três conjuntos ou menos) dispensa a busca e a tabela
+  if (linhas.length > 3 || q) {
+    corpo += `<div class="barra-filtros"><label class="sr" for="filtro">Buscar cavaleiro ou cavalo</label>
+      <input class="busca" id="filtro" type="search" placeholder="Buscar cavaleiro ou cavalo" value="${esc(S.filtro)}"></div>`;
+    corpo += `<div class="tabela"><div class="cab"><span class="p">#</span><span class="c">CONJUNTO</span><span class="f">FALTAS</span><span class="t">TEMPO</span></div><div id="linhas">${corpoLinhas(resto, fed, ordemDoCavalo)}</div></div>`;
+  }
   corpo += rodape(`<a href="${URL_FPH_PROVA(p.id)}" target="_blank" rel="noopener">Ver resultado oficial no site da FPH ↗</a>. `);
   return corpo + '</main>';
+}
+function telaCruzada(p, ordem, linhas, fed, faltam) {
+  const resultadoDo = new Map(linhas.map(l => [chave(l.h), l]));
+  const saltaram = ordem.length - faltam;
+  const pct = Math.round(saltaram / ordem.length * 100);
+  const proximo = ordem.find(o => !resultadoDo.has(chave(o.h)));
+  const q = S.filtro.trim().toLowerCase();
+  const lista = q ? ordem.filter(l => (l.c + ' ' + l.h).toLowerCase().includes(q)) : ordem;
+  return `<div class="painel" style="gap:10px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px">
+        <h3>${faltam ? `${saltaram} de ${ordem.length} já saltaram` : 'Todos os conjuntos saltaram'}</h3>
+        <span class="aux" style="font-size:12.5px;color:var(--muted)">${pct}%</span>
+      </div>
+      <span class="trilho" style="height:8px;border-radius:999px;background:var(--bg);display:flex;overflow:hidden"><i style="display:block;width:${pct}%;background:var(--ouro)"></i></span>
+      ${proximo && p.dia >= hojeISO() ? `<span style="font-size:13.5px;color:var(--muted)">Próximo na ordem: <strong style="color:var(--ink)">${esc(titulo(proximo.c))}</strong> com ${esc(titulo(proximo.h))}</span>` : ''}
+    </div>
+    <div class="barra-filtros"><label class="sr" for="filtroCruzado">Buscar cavaleiro ou cavalo</label>
+      <input class="busca" id="filtroCruzado" type="search" placeholder="Buscar cavaleiro ou cavalo" value="${esc(S.filtro)}"></div>
+    <div class="tabela"><div class="cab"><span class="p">ORD.</span><span class="c">CONJUNTO</span><span class="f" style="width:92px">RESULTADO</span></div>
+      <div id="linhasCruzadas">${linhasCruzadas(lista, resultadoDo, proximo, p)}</div></div>
+    <p class="fonte">Resultados atualizados de hora em hora durante o torneio. <a href="${URL_FPH_PROVA(p.id)}" target="_blank" rel="noopener">Ver no site da FPH ↗</a></p>`;
+}
+function linhasCruzadas(lista, resultadoDo, proximo, p) {
+  if (!lista.length) return `<div class="vazio">Ninguém encontrado com esse nome.</div>`;
+  return lista.map(o => {
+    const r = resultadoDo.get(chave(o.h));
+    const perc = r && r.r && r.r[0];
+    let res;
+    if (!r) res = `<span class="status">${proximo && proximo.o === o.o && p.dia >= hojeISO() ? 'próximo' : 'aguardando'}</span>`;
+    else if (r.s) res = `<span class="status">${esc(r.s)}</span>`;
+    else res = `<span style="display:flex;flex-direction:column;align-items:flex-end;line-height:1.2">
+        <b style="font-size:15px;color:${r.p <= 3 ? 'var(--ouro-escuro)' : 'var(--ink)'}">${r.p}º</b>
+        <span style="font-size:11.5px;color:var(--muted)">${fmtN(perc && perc[0])} flt · ${fmtT(perc && perc[1])}</span></span>`;
+    return `<button class="linha" data-perfil="cavaleiros" data-k="${esc(chave(o.c))}" style="${r ? '' : 'opacity:.72'}">
+      <span class="pos">${o.o}</span>
+      <span class="conj"><span class="cav">${esc(titulo(o.c))}</span><span class="cavalo">${esc(titulo(o.h))}${o.cat ? ' · ' + esc(o.cat) : ''}</span></span>
+      <span class="f" style="width:92px">${res}</span>
+    </button>`;
+  }).join('');
 }
 function telaOrdem(p, ordem) {
   if (!ordem.length) return `<main><div class="vazio"><b>Ordem de entrada ainda não publicada</b>Ela costuma sair na véspera da prova.</div></main>`;
@@ -733,13 +787,14 @@ function linhasOrdem(lista) {
       <span class="f" style="width:70px;font-weight:600;font-size:12.5px;color:var(--muted)">${esc(l.cat || '')}</span>
     </button>`).join('');
 }
-function corpoLinhas(linhas, fed) {
+function corpoLinhas(linhas, fed, ordemDoCavalo) {
   if (!linhas.length) return `<div class="vazio">Ninguém encontrado com esse nome.</div>`;
   return linhas.map(l => {
     const f = fed(l.f), perc = l.r?.[0];
+    const entrou = ordemDoCavalo && ordemDoCavalo.get(chave(l.h));
     return `<button class="linha" data-perfil="cavaleiros" data-k="${esc(chave(l.c))}">
       <span class="pos">${l.p}</span>
-      <span class="conj"><span class="cav">${esc(titulo(l.c))}</span><span class="cavalo">${esc(titulo(l.h))}${f ? ' · ' + esc(fedCurta(f)) : ''}</span></span>
+      <span class="conj"><span class="cav">${esc(titulo(l.c))}</span><span class="cavalo">${esc(titulo(l.h))}${f ? ' · ' + esc(fedCurta(f)) : ''}${entrou ? ` · entrou em ${entrou}º` : ''}</span></span>
       <span class="f${!l.s && perc?.[0] === 0 ? ' zero' : ''}">${l.s ? `<span class="status">${esc(l.s)}</span>` : fmtN(perc?.[0])}</span>
       <span class="t">${l.s || !perc ? '–' : fmtT(perc[1])}</span>
     </button>`;
@@ -1017,7 +1072,7 @@ function render() {
 function irPara(tela, extra = {}) { Object.assign(S, { tela }, extra); window.scrollTo(0, 0); render(); }
 
 document.addEventListener('click', e => {
-  const alvo = e.target.closest('[data-aba],[data-acao],[data-torneio],[data-prova],[data-perfil],[data-cat],[data-dia],[data-rank],[data-aviso]');
+  const alvo = e.target.closest('[data-aba],[data-aba-prova],[data-acao],[data-torneio],[data-prova],[data-perfil],[data-cat],[data-dia],[data-rank],[data-aviso]');
   if (!alvo) return;
   const d = alvo.dataset;
   if (d.acao === 'fecharFolha' && e.target.closest('.caixa') && !e.target.closest('[data-acao="fecharFolha"]')) return;
@@ -1042,12 +1097,25 @@ document.addEventListener('click', e => {
   if (d.cat) { S.cat = d.cat; return render(); }
   if (d.dia) { S.dia = d.dia; return render(); }
   if (d.rank) { S.rankTipo = d.rank; return render(); }
-  if (d.prova) return irPara('prova', { prova: +d.prova, filtro: '' });
+  if (d.abaProva) { S.abaProva = d.abaProva; S.filtro = ''; return render(); }
+  if (d.prova) return irPara('prova', { prova: +d.prova, filtro: '', abaProva: 'classificacao' });
   if (d.perfil) { carregarPerfil(d.perfil, d.k); return irPara('perfil', { perfilTipo: d.perfil, perfilK: d.k }); }
   if (d.torneio) return irPara('torneio', { torneio: +d.torneio, dia: null, prova: null });
 });
 document.addEventListener('change', e => { if (e.target.id === 'altura') { S.altura = e.target.value; render(); } });
 document.addEventListener('input', e => {
+  if (e.target.id === 'filtroCruzado') {
+    S.filtro = e.target.value;
+    const dados = S.torneios[S.torneio], t = achar(S.torneio), p = t && t.provas.find(x => x.id === +S.prova);
+    const ordem = (dados && dados.ordem && dados.ordem[String(S.prova)]) || [];
+    const linhas = (dados && dados.provas && dados.provas[String(S.prova)]) || [];
+    const resultadoDo = new Map(linhas.map(l => [chave(l.h), l]));
+    const proximo = ordem.find(o => !resultadoDo.has(chave(o.h)));
+    const q = S.filtro.trim().toLowerCase();
+    const alvo = document.getElementById('linhasCruzadas');
+    if (alvo && p) alvo.innerHTML = linhasCruzadas(q ? ordem.filter(l => (l.c + ' ' + l.h).toLowerCase().includes(q)) : ordem, resultadoDo, proximo, p);
+    return;
+  }
   if (e.target.id === 'filtroOrdem') {
     S.filtro = e.target.value;
     const dados = S.torneios[S.torneio];
@@ -1064,7 +1132,8 @@ document.addEventListener('input', e => {
   const q = S.filtro.trim().toLowerCase();
   const filtradas = q ? linhas.filter(l => (l.c + ' ' + l.h).toLowerCase().includes(q)) : linhas.filter(l => l.p > 3);
   const alvo = document.getElementById('linhas');
-  if (alvo) alvo.innerHTML = corpoLinhas(filtradas, i => i != null ? dados.fed[i] : null);
+  const ordemDoCavalo = new Map(((dados && dados.ordem && dados.ordem[String(S.prova)]) || []).map(o => [chave(o.h), o.o]));
+  if (alvo) alvo.innerHTML = corpoLinhas(filtradas, i => i != null ? dados.fed[i] : null, ordemDoCavalo);
 });
 document.addEventListener('keydown', e => { if (e.key === 'Escape' && S.compartilhar) { S.compartilhar = null; render(); } });
 
