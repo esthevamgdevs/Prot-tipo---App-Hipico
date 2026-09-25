@@ -170,7 +170,7 @@ async function main() {
       // mantém o que já sabíamos sobre resultados de cada prova
       if (antes) for (const p of t.provas) {
         const velha = antes.provas.find(x => x.id === p.id);
-        if (velha) { p.res = velha.res; p.v = velha.v; if (velha.oe) p.oe = velha.oe; }
+        if (velha) { p.res = velha.res; p.v = velha.v; if (velha.oe) p.oe = velha.oe; if (velha.n) p.n = velha.n; }
       }
       t.url = `${BASE}/calendario/ListaProvas.aspx?ID=${id}`;
       torneios.set(id, t);
@@ -203,6 +203,7 @@ async function main() {
             return linha;
           });
           p.res = true;
+          p.n = linhas.length;
           p.v = { c: linhas[0].cavaleiro, h: linhas[0].cavalo };
           estado.resultados[p.id] = new Date().toISOString();
         } else if (hoje > somarDias(t.fim, 7)) {
@@ -215,15 +216,16 @@ async function main() {
     // 3) Ordem de entrada: provas de hoje e dos próximos dois dias que ainda não têm resultado
     const ateDia = somarDias(hoje, 2);
     estado.ordem = estado.ordem || {};
-    const comOrdem = [...torneios.values()].filter(t => !/cancel/i.test(t.status || '') &&
-      t.provas.some(p => p.id && !p.res && p.dia && p.dia >= hoje && p.dia <= ateDia));
+    const deDia = somarDias(hoje, -1);
+    const querOrdem = p => p.id && p.dia && p.dia >= deDia && p.dia <= ateDia && (!p.res || !estado.ordem[p.id]);
+    const comOrdem = [...torneios.values()].filter(t => !/cancel/i.test(t.status || '') && t.provas.some(querOrdem));
     for (const t of comOrdem) {
       const arq = path.join(SAIDA, 't', `${t.id}.json`);
       const dados = arquivosTorneio.get(t.id) || await lerJSON(arq, { id: t.id, fed: [], provas: {} });
       dados.ordem = dados.ordem || {};
       arquivosTorneio.set(t.id, dados);
       for (const p of t.provas) {
-        if (!p.id || p.res || !p.dia || p.dia < hoje || p.dia > ateDia) continue;
+        if (!querOrdem(p)) continue;
         const ultima = estado.ordem[p.id];
         const intervalo = p.dia === hoje ? MIN_ENTRE_REVISOES : 3 * 3600e3; // no dia, de hora em hora; antes, a cada 3 h
         if (ultima && Date.now() - Date.parse(ultima) < intervalo) continue;
