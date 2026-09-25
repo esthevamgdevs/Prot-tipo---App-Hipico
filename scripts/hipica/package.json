@@ -4,6 +4,7 @@
   "type": "module",
   "description": "Coleta calendário e resultados públicos de salto da FPH para o app Pista",
   "dependencies": {
-    "cheerio": "^1.0.0"
+    "cheerio": "^1.0.0",
+    "web-push": "^3.6.7"
   }
 }

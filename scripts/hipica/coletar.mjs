@@ -10,6 +10,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseTorneio, parseResultados, idsDoCalendario } from './parsers.mjs';
 import { gerarEstatisticas } from './estatisticas.mjs';
+import { enviarAvisos } from './avisos.mjs';
 
 const DIR = path.dirname(fileURLToPath(import.meta.url));
 const SAIDA = path.resolve(DIR, process.env.SAIDA || '../../data/hipica');
@@ -20,7 +21,7 @@ const ID_INICIAL = +(process.env.ID_INICIAL ?? 3300);      // primeiro torneio a
 const JANELA_NOVOS = +(process.env.JANELA_NOVOS ?? 25);    // quantos IDs acima do maior conhecido sondar
 const A_PARTIR = process.env.A_PARTIR || '2026-01-01';     // ignora torneios que terminaram antes disto
 const DESDE = process.env.DESDE || A_PARTIR;               // resultados a partir desta data
-const UA = 'PistaApp/0.1 (app de hipismo; +https://github.com/esthevamgdevs/Rotine-and-Habits)';
+const UA = 'SaltaApp/0.2 (app de hipismo; +https://github.com/esthevamgdevs/Prototipo-Hipismo)';
 
 const hoje = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Sao_Paulo' }).format(new Date());
 const somarDias = (d, n) => { const x = new Date(d + 'T12:00:00Z'); x.setUTCDate(x.getUTCDate() + n); return x.toISOString().slice(0, 10); };
@@ -77,7 +78,7 @@ async function robotsPermite() {
       const l = bruta.replace(/#.*/, '').trim();
       const [k, ...v] = l.split(':');
       const valor = v.join(':').trim();
-      if (/^user-agent$/i.test(k)) grupoGeral = valor === '*' || /pista/i.test(valor);
+      if (/^user-agent$/i.test(k)) grupoGeral = valor === '*' || /salta|pista/i.test(valor);
       else if (grupoGeral && /^disallow$/i.test(k) && valor) bloqueios.push(valor);
     }
     const caminhos = ['/calendario/ListaProvas.aspx', '/calendario/Resultados.aspx', '/calendario/Default'];
@@ -103,6 +104,7 @@ async function main() {
   const arqIndice = path.join(SAIDA, 'index.json');
   const arqEstado = path.join(SAIDA, 'estado.json');
   const indice = await lerJSON(arqIndice, { torneios: [] });
+  const anterior = JSON.parse(JSON.stringify(indice)); // foto de antes, para saber o que é novidade nos avisos
   const estado = await lerJSON(arqEstado, { maiorId: 0, ignorados: [], resultados: {} });
   const ignorados = new Set(estado.ignorados);
   const torneios = new Map(indice.torneios.map(t => [t.id, t]));
@@ -208,6 +210,10 @@ async function main() {
   // 4) Ranking e perfis, calculados sobre o que já está gravado
   const totais = await gerarEstatisticas(SAIDA, listaTorneios, A_PARTIR);
   console.log(`Estatísticas: ${totais.cavaleiros} cavaleiros, ${totais.cavalos} cavalos, ${totais.percursos} percursos.`);
+
+  // 5) Avisos para quem ativou as notificações (uma falha aqui nunca derruba a coleta)
+  try { await enviarAvisos({ saida: SAIDA, anterior, atual: listaTorneios }); }
+  catch (e) { console.warn('Avisos: falha no envio,', e.message); }
   if (!listaTorneios.length && cal) await guardarAmostra('calendario.html', cal);
   console.log(`Pronto: ${listaTorneios.length} torneios de salto, ${paginas} páginas lidas, ${naoReconhecidos} páginas não reconhecidas${limite ? ' (parcial)' : ''}.`);
 }

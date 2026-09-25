@@ -7,7 +7,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 
 // Códigos de categoria da FPH que correspondem a crianças (mini mirim, pré-mirim, mirim...)
-const CAT_INFANTIL = /\b(MMR|PMR|MRA|MRB|MIRIM|PR[ÉE][- ]?MIRIM|MINI[- ]?MIRIM|INFANTIL|KIDS?)\b/i;
+export const CAT_INFANTIL = /\b(MMR|PMR|MRA|MRB|MIRIM|PR[ÉE][- ]?MIRIM|MINI[- ]?MIRIM|INFANTIL|KIDS?)\b/i;
 const SIGLAS = [
   [/PAULISTA/i, 'FPH'], [/PARANAENSE/i, 'FPrH'], [/BRAS[ÍI]LIA/i, 'FHBr'],
   [/RIO DE JANEIRO/i, 'FEERJ'], [/MINAS/i, 'FHMG'], [/RIO GRANDE DO SUL|GA[ÚU]CHA/i, 'FGH'],
@@ -18,7 +18,7 @@ const SIGLAS = [
 const sigla = f => { for (const [re, s] of SIGLAS) if (re.test(f || '')) return s; return null; };
 
 // "MARIA EDUARDA PARMA RODRIGUES" -> "Maria Eduarda P. R." em provas infantis
-function abreviar(nome) {
+export function abreviar(nome) {
   const partes = nome.trim().split(/\s+/);
   if (partes.length <= 2) return partes.map(p => p[0] + p.slice(1).toLowerCase()).join(' ');
   return partes.slice(0, 2).map(p => p[0] + p.slice(1).toLowerCase()).join(' ') + ' ' +
