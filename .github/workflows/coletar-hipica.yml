@@ -2,7 +2,9 @@ name: Coletar dados do hipismo (FPH)
 
 on:
   schedule:
-    - cron: "17 */6 * * *"   # a cada 6 horas (horário UTC)
+    # Horários em UTC (Brasília = UTC-3).
+    - cron: "17 12,17,21,0 * * *"               # coleta completa: 9h, 14h, 18h e 21h em Brasília
+    - cron: "17 1-11,13-16,18-20,22,23 * * *"   # coleta rápida nas demais horas: só torneios em andamento
   workflow_dispatch:          # botão "Run workflow" pra rodar na hora
 
 permissions:
@@ -36,6 +38,7 @@ jobs:
           VAPID_PUBLIC_KEY: ${{ secrets.VAPID_PUBLIC_KEY }}
           VAPID_PRIVATE_KEY: ${{ secrets.VAPID_PRIVATE_KEY }}
           VAPID_SUBJECT: ${{ secrets.VAPID_SUBJECT }}
+          MODO: ${{ (github.event_name == 'workflow_dispatch' || github.event.schedule == '17 12,17,21,0 * * *') && 'completo' || 'rapido' }}
         run: node coletar.mjs
 
       - name: Salvar dados no repositório
