@@ -1,6 +1,6 @@
 {
  "fonte": "Federação Paulista de Hipismo (fph.com.br)",
- "atualizadoEm": "2026-09-25T02:26:41.405Z",
+ "atualizadoEm": "2026-09-25T12:38:13.350Z",
  "torneios": [
   {
    "id": 3404,
@@ -10152,8 +10152,14 @@
      "hora": "08:30",
      "pista": "AREIA-1",
      "gp": false,
-     "linkResultado": false,
-     "oe": 57
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "",
+      "h": "LAVÍNIA BET DOS SANTOS"
+     },
+     "oe": 57,
+     "n": 1
     },
     {
      "id": 14645,
@@ -10169,7 +10175,7 @@
      "oe": 140
     },
     {
-     "id": null,
+     "id": 14648,
      "numero": "05",
      "nome": "MMR INTER",
      "desc": "0,80M - 0,80M - MMR INTER - 0,80M/JC INTER - 0,80M/AM INTER - 0,80M",
@@ -10178,10 +10184,11 @@
      "hora": "08:30",
      "pista": "AREIA-1",
      "gp": false,
-     "linkResultado": false
+     "linkResultado": false,
+     "oe": 102
     },
     {
-     "id": null,
+     "id": 14650,
      "numero": "06",
      "nome": "MMR PRINC",
      "desc": "0,90M - 0,90M - MMR PRINC - 0,90M/JC PRIN - 0,90M/AM PRIN - 0,9M",
@@ -10190,7 +10197,8 @@
      "hora": "14:00",
      "pista": "AREIA-1",
      "gp": false,
-     "linkResultado": false
+     "linkResultado": false,
+     "oe": 97
     },
     {
      "id": null,
