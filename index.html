@@ -528,7 +528,10 @@ function provaAconteceOuVaiAcontecer(t, p) {
   return true;
 }
 // Torneio cancelado ou adiado, ou que já terminou sem nenhuma prova realizada, não aparece
-const torneioVisivel = t => !cancelado(t) && !(t.fim && t.fim < hojeISO() && t.todasProvas && t.todasProvas.length && !t.provas.length);
+// e torneio que já começou sem nenhuma prova cadastrada na FPH (programação publicada em outro sistema) também não
+const torneioVisivel = t => !cancelado(t)
+  && !(t.fim && t.fim < hojeISO() && t.todasProvas && t.todasProvas.length && !t.provas.length)
+  && !(t.inicio && t.inicio <= hojeISO() && t.todasProvas && !t.todasProvas.length);
 const achar = id => S.dados.torneios.find(t => t.id === +id);
 const destaqueDe = t => (S.destaques && S.destaques[String(t.id)]) || null;
 const numProva = p => String(p.numero).replace(/^0+(?=\d)/, '');
