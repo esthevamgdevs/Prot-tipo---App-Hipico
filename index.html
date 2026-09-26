@@ -323,6 +323,9 @@ async function carregar() {
     S.dados = await pegar(`${BASE}/index.json`);
     S.dados.torneios.forEach(t => {
       t.cat = categoria(t.modalidade);
+      t.todasProvas = t.provas;
+      t.provas = t.todasProvas.filter(p => provaAconteceOuVaiAcontecer(t, p));
+      t.ocultas = t.todasProvas.length - t.provas.length;
       t.alturas = [...new Set(t.provas.map(p => p.altura).filter(h => h != null))].sort((a, b) => a - b);
       t.temRes = t.provas.some(p => p.res);
       t.dias = [...new Set(t.provas.map(p => p.dia).filter(Boolean))].sort();
@@ -510,7 +513,22 @@ function periodoLongo(t) {
   return `${a.getDate()} de ${MES_LONGO[a.getMonth()]} a ${b.getDate()} de ${MES_LONGO[b.getMonth()]} de ${b.getFullYear()}`;
 }
 const emAndamento = t => t.inicio <= hojeISO() && t.fim >= hojeISO() && !cancelado(t);
-const cancelado = t => /cancel/i.test(t.status || '');
+const cancelado = t => /cancel|adiad/i.test(t.status || '');
+// Uma prova só fica de fora quando há sinal claro de que não aconteceu:
+//  - já passou há mais de um dia (ou o torneio foi encerrado) e não teve resultado publicado;
+//  - chegou o dia e a ordem de entrada saiu vazia.
+// Provas futuras continuam aparecendo mesmo sem ordem de entrada, porque ela só sai perto da data.
+function provaAconteceOuVaiAcontecer(t, p) {
+  if (p.res) return true;
+  const hoje = hojeISO();
+  const ontem = (() => { const d = dt(hoje); d.setDate(d.getDate() - 1); return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`; })();
+  if (p.dia && p.dia <= hoje && p.oe === 0) return false;
+  if (p.dia && p.dia < ontem) return false;
+  if (p.dia && p.dia < hoje && /conclu|encerrad/i.test(t.status || '')) return false;
+  return true;
+}
+// Torneio cancelado ou adiado, ou que já terminou sem nenhuma prova realizada, não aparece
+const torneioVisivel = t => !cancelado(t) && !(t.fim && t.fim < hojeISO() && t.todasProvas && t.todasProvas.length && !t.provas.length);
 const achar = id => S.dados.torneios.find(t => t.id === +id);
 const destaqueDe = t => (S.destaques && S.destaques[String(t.id)]) || null;
 const numProva = p => String(p.numero).replace(/^0+(?=\d)/, '');
@@ -570,7 +588,7 @@ function rodape(extra) {
 
 // ---------- telas ----------
 function telaCalendario() {
-  const base = S.dados.torneios.filter(t => t.fim >= hojeISO() && !cancelado(t)).sort((a, b) => a.inicio.localeCompare(b.inicio));
+  const base = S.dados.torneios.filter(t => t.fim >= hojeISO() && torneioVisivel(t)).sort((a, b) => a.inicio.localeCompare(b.inicio));
   const vazio = `<header class="capa"><div class="topo-linha"><span class="marca">${marcaSvg(26)}Salta<small>by Opportunity</small></span><button class="btn-fino" data-acao="sobre">Sobre</button></div><h1 class="grande">A temporada<br>de salto, prova a prova</h1></header>`;
   const capa = `<header class="capa">
       <div class="topo-linha">
@@ -598,7 +616,7 @@ function telaCalendario() {
 }
 
 function telaResultados() {
-  const base = S.dados.torneios.filter(t => t.temRes).sort((a, b) => b.fim.localeCompare(a.fim));
+  const base = S.dados.torneios.filter(t => t.temRes && torneioVisivel(t)).sort((a, b) => b.fim.localeCompare(a.fim));
   const cab = extra => `<header class="capa"><div class="topo-linha"><span class="marca">${marcaSvg(26)}Salta<small>by Opportunity</small></span><button class="btn-fino" data-acao="sobre">Sobre</button></div>
     <h1>Resultados</h1><span class="sub">${base.length ? base.length + ' torneios já disputados' : 'Provas de salto já disputadas'}</span>${extra}</header>`;
   if (!base.length) return cab('') + `<main><div class="vazio"><b>Ainda sem resultados</b>Eles aparecem assim que a federação publicar.</div>${rodape()}</main>`;
@@ -666,11 +684,12 @@ function telaTorneio() {
       ${abre ? seta : ''}
     </button>`;
   }).join('')}</div>`;
+  if (t.ocultas) corpo += `<p class="fonte" style="padding-top:12px">${t.ocultas} prova${t.ocultas > 1 ? 's' : ''} sem inscritos ou sem resultado publicado ${t.ocultas > 1 ? 'não aparecem' : 'não aparece'} aqui. <a href="${esc(t.url)}" target="_blank" rel="noopener">Ver programação completa na FPH ↗</a></p>`;
   return corpo + rodape() + '</main>';
 }
 
 function telaProva() {
-  const t = achar(S.torneio), p = t?.provas.find(x => x.id === +S.prova);
+  const t = achar(S.torneio), p = t?.provas.find(x => x.id === +S.prova) || t?.todasProvas?.find(x => x.id === +S.prova);
   if (!p) return telaTorneio();
   const x = p.dia ? dt(p.dia) : null;
   const cab = `<header class="capa">
