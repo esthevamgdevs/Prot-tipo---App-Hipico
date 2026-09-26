@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Salta · Provas e resultados de salto</title>
+<meta name="description" content="Calendário e resultados de provas de salto no Brasil, por Opportunity Leilões. Dados públicos da Federação Paulista de Hipismo.">
+<meta property="og:title" content="Salta · Provas e resultados de salto">
+<meta property="og:description" content="Calendário, resultados, ranking e perfis de cavaleiros e cavalos. Um projeto Opportunity Leilões.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="./icon-512-v2.png">
+<meta name="twitter:card" content="summary">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Salta">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#123D30">
+<link rel="manifest" href="./manifest.json">
+<link rel="icon" href="./icon-192-v2.png">
+<link rel="apple-touch-icon" href="./icon-192-v2.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --verde:#123D30; --verde-2:#0A261E; --verde-3:#3B6656; --verde-linha:#2C5747;
+  --ouro:#B8912F; --ouro-claro:#D9B45A; --ouro-escuro:#8A6A1F; --bronze:#A0643A;
+  --bg:#F4F1EA; --surface:#FFFFFF; --ink:#1C231F; --ink-claro:#F4F1EA;
+  --muted:#5C645F; --muted-2:#6E7670; --linha:#E2DDD0; --verde-claro:#C9D6CF;
+  --ok:#1F7A4D; --vivo:#C0442F;
+  --serif:"DM Serif Display",Georgia,"Times New Roman",serif;
+  --sans:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --verde:#0B2A21; --verde-2:#061A14; --verde-3:#2F5648; --verde-linha:#1E4034;
+  --ouro:#D9B45A; --ouro-claro:#E7C87C; --ouro-escuro:#C9A345; --bronze:#C98452;
+  --bg:#0E1512; --surface:#16211C; --ink:#E9EDE9; --ink-claro:#E9EDE9;
+  --muted:#9AA79F; --muted-2:#8B978F; --linha:#25332C; --verde-claro:#B9C9C1;
+  --ok:#5FBE8C; --vivo:#F08C79;
+}}
+:root[data-theme="dark"]{
+  --verde:#0B2A21; --verde-2:#061A14; --verde-3:#2F5648; --verde-linha:#1E4034;
+  --ouro:#D9B45A; --ouro-claro:#E7C87C; --ouro-escuro:#C9A345; --bronze:#C98452;
+  --bg:#0E1512; --surface:#16211C; --ink:#E9EDE9; --ink-claro:#E9EDE9;
+  --muted:#9AA79F; --muted-2:#8B978F; --linha:#25332C; --verde-claro:#B9C9C1;
+  --ok:#5FBE8C; --vivo:#F08C79;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.45;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+a{color:var(--verde);text-decoration:none}
+:focus-visible{outline:2px solid var(--ouro);outline-offset:2px;border-radius:3px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.app{max-width:560px;margin:0 auto;min-height:100vh;padding-bottom:96px}
+.serif{font-family:var(--serif);font-weight:400}
+
+/* cabeçalhos */
+.capa{background:var(--verde);color:var(--ink-claro);padding:18px 20px 20px;display:flex;flex-direction:column;gap:12px;position:relative;border-bottom:2px solid var(--ouro-escuro)}
+/* filtros de categoria dentro do cabeçalho: rolam até a borda da tela */
+.capa .chips{margin:2px -20px -2px;padding:2px 20px 4px;overflow-x:auto}
+.capa h1+.sub{margin-top:-6px}
+.capa h1{margin:0;font-family:var(--serif);font-weight:400;font-size:38px;line-height:1.02}
+.capa h1.grande{font-size:36px;letter-spacing:.005em}
+.capa .sub{font-size:13.5px;color:var(--verde-claro)}
+.olho{font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--ouro-claro)}
+.topo-linha{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.marca{display:flex;align-items:baseline;gap:8px;font-family:var(--serif);font-size:22px}
+.marca small{font-family:var(--sans);font-size:11.5px;font-weight:600;letter-spacing:.04em;opacity:.75}
+.btn-fino{font-size:13px;font-weight:600;color:var(--ink-claro);border:1px solid var(--verde-3);border-radius:999px;padding:8px 14px;display:inline-flex;align-items:center;min-height:36px}
+.voltar{min-height:44px;display:inline-flex;align-items:center;gap:6px;color:var(--ink-claro);font-size:14px;font-weight:600;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.numeros{display:flex;gap:22px;padding-top:12px;border-top:1px solid var(--verde-linha);flex-wrap:wrap}
+.numeros div{display:flex;flex-direction:column}
+.numeros b{font-family:var(--serif);font-weight:400;font-size:24px;color:var(--ouro-claro)}
+.numeros span{font-size:12px;color:var(--verde-claro)}
+.acoes{display:flex;gap:8px;flex-wrap:wrap}
+.btn{flex:1 1 140px;min-height:44px;border-radius:4px;display:inline-flex;align-items:center;justify-content:center;gap:8px;font-size:14px;font-weight:700;padding:0 12px;text-align:center}
+.btn.ouro{background:var(--ouro-claro);color:#1C231F}
+.btn.fantasma{border:1px solid var(--verde-3);color:var(--ink-claro);font-weight:600}
+.btn.clara{border:1px solid var(--linha);background:var(--surface);color:var(--ink);font-weight:600}
+
+/* filtros */
+main{padding:0 0 8px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:0 20px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;min-height:36px;padding:0 14px;border-radius:999px;border:1px solid var(--verde-3);background:transparent;color:var(--ink-claro);font-size:13.5px;font-weight:500}
+.chip[aria-pressed="true"]{background:var(--ouro-claro);border-color:var(--ouro-claro);color:#1C231F;font-weight:700}
+.chips.clara{padding:0}
+.chips.clara .chip{border-color:var(--linha);color:var(--ink)}
+.chips.clara .chip[aria-pressed="true"]{background:var(--verde);border-color:var(--verde);color:var(--ink-claro)}
+.barra-filtros{display:flex;gap:8px;align-items:center;padding:16px 20px 0}
+select{font:inherit;font-size:14px;min-height:40px;padding:0 10px;border-radius:4px;border:1px solid var(--linha);background:var(--surface);color:var(--ink);flex:1}
+.secao{padding:18px 20px 8px;display:flex;align-items:baseline;gap:10px}
+.secao h2{margin:0;font-family:var(--serif);font-weight:400;font-size:22px}
+.secao .risco{flex-grow:1;height:1px;background:var(--linha)}
+.secao .aux{font-size:12.5px;color:var(--muted)}
+
+/* listas */
+.lista{display:flex;flex-direction:column;gap:10px;padding:0 20px}
+.cartao{display:flex;background:var(--surface);border:1px solid var(--linha);border-radius:4px;overflow:hidden;color:var(--ink);width:100%;text-align:left}
+.cartao:hover{border-color:var(--ouro)}
+.cartao .data{width:80px;flex:none;background:var(--verde);color:var(--ink-claro);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px 6px;gap:2px}
+.cartao .data.destaque{background:var(--ouro-escuro)}
+/* "22–25" precisa caber numa linha só */
+.cartao .data b{font-family:var(--serif);font-weight:400;font-size:26px;line-height:1.05;white-space:nowrap;letter-spacing:-.01em}
+.cartao .data b.longo{font-size:21px}
+.cartao .data span{font-size:10.5px;font-weight:700;letter-spacing:.06em;text-align:center;white-space:nowrap}
+.cartao .corpo{flex-grow:1;min-width:0;padding:12px 14px;display:flex;flex-direction:column;gap:3px}
+.cartao .nome{font-family:var(--serif);font-size:18px;line-height:1.15}
+.cartao .meta{font-size:12.5px;color:var(--muted)}
+.cartao .tag{font-size:11.5px;font-weight:700;letter-spacing:.06em;color:var(--ouro-escuro)}
+.estrela{align-self:flex-start;width:44px;height:44px;flex:none;display:flex;align-items:center;justify-content:center;color:var(--linha)}
+.estrela[aria-pressed="true"]{color:var(--ouro)}
+.vivo{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:700;letter-spacing:.1em;color:var(--vivo)}
+.vivo i{width:8px;height:8px;border-radius:50%;background:var(--vivo);display:block}
+
+/* dias */
+.dias{display:flex;gap:16px;padding:0 20px;background:var(--surface);border-bottom:1px solid var(--linha);overflow-x:auto;scrollbar-width:none}
+.dias::-webkit-scrollbar{display:none}
+.dia{flex:none;min-height:58px;padding:0 2px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;color:var(--muted-2);font-size:11px;font-weight:700;letter-spacing:.08em}
+.dia b{font-family:var(--serif);font-weight:400;font-size:22px;line-height:1}
+.dia[aria-pressed="true"]{color:var(--ink);box-shadow:inset 0 -3px 0 var(--ouro)}
+
+/* provas */
+.prova{display:flex;align-items:center;gap:14px;padding:14px;background:var(--surface);border:1px solid var(--linha);border-radius:4px;width:100%;text-align:left;color:var(--ink)}
+.prova.destaque{border-color:var(--ouro)}
+.prova .alt{width:62px;flex:none;display:flex;flex-direction:column}
+.prova .alt b{font-family:var(--serif);font-weight:400;font-size:26px;line-height:1}
+.prova .alt span{font-size:10.5px;font-weight:700;letter-spacing:.08em;color:var(--muted)}
+.prova .corpo{flex-grow:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.prova .venc{font-size:14.5px;font-weight:600}
+.seta{flex:none;color:var(--muted-2)}
+
+/* resultado */
+.podio{display:flex;flex-direction:column;padding:0 20px}
+.linha-podio{display:flex;align-items:center;gap:14px;padding:10px 0;border-bottom:1px solid var(--linha);width:100%;text-align:left;color:var(--ink)}
+.linha-podio .nome{font-family:var(--serif);font-size:19px;line-height:1.1}
+.linha-podio .meta{font-size:12.5px;color:var(--muted)}
+.linha-podio .res{flex:none;text-align:right;display:flex;flex-direction:column}
+.linha-podio .res b{font-size:15px;font-weight:700}
+.linha-podio .res span{font-size:11.5px;color:var(--muted)}
+.tabela{display:flex;flex-direction:column;padding:0 20px}
+.cab{display:flex;padding:10px 0 6px;font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--muted)}
+.cab .p{width:40px}.cab .c{flex-grow:1}.cab .f{width:52px;text-align:right}.cab .t{width:66px;text-align:right}
+.linha{display:flex;align-items:center;padding:10px 0;border-top:1px solid var(--linha);width:100%;text-align:left;color:var(--ink)}
+.linha .pos{width:40px;flex:none;text-align:center;font-family:var(--serif);font-size:20px;color:var(--muted)}
+.linha .conj{flex-grow:1;min-width:0;display:flex;flex-direction:column}
+.linha .cav{font-size:14.5px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.linha .cavalo{font-size:12.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.linha .f{width:52px;flex:none;text-align:right;font-size:15px;font-weight:700;font-variant-numeric:tabular-nums}
+.linha .f.zero{color:var(--ok)}
+.linha .t{width:66px;flex:none;text-align:right;font-size:14.5px;font-variant-numeric:tabular-nums}
+.status{font-size:12px;font-weight:600;color:var(--muted)}
+.busca{width:100%;font:inherit;font-size:15px;min-height:44px;padding:0 12px;border:1px solid var(--linha);border-radius:4px;background:var(--surface);color:var(--ink)}
+
+/* perfis e ranking */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;padding:16px 20px 0}
+.stats div{background:var(--surface);border:1px solid var(--linha);border-radius:4px;padding:10px 6px;display:flex;flex-direction:column;align-items:center;gap:2px}
+.stats b{font-family:var(--serif);font-weight:400;font-size:24px;line-height:1}
+.stats span{font-size:11px;color:var(--muted);text-align:center}
+.carrossel{display:flex;gap:8px;padding:0 20px;overflow-x:auto;scrollbar-width:none}
+.carrossel::-webkit-scrollbar{display:display}
+.carrossel::-webkit-scrollbar{display:none}
+.mini{flex:none;width:150px;background:var(--surface);border:1px solid var(--linha);border-radius:4px;padding:12px;display:flex;flex-direction:column;gap:4px;color:var(--ink);text-align:left}
+.mini b{font-family:var(--serif);font-weight:400;font-size:16px;line-height:1.15}
+.mini span{font-size:12px;color:var(--muted)}
+.painel{margin:16px 20px 0;background:var(--surface);border:1px solid var(--linha);border-radius:4px;padding:16px;display:flex;flex-direction:column;gap:12px}
+.painel h3{margin:0;font-family:var(--serif);font-weight:400;font-size:20px}
+.barra{display:flex;align-items:center;gap:10px}
+.barra .rot{width:52px;flex:none;font-family:var(--serif);font-size:16px}
+.barra .trilho{flex-grow:1;height:18px;border-radius:2px;background:var(--bg);display:flex;overflow:hidden}
+.barra .trilho i{display:block;height:100%}
+.barra .trilho .v{background:var(--ouro)}
+.barra .trilho .o{background:var(--verde-3)}
+.barra .num{width:42px;flex:none;text-align:right;font-size:13px}
+.legenda{display:flex;gap:14px;font-size:11.5px;color:var(--muted)}
+.legenda span{display:flex;align-items:center;gap:6px}
+.legenda i{width:10px;height:10px;border-radius:2px;display:block}
+
+/* seguindo */
+.seguidos{display:flex;gap:14px;padding:0 20px;overflow-x:auto;scrollbar-width:none}
+.seguidos::-webkit-scrollbar{display:none}
+.seguido{flex:none;width:76px;display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--ink)}
+.seguido .bolha{width:58px;height:58px;border-radius:50%;background:var(--verde);color:var(--ouro-claro);border:2px solid var(--ouro);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:20px}
+.seguido span{font-size:11.5px;font-weight:600;text-align:center;line-height:1.2}
+.feed{display:flex;flex-direction:column;gap:10px;padding:0 20px}
+.novidade{background:var(--surface);border:1px solid var(--linha);border-radius:4px;padding:14px 16px;display:flex;flex-direction:column;gap:6px;width:100%;text-align:left;color:var(--ink)}
+.novidade .topo{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.novidade .tag{font-size:11px;font-weight:700;letter-spacing:.14em}
+.novidade .txt{font-family:var(--serif);font-size:17px;line-height:1.25}
+.novidade .onde{font-size:12.5px;color:var(--muted)}
+.opcoes{margin:0 20px;background:var(--surface);border:1px solid var(--linha);border-radius:4px;display:flex;flex-direction:column}
+.opcao{display:flex;align-items:center;gap:12px;padding:12px 14px;border-bottom:1px solid var(--linha);width:100%;text-align:left;color:var(--ink);min-height:52px}
+.opcao:last-child{border-bottom:0}
+.opcao span{flex-grow:1;font-size:14px}
+.switch{width:44px;height:26px;flex:none;border-radius:999px;background:var(--linha);position:relative;display:block;transition:background .15s}
+.switch i{position:absolute;left:3px;top:3px;width:20px;height:20px;border-radius:50%;background:#fff;display:block;transition:left .15s}
+.opcao[aria-pressed="true"] .switch{background:var(--verde)}
+.opcao[aria-pressed="true"] .switch i{left:21px}
+
+/* estados */
+.vazio{text-align:center;padding:40px 24px;color:var(--muted);font-size:14.5px;line-height:1.6}
+.vazio b{display:block;font-family:var(--serif);font-weight:400;font-size:22px;color:var(--ink);margin-bottom:6px}
+.fonte{font-size:12px;color:var(--muted);line-height:1.5;padding:16px 20px 0}
+.fonte a{font-weight:700;text-decoration:underline}
+.aviso{margin:14px 20px 0;padding:12px 14px;border:1px solid var(--linha);background:var(--surface);border-radius:4px;font-size:13.5px;color:var(--muted)}
+
+
+/* destaque editorial: leilão ou aviso ligado a um torneio */
+.selo-dest{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;margin-top:6px;font-size:11.5px;font-weight:700;letter-spacing:.04em;color:var(--ouro-escuro);background:var(--bg);border:1px solid var(--ouro);border-radius:999px;padding:4px 10px}
+.destaque-aviso{margin:16px 20px 0;background:var(--surface);border:1px solid var(--ouro);border-left:4px solid var(--ouro);border-radius:4px;padding:16px;display:flex;flex-direction:column;gap:6px}
+.destaque-aviso .chapeu{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ouro-escuro)}
+.destaque-aviso .tit{font-family:var(--serif);font-size:21px;line-height:1.15}
+.destaque-aviso .quando{font-size:13.5px;font-weight:600;color:var(--verde)}
+.destaque-aviso .txt{font-size:13.5px;line-height:1.5;color:var(--muted)}
+.destaque-aviso .btn{margin-top:6px;align-self:flex-start;flex:none;min-width:200px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .destaque-aviso .quando{color:var(--ouro-claro)}}
+:root[data-theme="dark"] .destaque-aviso .quando{color:var(--ouro-claro)}
+
+/* navegação */
+nav.abas{position:fixed;left:0;right:0;bottom:0;background:var(--bg);border-top:1px solid var(--linha);padding-bottom:env(safe-area-inset-bottom,0px);z-index:20}
+nav.abas .inner{max-width:560px;margin:0 auto;display:flex}
+nav.abas button{flex:1;min-height:64px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:var(--muted-2);font-size:11.5px;font-weight:600}
+nav.abas button b{width:18px;height:3px;border-radius:2px;background:transparent;display:block}
+nav.abas button[aria-current="page"]{color:var(--verde);font-weight:700}
+nav.abas button[aria-current="page"] b{background:var(--ouro)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) nav.abas button[aria-current="page"]{color:var(--ouro-claro)}}
+:root[data-theme="dark"] nav.abas button[aria-current="page"]{color:var(--ouro-claro)}
+
+/* card de compartilhar */
+.folha{position:fixed;inset:0;background:rgba(10,20,16,.6);display:flex;align-items:flex-end;justify-content:center;z-index:30;padding:16px}
+.folha .caixa{width:100%;max-width:420px;background:var(--bg);border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:12px;max-height:92vh;overflow:auto}
+.folha h3{margin:0;font-family:var(--serif);font-weight:400;font-size:22px}
+#cartaoArea{width:100%;aspect-ratio:9/16;border-radius:6px;overflow:hidden;background:var(--verde)}
+#cartaoArea svg{width:100%;height:100%;display:block}
+@media (prefers-reduced-motion:no-preference){.fade{animation:f .18s ease-out}@keyframes f{from{opacity:0;transform:translateY(4px)}to{opacity:1}}}
+</style>
+</head>
+<body>
+<div class="app" id="app"></div>
+<script>
+// Pista · app de salto. Lê os arquivos gerados pelo coletor em data/hipica/.
+const BASE = './data/hipica';
+const URL_FPH_PROVA = id => `https://www.fph.com.br/calendario/Resultados.aspx?ID=${id}`;
+
+const MES = ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
+const MES_LONGO = ['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
+const DIA_CURTO = ['DOM','SEG','TER','QUA','QUI','SEX','SÁB'];
+const DIA_LONGO = ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'];
+
+const pad = n => String(n).padStart(2, '0');
+const hojeISO = () => { const d = new Date(); return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`; };
+const dt = s => { const [y, m, d] = String(s).split('-').map(Number); return new Date(y, m - 1, d); };
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const fmtAlt = h => h == null ? '' : h.toFixed(2).replace('.', ',') + 'm';
+const fmtN = n => n == null ? '–' : String(n).replace('.', ',');
+const fmtT = n => n == null ? '–' : n.toFixed(2).replace('.', ',') + 's';
+const chave = s => String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toUpperCase().replace(/[^A-Z0-9]+/g, ' ').trim();
+const diasEntre = (a, b) => Math.round((dt(a) - dt(b)) / 864e5);
+
+const PEQ = new Set(['de','da','do','das','dos','e','em','na','no','ao','a','o','di','du','von','van','la','le','del']);
+const MANTER = new Set(['CSN','CSI','CSIE','GP','FPH','CBH','SHP','CHSA','SHC','JHSF','ODESUR','U25']);
+// Siglas curtas de haras e linhagens (TRV, JMEN, HPH…) ficam em caixa alta; estas palavras não
+const NAO_SIGLA = new Set(['SAO','SÃO','DOS','DAS','NOS','NAS','POR','COM','SUL','RIO','ANO','DIA','VAN','VON','DEL','LOS','LAS','COPA','TAÇA','TACA','MINI','FASE','OURO','AZUL','REAL','NOVA','NOVO','ALTA','ALTO','CASA','DUAS','DOIS','TRES','TRÊS','ANOS','VILA','SETE','OITO','LUZ','REI','MAR','SEM','ERA','UMA','UMS']);
+function titulo(s) {
+  return String(s || '').split(/\s+/).map((w, i) => {
+    const limpo = w.replace(/[^A-Za-zÀ-ÿ]/g, '');
+    if (!limpo) return w;
+    const up = limpo.toUpperCase();
+    if (i > 0 && PEQ.has(limpo.toLowerCase())) return w.toLowerCase();
+    if (MANTER.has(up) || /\d/.test(w)) return w;
+    if (limpo === up && up.length <= 3 && !NAO_SIGLA.has(up)) return w; // sigla curta
+    // D'Alex, O'Brien e nomes com hífen mantêm a letra depois do sinal em maiúscula
+    return w.toLowerCase().replace(/(^|[^A-Za-zÀ-ÿ])([a-zà-ÿ])/g, (_, a, b) => a + b.toUpperCase());
+  }).join(' ');
+}
+const SIGLAS_FED = [[/PAULISTA/i,'FPH'],[/PARANAENSE/i,'FPrH'],[/BRAS[ÍI]LIA/i,'FHBr'],[/RIO DE JANEIRO/i,'FEERJ'],[/MINAS/i,'FHMG'],[/GA[ÚU]CHA|RIO GRANDE DO SUL/i,'FGH'],[/CATARINENSE|SANTA CATARINA/i,'FCH'],[/GOI[ÁA]/i,'FHGO'],[/BAH?IA|BAIANA/i,'FBH'],[/PERNAMBUC/i,'FPeH'],[/CEAR[ÁA]/i,'FCeH'],[/MATO GROSSO DO SUL/i,'FHMS'],[/MATO GROSSO/i,'FHMT'],[/ESP[ÍI]RITO SANTO/i,'FHES'],[/CONFEDERA/i,'CBH']];
+// nomes de federação são longos: mostramos a sigla e deixamos o nome no title
+const fedCurta = f => { for (const [re, s] of SIGLAS_FED) if (re.test(f || '')) return s; return titulo(f || ''); };
+const categoria = m => /INICIANTE/i.test(m) ? 'Iniciantes' : (/CAVALOS?\s+NOVOS?/i.test(m) ? 'Cavalos novos' : (/ESCOLA/i.test(m) ? 'Escola' : 'Salto'));
+
+// ---------- notificações (push) ----------
+// Endereço e chave pública do Supabase do Salta e a chave pública VAPID: tudo aqui é público por natureza.
+const PUSH = {
+  url: 'https://ktwbausxxyklpasbteko.supabase.co',
+  chave: 'sb_publishable_DdzT-3q2iKSCkiPthpQNIg_Ld2TW085',
+  vapid: 'BI3FW_6kvI1HBBpZqDFtRj7llwE63lnR-oL-TRKNu4WvhSVaP614lo0OVIkkebDuUaE7ciLFI1h0XKCKb163saQ',
+};
+const ehIOS = /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+const naTelaDeInicio = () => window.matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
+const push = { estado: 'verificando', reg: null, sub: null, ocupado: false, erro: null };
+
+// ---------- estado ----------
+const S = {
+  aba: 'calendario', tela: null, erro: null,
+  dados: null, stats: null, busca: null, destaques: null,
+  torneios: {}, perfis: {},
+  cat: 'Todas', altura: 'todas', soSalvos: false,
+  torneio: null, dia: null, prova: null, filtro: '',
+  perfilTipo: null, perfilK: null, rankTipo: 'cavaleiros',
+  compartilhar: null,
+};
+const guarda = {
+  ler(k, padrao) { try { return JSON.parse(localStorage.getItem(k)) ?? padrao; } catch { return padrao; } },
+  gravar(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} },
+};
+let salvos = guarda.ler('pista-salvos', []);
+let seguindo = guarda.ler('pista-seguindo', []);
+let avisos = guarda.ler('pista-avisos', { podio: true, programa: true, aovivo: false });
+let vistos = guarda.ler('pista-vistos', {});
+
+// ---------- carregamento ----------
+async function pegar(url) {
+  const r = await fetch(url, { cache: 'no-cache' });
+  if (!r.ok) throw new Error(r.status === 404 ? 'sem-dados' : 'HTTP ' + r.status);
+  return r.json();
+}
+async function carregar() {
+  try {
+    S.dados = await pegar(`${BASE}/index.json`);
+    S.dados.torneios.forEach(t => {
+      t.cat = categoria(t.modalidade);
+      t.todasProvas = t.provas;
+      t.provas = t.todasProvas.filter(p => provaAconteceOuVaiAcontecer(t, p));
+      t.ocultas = t.todasProvas.length - t.provas.length;
+      t.alturas = [...new Set(t.provas.map(p => p.altura).filter(h => h != null))].sort((a, b) => a - b);
+      t.temRes = t.provas.some(p => p.res);
+      t.dias = [...new Set(t.provas.map(p => p.dia).filter(Boolean))].sort();
+    });
+  } catch (e) { S.erro = e.message; }
+  render();
+  try { S.stats = await pegar(`${BASE}/stats.json`); render(); } catch {}
+  // destaques são escritos à mão em data/hipica/destaques.json e o coletor não mexe neles
+  try { S.destaques = await pegar(`${BASE}/destaques.json`); render(); } catch {}
+}
+async function carregarTorneio(id) {
+  if (S.torneios[id]) return;
+  S.torneios[id] = 'carregando';
+  try { S.torneios[id] = await pegar(`${BASE}/t/${id}.json`); } catch { S.torneios[id] = 'erro'; }
+  render();
+}
+async function carregarPerfil(tipo, k) {
+  const f = /[A-Z]/.test(k[0]) ? k[0] : (/[0-9]/.test(k[0]) ? '0' : '_');
+  const id = `${tipo}/${f}`;
+  if (S.perfis[id]) return;
+  S.perfis[id] = 'carregando';
+  try { S.perfis[id] = await pegar(`${BASE}/perfis/${tipo}/${f}.json`); } catch { S.perfis[id] = 'erro'; }
+  render();
+}
+function perfilDe(tipo, k) {
+  const f = /[A-Z]/.test(k[0]) ? k[0] : (/[0-9]/.test(k[0]) ? '0' : '_');
+  const fatia = S.perfis[`${tipo}/${f}`];
+  if (!fatia || fatia === 'carregando' || fatia === 'erro') return fatia || null;
+  return fatia[k] || 'ausente';
+}
+async function carregarBusca() {
+  if (S.busca) return;
+  S.busca = 'carregando';
+  try { S.busca = await pegar(`${BASE}/busca.json`); } catch { S.busca = 'erro'; }
+  render();
+}
+
+// ---------- ações ----------
+function alternar(lista, chaveArmazenada, valor) {
+  const i = lista.indexOf(valor);
+  if (i >= 0) lista.splice(i, 1); else lista.push(valor);
+  guarda.gravar(chaveArmazenada, lista);
+  sincronizarAvisos();
+  render();
+}
+const estaSeguindo = (tipo, k) => seguindo.some(s => s.tipo === tipo && s.k === k);
+function seguir(tipo, k, nome) {
+  const i = seguindo.findIndex(s => s.tipo === tipo && s.k === k);
+  if (i >= 0) seguindo.splice(i, 1); else seguindo.push({ tipo, k, nome });
+  guarda.gravar('pista-seguindo', seguindo);
+  sincronizarAvisos();
+  render();
+}
+
+function base64ParaBytes(b) {
+  const s = atob((b + '='.repeat((4 - b.length % 4) % 4)).replace(/-/g, '+').replace(/_/g, '/'));
+  return Uint8Array.from(s, c => c.charCodeAt(0));
+}
+async function iniciarPush() {
+  const suportado = 'serviceWorker' in navigator && 'PushManager' in window && 'Notification' in window;
+  if (!suportado) { push.estado = ehIOS && !naTelaDeInicio() ? 'ios-instalar' : 'sem-suporte'; return render(); }
+  try {
+    push.reg = await navigator.serviceWorker.register('./sw.js');
+    push.sub = await push.reg.pushManager.getSubscription();
+  } catch { push.estado = 'sem-suporte'; return render(); }
+  push.estado = Notification.permission === 'denied' ? 'bloqueado' : (push.sub ? 'ativo' : 'inativo');
+  render();
+  if (push.sub) salvarInscricao().catch(() => {}); // mantém o servidor em dia com o que a pessoa segue
+}
+async function rpc(nome, corpo) {
+  const r = await fetch(`${PUSH.url}/rest/v1/rpc/${nome}`, {
+    method: 'POST',
+    headers: { apikey: PUSH.chave, 'Content-Type': 'application/json' },
+    body: JSON.stringify(corpo),
+  });
+  if (!r.ok) throw new Error('Servidor respondeu ' + r.status);
+}
+function salvarInscricao() {
+  if (!push.sub) return Promise.resolve();
+  const j = push.sub.toJSON();
+  return rpc('salvar_inscricao', {
+    p_endpoint: j.endpoint, p_p256dh: j.keys.p256dh, p_auth: j.keys.auth,
+    p_seguindo: seguindo.map(x => ({ tipo: x.tipo, k: x.k, nome: x.nome })),
+    p_torneios: salvos,
+    p_avisos: avisos,
+    p_plataforma: ehIOS ? 'ios' : (/android/i.test(navigator.userAgent) ? 'android' : 'computador'),
+  });
+}
+let esperaSinc;
+function sincronizarAvisos() {
+  if (push.estado !== 'ativo') return;
+  clearTimeout(esperaSinc);
+  esperaSinc = setTimeout(() => salvarInscricao().catch(() => {}), 800);
+}
+async function ativarAvisos() {
+  if (push.ocupado) return;
+  push.ocupado = true; push.erro = null; render();
+  try {
+    const perm = await Notification.requestPermission();
+    if (perm !== 'granted') { push.estado = perm === 'denied' ? 'bloqueado' : 'inativo'; return; }
+    push.sub = await push.reg.pushManager.subscribe({ userVisibleOnly: true, applicationServerKey: base64ParaBytes(PUSH.vapid) });
+    await salvarInscricao();
+    push.estado = 'ativo';
+    push.reg.showNotification('Avisos ativados', { body: 'Você vai saber quando quem você segue subir no pódio.', icon: './icon-192.png' });
+  } catch (e) {
+    push.erro = 'Não deu para ativar agora. Verifique a conexão e tente de novo.';
+  } finally { push.ocupado = false; render(); }
+}
+async function desativarAvisos() {
+  if (push.ocupado || !push.sub) return;
+  push.ocupado = true; render();
+  try {
+    await rpc('remover_inscricao', { p_endpoint: push.sub.endpoint }).catch(() => {});
+    await push.sub.unsubscribe();
+    push.sub = null; push.estado = 'inativo';
+  } finally { push.ocupado = false; render(); }
+}
+function blocoAvisos() {
+  const opcoes = `<div class="opcoes">
+      ${[['podio', 'Vitórias e pódios'], ['programa', 'Programação publicada nos torneios salvos']].map(([k, t]) =>
+        `<button class="opcao" data-aviso="${k}" aria-pressed="${!!avisos[k]}"><span>${t}</span><span class="switch"><i></i></span></button>`).join('')}
+      <div class="opcao" aria-disabled="true"><span style="color:var(--muted)">Quando entrar na pista ao vivo · em breve</span></div>
+    </div>`;
+  const msg = {
+    'verificando': 'Verificando se este aparelho aceita avisos…',
+    'sem-suporte': 'Este navegador não recebe avisos. No computador, use Chrome, Edge ou Firefox; no Android, o Chrome.',
+    'ios-instalar': 'No iPhone, os avisos só funcionam com o Salta na tela de início. No Safari, toque em Compartilhar e depois em "Adicionar à Tela de Início", e abra o Salta por lá.',
+    'bloqueado': 'Os avisos estão bloqueados para o Salta nas configurações do navegador ou do celular. Libere por lá e volte aqui.',
+  }[push.estado];
+  let html = `<div class="secao"><h2>Avisos no celular</h2><span class="risco"></span></div>`;
+  if (msg) return html + `<div class="aviso">${esc(msg)}</div>`;
+  if (push.estado === 'inativo') {
+    return html + `<div class="painel" style="margin-top:0">
+        <p style="margin:0;font-size:14px;line-height:1.55;color:var(--muted)">Receba um aviso quando quem você segue subir no pódio ou quando um torneio salvo publicar a programação.</p>
+        <button class="btn ouro" data-acao="ativarAvisos" ${push.ocupado ? 'disabled' : ''} style="flex:none">${push.ocupado ? 'Ativando…' : 'Ativar avisos neste aparelho'}</button>
+        ${push.erro ? `<p style="margin:0;font-size:13px;color:var(--vivo)">${esc(push.erro)}</p>` : ''}
+      </div>`;
+  }
+  return html + opcoes + `<div class="barra-filtros"><button class="btn clara" data-acao="desativarAvisos" style="flex:none" ${push.ocupado ? 'disabled' : ''}>Desativar avisos neste aparelho</button></div>
+    <p class="fonte">Os avisos chegam logo depois de cada atualização dos resultados, que acontece algumas vezes por dia.</p>`;
+}
+
+// ---------- peças ----------
+const ICONES = {
+  calendario: '<rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/>',
+  resultados: '<circle cx="12" cy="9" r="5.5"/><path d="M9 14l-2 7 5-2.5 5 2.5-2-7"/>',
+  seguindo: '<path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z" stroke-linejoin="round"/>',
+  ranking: '<path d="M5 20V11M12 20V5M19 20v-6"/>',
+};
+const svg = (d, t = 22) => `<svg width="${t}" height="${t}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">${d}</svg>`;
+const seta = '<svg class="seta" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 5l7 7-7 7"/></svg>';
+const estrelaSvg = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"/></svg>';
+const CORES_ROSETA = [['var(--ouro)', 'var(--ouro-escuro)'], ['#8A8F99', '#646A75'], ['var(--bronze)', '#7A4A28']];
+function roseta(pos, tam = 38) {
+  const [cor, fita] = CORES_ROSETA[pos - 1] || CORES_ROSETA[0];
+  return `<svg width="${tam}" height="${Math.round(tam * 1.26)}" viewBox="0 0 46 58" fill="none" aria-hidden="true" style="flex:none">
+    <path d="M14 34l-5 22 8-5 5 6 2-22M32 34l5 22-8-5-5 6-2-22" fill="${fita}"/>
+    <circle cx="23" cy="22" r="20" fill="${cor}"/>
+    <circle cx="23" cy="22" r="17" fill="none" stroke="#fff" stroke-width="1.2" stroke-dasharray="2.4 2"/>
+    <circle cx="23" cy="22" r="11" fill="#fff"/>
+    <text x="23" y="27" text-anchor="middle" font-family="DM Serif Display, serif" font-size="15" fill="#1C231F">${pos}</text></svg>`;
+}
+function marcaSvg(t = 26) {
+  // oxer com a trajetória do salto: marca do Salta
+  return `<svg width="${t}" height="${t}" viewBox="0 0 100 100" fill="none" aria-hidden="true" style="flex:none"><path d="M6 88C10 46 26 20 50 20s40 26 44 68" stroke="#D9B45A" stroke-width="7" stroke-linecap="round" stroke-dasharray="1 14" fill="none"></path> <rect x="20" y="50" width="52" height="7" rx="3.5" fill="#A8801F"></rect> <rect x="18" y="40" width="8" height="36" rx="4" fill="#7E9A8D"></rect> <rect x="66" y="40" width="8" height="36" rx="4" fill="#7E9A8D"></rect> <rect x="28" y="64" width="52" height="8" rx="4" fill="#D9B45A"></rect> <rect x="26" y="54" width="10" height="38" rx="5" fill="#F4F1EA"></rect> <rect x="72" y="54" width="10" height="38" rx="5" fill="#F4F1EA"></rect></svg>`;
+}
+function abas() {
+  const itens = [['calendario', 'Calendário'], ['resultados', 'Resultados'], ['seguindo', 'Seguindo'], ['ranking', 'Ranking']];
+  const naAba = !S.tela;
+  return `<nav class="abas"><div class="inner">${itens.map(([k, t]) =>
+    `<button data-aba="${k}" aria-current="${naAba && S.aba === k ? 'page' : 'false'}">${svg(ICONES[k])}${t}<b></b></button>`).join('')}</div></nav>`;
+}
+const voltar = (acao, texto) => `<button class="voltar" data-acao="${acao}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 5l-7 7 7 7"/></svg>${esc(texto)}</button>`;
+
+function periodo(t) {
+  const a = dt(t.inicio), b = dt(t.fim);
+  if (a.getTime() === b.getTime()) return { cima: String(a.getDate()), baixo: MES[a.getMonth()].toUpperCase() };
+  if (a.getMonth() === b.getMonth()) return { cima: `${a.getDate()}–${b.getDate()}`, baixo: MES[a.getMonth()].toUpperCase() };
+  return { cima: `${a.getDate()}–${b.getDate()}`, baixo: `${MES[a.getMonth()]}/${MES[b.getMonth()]}`.toUpperCase() };
+}
+function periodoLongo(t) {
+  const a = dt(t.inicio), b = dt(t.fim);
+  if (a.getTime() === b.getTime()) return `${a.getDate()} de ${MES_LONGO[a.getMonth()]} de ${a.getFullYear()}`;
+  if (a.getMonth() === b.getMonth()) return `${a.getDate()} a ${b.getDate()} de ${MES_LONGO[a.getMonth()]} de ${b.getFullYear()}`;
+  return `${a.getDate()} de ${MES_LONGO[a.getMonth()]} a ${b.getDate()} de ${MES_LONGO[b.getMonth()]} de ${b.getFullYear()}`;
+}
+const emAndamento = t => t.inicio <= hojeISO() && t.fim >= hojeISO() && !cancelado(t);
+const cancelado = t => /cancel|adiad/i.test(t.status || '');
+// Uma prova só fica de fora quando há sinal claro de que não aconteceu:
+//  - já passou há mais de um dia (ou o torneio foi encerrado) e não teve resultado publicado;
+//  - chegou o dia e a ordem de entrada saiu vazia.
+// Provas futuras continuam aparecendo mesmo sem ordem de entrada, porque ela só sai perto da data.
+function provaAconteceOuVaiAcontecer(t, p) {
+  if (p.res) return true;
+  const hoje = hojeISO();
+  const ontem = (() => { const d = dt(hoje); d.setDate(d.getDate() - 1); return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`; })();
+  if (p.dia && p.dia <= hoje && p.oe === 0) return false;
+  if (p.dia && p.dia < ontem) return false;
+  if (p.dia && p.dia < hoje && /conclu|encerrad/i.test(t.status || '')) return false;
+  return true;
+}
+// Torneio cancelado ou adiado, ou que já terminou sem nenhuma prova realizada, não aparece
+const torneioVisivel = t => !cancelado(t) && !(t.fim && t.fim < hojeISO() && t.todasProvas && t.todasProvas.length && !t.provas.length);
+const achar = id => S.dados.torneios.find(t => t.id === +id);
+const destaqueDe = t => (S.destaques && S.destaques[String(t.id)]) || null;
+const numProva = p => String(p.numero).replace(/^0+(?=\d)/, '');
+function provaDestaque(t) {
+  const com = t.provas.filter(p => p.res && p.v);
+  if (!com.length) return null;
+  return com.find(p => p.gp) || com.reduce((a, b) => (b.altura ?? 0) >= (a.altura ?? 0) ? b : a);
+}
+
+function cartaoTorneio(t, comVencedor) {
+  const p = periodo(t), destaque = emAndamento(t);
+  const venc = comVencedor ? provaDestaque(t) : null;
+  return `<button class="cartao" data-torneio="${t.id}">
+    <span class="data${destaque ? ' destaque' : ''}"><b class="${p.cima.length > 4 ? 'longo' : ''}">${p.cima}</b><span>${p.baixo}</span></span>
+    <span class="corpo">
+      ${destaque ? '<span class="vivo"><i></i>ACONTECENDO AGORA</span>' : ''}
+      <span class="nome">${esc(titulo(t.nome))}</span>
+      <span class="meta">${esc(titulo(t.local || 'Local a confirmar'))}</span>
+      <span class="tag">${t.cat.toUpperCase()}${t.alturas.length ? ' · ' + fmtAlt(t.alturas[0]) + (t.alturas.length > 1 ? ' a ' + fmtAlt(t.alturas[t.alturas.length - 1]) : '') : ''}${venc ? '' : (t.provas.length ? ` · ${t.provas.length} PROVAS` : ' · PROGRAMAÇÃO EM BREVE')}</span>
+      ${venc ? `<span class="meta">Venceu a ${fmtAlt(venc.altura)}: <strong>${esc(titulo(venc.v.c))}</strong> com ${esc(titulo(venc.v.h))}</span>` : ''}
+      ${destaqueDe(t) ? `<span class="selo-dest">${esc(destaqueDe(t).selo || 'Leilão durante o torneio')}</span>` : ''}
+    </span>
+    <span class="estrela" role="img" aria-hidden="true" ${salvos.includes(t.id) ? 'aria-pressed="true"' : ''}>${estrelaSvg}</span>
+  </button>`;
+}
+
+const FAIXAS = { todas: () => true, baixa: h => h <= 1.00, media: h => h >= 1.05 && h <= 1.30, alta: h => h >= 1.35 };
+function chipsCategoria(base) {
+  const cats = ['Todas', ...[...new Set(base.map(t => t.cat))].sort()];
+  if (cats.length < 3) return '';
+  return `<div class="chips" role="group" aria-label="Categoria">
+      ${cats.map(c => `<button class="chip" data-cat="${esc(c)}" aria-pressed="${S.cat === c}">${esc(c)}</button>`).join('')}
+    </div>`;
+}
+function filtros() {
+  return `<div class="barra-filtros">
+      <label class="sr" for="altura">Altura</label>
+      <select id="altura">
+        <option value="todas">Todas as alturas</option>
+        <option value="baixa">Até 1,00m</option>
+        <option value="media">1,05m a 1,30m</option>
+        <option value="alta">1,35m ou mais</option>
+      </select>
+      <button class="btn clara" style="flex:none" data-acao="salvos" aria-pressed="${S.soSalvos}">★ Salvos</button>
+    </div>`;
+}
+const aplicar = lista => lista.filter(t => (S.cat === 'Todas' || t.cat === S.cat)
+  && (S.altura === 'todas' || t.alturas.some(FAIXAS[S.altura]))
+  && (!S.soSalvos || salvos.includes(t.id)));
+const semFiltro = `<div class="vazio"><b>Nada com esses filtros</b><button class="btn clara" style="margin-top:12px;flex:none" data-acao="limpar">Limpar filtros</button></div>`;
+
+function rodape(extra) {
+  const at = S.dados?.atualizadoEm ? new Date(S.dados.atualizadoEm) : null;
+  const quando = at ? `${pad(at.getDate())}/${pad(at.getMonth() + 1)} às ${pad(at.getHours())}:${pad(at.getMinutes())}` : '–';
+  return `<p class="fonte">${extra || ''}Dados públicos da Federação Paulista de Hipismo, atualizados em ${quando}.</p>`;
+}
+
+// ---------- telas ----------
+function telaCalendario() {
+  const base = S.dados.torneios.filter(t => t.fim >= hojeISO() && torneioVisivel(t)).sort((a, b) => a.inicio.localeCompare(b.inicio));
+  const vazio = `<header class="capa"><div class="topo-linha"><span class="marca">${marcaSvg(26)}Salta<small>by Opportunity</small></span><button class="btn-fino" data-acao="sobre">Sobre</button></div><h1 class="grande">A temporada<br>de salto, prova a prova</h1></header>`;
+  const capa = `<header class="capa">
+      <div class="topo-linha">
+        <span class="marca">${marcaSvg(26)}Salta<small>by Opportunity</small></span>
+        <button class="btn-fino" data-acao="sobre">Sobre</button>
+      </div>
+      <h1 class="grande">A temporada<br>de salto, prova a prova</h1>
+      <span class="sub">${base.length} torneio${base.length > 1 ? 's' : ''} pela frente</span>
+      ${chipsCategoria(base)}
+    </header>`;
+  if (!base.length) return vazio + `<main><div class="vazio"><b>Nenhum torneio programado</b>O calendário é atualizado automaticamente algumas vezes por dia.</div>${rodape()}</main>`;
+  const lista = aplicar(base);
+  let corpo = filtros();
+  if (!lista.length) corpo += semFiltro;
+  else {
+    let mes = '';
+    lista.forEach(t => {
+      const m = t.inicio.slice(0, 7);
+      if (m !== mes) { corpo += `<div class="secao"><h2>${titulo(MES_LONGO[+m.slice(5) - 1])}</h2><span class="risco"></span></div><div class="lista">`; mes = m; }
+      corpo += cartaoTorneio(t, false);
+    });
+    corpo += '</div>';
+  }
+  return capa + `<main class="fade">${corpo}${rodape()}</main>`;
+}
+
+function telaResultados() {
+  const base = S.dados.torneios.filter(t => t.temRes && torneioVisivel(t)).sort((a, b) => b.fim.localeCompare(a.fim));
+  const cab = extra => `<header class="capa"><div class="topo-linha"><span class="marca">${marcaSvg(26)}Salta<small>by Opportunity</small></span><button class="btn-fino" data-acao="sobre">Sobre</button></div>
+    <h1>Resultados</h1><span class="sub">${base.length ? base.length + ' torneios já disputados' : 'Provas de salto já disputadas'}</span>${extra}</header>`;
+  if (!base.length) return cab('') + `<main><div class="vazio"><b>Ainda sem resultados</b>Eles aparecem assim que a federação publicar.</div>${rodape()}</main>`;
+  const lista = aplicar(base);
+  return cab(chipsCategoria(base)) + `<main class="fade">${filtros()}${lista.length ? `<div class="secao"><h2>Últimos torneios</h2><span class="risco"></span></div><div class="lista">${lista.map(t => cartaoTorneio(t, true)).join('')}</div>` : semFiltro}${rodape()}</main>`;
+}
+
+function telaTorneio() {
+  const t = achar(S.torneio);
+  if (!t) return telaCalendario();
+  const dias = t.dias;
+  if (!S.dia || !dias.includes(S.dia)) S.dia = dias.find(d => d >= hojeISO()) || dias[dias.length - 1] || null;
+  const salvo = salvos.includes(t.id);
+  const doDia = t.provas.filter(p => !dias.length || p.dia === S.dia)
+    .sort((a, b) => String(a.hora || '~').localeCompare(String(b.hora || '~')) || String(a.numero).localeCompare(String(b.numero), 'pt', { numeric: true }));
+  const maiorDoDia = doDia.reduce((a, p) => Math.max(a, p.altura ?? 0), 0);
+  let corpo = `<header class="capa">
+      ${voltar('voltarLista', 'Voltar')}
+      <span class="olho">${t.cat.toUpperCase()} · ${(t.status || '').toUpperCase()}</span>
+      <h1>${esc(titulo(t.nome))}</h1>
+      <span class="sub">${esc(titulo(t.local || 'Local a confirmar'))} · ${periodoLongo(t)}</span>
+      <div class="numeros">
+        <div><b>${t.provas.length || '–'}</b><span>provas</span></div>
+        <div><b>${dias.length || '–'}</b><span>dias</span></div>
+        <div><b>${t.alturas.length ? fmtAlt(t.alturas[t.alturas.length - 1]) : '–'}</b><span>maior altura</span></div>
+      </div>
+      <div class="acoes">
+        <button class="btn ouro" data-acao="salvar" data-id="${t.id}">★ ${salvo ? 'Torneio salvo' : 'Seguir torneio'}</button>
+        <a class="btn fantasma" href="${esc(t.url)}" target="_blank" rel="noopener">Site da FPH ↗</a>
+      </div>
+    </header>`;
+  const dest = destaqueDe(t);
+  if (dest) {
+    corpo += `<div class="destaque-aviso">
+      <span class="chapeu">${esc(dest.selo || 'Durante o torneio')}</span>
+      <span class="tit">${esc(dest.titulo || '')}</span>
+      ${dest.quando ? `<span class="quando">${esc(dest.quando)}</span>` : ''}
+      ${dest.texto ? `<span class="txt">${esc(dest.texto)}</span>` : ''}
+      ${dest.link ? `<a class="btn ouro" href="${esc(dest.link)}" target="_blank" rel="noopener">${esc(dest.botao || 'Ver catálogo')} ↗</a>` : ''}
+    </div>`;
+  }
+  if (!t.provas.length) return corpo + `<main class="fade"><div class="vazio"><b>Programação em breve</b>A federação ainda não publicou as provas deste torneio.</div></main>`;
+  corpo += '<main class="fade">';
+  if (dias.length > 1) {
+    corpo += `<div class="dias" role="group" aria-label="Dias do torneio">${dias.map(d => {
+      const x = dt(d);
+      return `<button class="dia" data-dia="${d}" aria-pressed="${d === S.dia}">${DIA_CURTO[x.getDay()]}<b>${x.getDate()}</b></button>`;
+    }).join('')}</div>`;
+  }
+  const x = S.dia ? dt(S.dia) : null;
+  corpo += `<div class="secao"><h2>${x ? `${DIA_LONGO[x.getDay()]}, ${x.getDate()} de ${MES_LONGO[x.getMonth()]}` : 'Provas'}</h2><span class="risco"></span><span class="aux">${doDia.length} prova${doDia.length > 1 ? 's' : ''}</span></div>`;
+  corpo += `<div class="lista">${doDia.map(p => {
+    const dest = p.altura && p.altura === maiorDoDia && doDia.length > 1;
+    const info = [p.hora, p.pista ? 'Pista ' + titulo(p.pista) : ''].filter(Boolean).join(' · ');
+    const parcial = p.res && p.oe && p.n && p.n < p.oe && p.dia >= hojeISO();
+    const corpoProva = p.res && p.v
+      ? `<span class="tag">${parcial ? `LIDERANDO · ${p.n} DE ${p.oe} JÁ SALTARAM` : 'VENCEDOR'}${dest ? ' · MAIOR PROVA DO DIA' : ''}</span><span class="venc">${esc(titulo(p.v.c))}</span><span class="meta">${esc(titulo(p.v.h))}${info ? ' · ' + esc(info) : ''}</span>`
+      : `<span class="tag">${esc(titulo(p.nome || 'A realizar'))}${dest ? ' · MAIOR PROVA DO DIA' : ''}</span><span class="venc">${
+          p.oe ? `${p.oe} conjunto${p.oe > 1 ? 's' : ''} inscrito${p.oe > 1 ? 's' : ''}` : (p.dia && p.dia < hojeISO() ? 'Resultado ainda não publicado' : 'Ainda não disputada')
+        }</span><span class="meta">${esc(info || 'Horário a confirmar')}${p.oe ? ' · ver ordem de entrada' : ''}</span>`;
+    const abre = p.res || p.oe;
+    return `<button class="prova${dest ? ' destaque' : ''}" ${abre ? `data-prova="${p.id}"` : 'disabled aria-disabled="true"'}>
+      <span class="alt"><b>${p.altura != null ? p.altura.toFixed(2).replace('.', ',') : '–'}</b><span>PROVA ${numProva(p)}</span></span>
+      <span class="corpo">${corpoProva}</span>
+      ${abre ? seta : ''}
+    </button>`;
+  }).join('')}</div>`;
+  if (t.ocultas) corpo += `<p class="fonte" style="padding-top:12px">${t.ocultas} prova${t.ocultas > 1 ? 's' : ''} sem inscritos ou sem resultado publicado ${t.ocultas > 1 ? 'não aparecem' : 'não aparece'} aqui. <a href="${esc(t.url)}" target="_blank" rel="noopener">Ver programação completa na FPH ↗</a></p>`;
+  return corpo + rodape() + '</main>';
+}
+
+function telaProva() {
+  const t = achar(S.torneio), p = t?.provas.find(x => x.id === +S.prova) || t?.todasProvas?.find(x => x.id === +S.prova);
+  if (!p) return telaTorneio();
+  const x = p.dia ? dt(p.dia) : null;
+  const cab = `<header class="capa">
+      ${voltar('voltarTorneio', titulo(t.nome))}
+      <span class="olho">PROVA ${numProva(p)}${x ? ` · ${DIA_LONGO[x.getDay().toString()] || ''}, ${x.getDate()} DE ${MES_LONGO[x.getMonth()].toUpperCase()}` : ''}</span>
+      <h1>${p.altura != null ? p.altura.toFixed(2).replace('.', ',') + (p.altura === 1 ? ' metro' : ' metros') : esc(titulo(p.nome))}</h1>
+      <span class="sub">${esc([/^\d[,.]\d{2}\s*M$/i.test((p.nome || '').trim()) ? '' : titulo(p.nome), p.hora, p.pista ? 'Pista ' + titulo(p.pista) : ''].filter(Boolean).join(' · '))}</span>`;
+  const dados = S.torneios[t.id];
+  if (!dados || dados === 'carregando') { carregarTorneio(t.id); return cab + '</header><main><div class="vazio">Carregando resultado…</div></main>'; }
+  if (dados === 'erro') return cab + `</header><main><div class="vazio"><b>Não deu para carregar</b><button class="btn clara" style="margin-top:12px;flex:none" data-acao="recarregarProva">Tentar de novo</button></div></main>`;
+  if (!p.res) return cab + '</header>' + telaOrdem(p, (dados.ordem || {})[String(p.id)] || []);
+  const linhas = dados.provas[String(p.id)] || [];
+  const fed = i => i != null ? dados.fed[i] : null;
+  const q = S.filtro.trim().toLowerCase();
+  const filtradas = q ? linhas.filter(l => (l.c + ' ' + l.h).toLowerCase().includes(q)) : linhas;
+  const podio = q ? [] : filtradas.filter(l => l.p <= 3);
+  const resto = q ? filtradas : filtradas.filter(l => l.p > 3);
+  const temDesempate = linhas.some(l => l.r && l.r.length > 1);
+
+  const ordem = (dados.ordem || {})[String(p.id)] || [];
+  const ordemDoCavalo = new Map(ordem.map(o => [chave(o.h), o.o]));
+  const faltam = ordem.length ? ordem.filter(o => !linhas.some(l => chave(l.h) === chave(o.h))).length : 0;
+  const emAndamentoProva = faltam > 0 && p.dia >= hojeISO();
+  let corpo = cab + `<span class="sub">${emAndamentoProva ? `${ordem.length - faltam} de ${ordem.length} já saltaram` : `${linhas.length} conjuntos`}${temDesempate ? ' · com desempate' : ''}</span>
+    <div class="acoes">
+      <button class="btn ouro" data-acao="compartilhar">${svg('<path d="M12 15V3M7 8l5-5 5 5M5 13v6a2 2 0 002 2h10a2 2 0 002-2v-6"/>', 18)}${emAndamentoProva ? 'Compartilhar líder' : 'Compartilhar campeão'}</button>
+    </div></header><main class="fade">`;
+  if (ordem.length) {
+    corpo += `<div class="chips clara" role="group" aria-label="Visão da prova" style="padding:16px 20px 0">
+      <button class="chip" data-aba-prova="classificacao" aria-pressed="${S.abaProva !== 'ordem'}">Classificação</button>
+      <button class="chip" data-aba-prova="ordem" aria-pressed="${S.abaProva === 'ordem'}">Ordem de entrada</button>
+    </div>`;
+    if (S.abaProva === 'ordem') return corpo + telaCruzada(p, ordem, linhas, fed, faltam) + '</main>';
+  }
+  if (podio.length) {
+    corpo += `<div class="podio">${podio.map(l => {
+      const f = fed(l.f), perc = l.r?.[0], des = l.r?.length > 1 ? l.r[l.r.length - 1] : null;
+      return `<button class="linha-podio" data-perfil="cavaleiros" data-k="${esc(chave(l.c))}">
+        ${roseta(l.p, 38)}
+        <span class="conj" style="flex-grow:1;min-width:0;display:flex;flex-direction:column;gap:2px">
+          <span class="nome">${esc(titulo(l.c))}</span>
+          <span class="meta">${esc(titulo(l.h))}${f ? ' · ' + esc(fedCurta(f)) : ''}</span>
+        </span>
+        <span class="res"><b>${l.s ? esc(l.s) : fmtN((des || perc)?.[0]) + ' · ' + fmtT((des || perc)?.[1])}</b><span>${des ? 'desempate' : 'percurso'}</span></span>
+      </button>`;
+    }).join('')}</div>`;
+  }
+  // só pódio (três conjuntos ou menos) dispensa a busca e a tabela
+  if (linhas.length > 3 || q) {
+    corpo += `<div class="barra-filtros"><label class="sr" for="filtro">Buscar cavaleiro ou cavalo</label>
+      <input class="busca" id="filtro" type="search" placeholder="Buscar cavaleiro ou cavalo" value="${esc(S.filtro)}"></div>`;
+    corpo += `<div class="tabela"><div class="cab"><span class="p">#</span><span class="c">CONJUNTO</span><span class="f">FALTAS</span><span class="t">TEMPO</span></div><div id="linhas">${corpoLinhas(resto, fed, ordemDoCavalo)}</div></div>`;
+  }
+  corpo += rodape(`<a href="${URL_FPH_PROVA(p.id)}" target="_blank" rel="noopener">Ver resultado oficial no site da FPH ↗</a>. `);
+  return corpo + '</main>';
+}
+function telaCruzada(p, ordem, linhas, fed, faltam) {
+  const resultadoDo = new Map(linhas.map(l => [chave(l.h), l]));
+  const saltaram = ordem.length - faltam;
+  const pct = Math.round(saltaram / ordem.length * 100);
+  const proximo = ordem.find(o => !resultadoDo.has(chave(o.h)));
+  const q = S.filtro.trim().toLowerCase();
+  const lista = q ? ordem.filter(l => (l.c + ' ' + l.h).toLowerCase().includes(q)) : ordem;
+  return `<div class="painel" style="gap:10px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px">
+        <h3>${faltam ? `${saltaram} de ${ordem.length} já saltaram` : 'Todos os conjuntos saltaram'}</h3>
+        <span class="aux" style="font-size:12.5px;color:var(--muted)">${pct}%</span>
+      </div>
+      <span class="trilho" style="height:8px;border-radius:999px;background:var(--bg);display:flex;overflow:hidden"><i style="display:block;width:${pct}%;background:var(--ouro)"></i></span>
+      ${proximo && p.dia >= hojeISO() ? `<span style="font-size:13.5px;color:var(--muted)">Próximo na ordem: <strong style="color:var(--ink)">${esc(titulo(proximo.c))}</strong> com ${esc(titulo(proximo.h))}</span>` : ''}
+    </div>
+    <div class="barra-filtros"><label class="sr" for="filtroCruzado">Buscar cavaleiro ou cavalo</label>
+      <input class="busca" id="filtroCruzado" type="search" placeholder="Buscar cavaleiro ou cavalo" value="${esc(S.filtro)}"></div>
+    <div class="tabela"><div class="cab"><span class="p">ORD.</span><span class="c">CONJUNTO</span><span class="f" style="width:92px">RESULTADO</span></div>
+      <div id="linhasCruzadas">${linhasCruzadas(lista, resultadoDo, proximo, p)}</div></div>
+    <p class="fonte">Resultados atualizados de hora em hora durante o torneio. <a href="${URL_FPH_PROVA(p.id)}" target="_blank" rel="noopener">Ver no site da FPH ↗</a></p>`;
+}
+function linhasCruzadas(lista, resultadoDo, proximo, p) {
+  if (!lista.length) return `<div class="vazio">Ninguém encontrado com esse nome.</div>`;
+  return lista.map(o => {
+    const r = resultadoDo.get(chave(o.h));
+    const perc = r && r.r && r.r[0];
+    let res;
+    if (!r) res = `<span class="status">${proximo && proximo.o === o.o && p.dia >= hojeISO() ? 'próximo' : 'aguardando'}</span>`;
+    else if (r.s) res = `<span class="status">${esc(r.s)}</span>`;
+    else res = `<span style="display:flex;flex-direction:column;align-items:flex-end;line-height:1.2">
+        <b style="font-size:15px;color:${r.p <= 3 ? 'var(--ouro-escuro)' : 'var(--ink)'}">${r.p}º</b>
+        <span style="font-size:11.5px;color:var(--muted)">${fmtN(perc && perc[0])} flt · ${fmtT(perc && perc[1])}</span></span>`;
+    return `<button class="linha" data-perfil="cavaleiros" data-k="${esc(chave(o.c))}" style="${r ? '' : 'opacity:.72'}">
+      <span class="pos">${o.o}</span>
+      <span class="conj"><span class="cav">${esc(titulo(o.c))}</span><span class="cavalo">${esc(titulo(o.h))}${o.cat ? ' · ' + esc(o.cat) : ''}</span></span>
+      <span class="f" style="width:92px">${res}</span>
+    </button>`;
+  }).join('');
+}
+function telaOrdem(p, ordem) {
+  if (!ordem.length) return `<main><div class="vazio"><b>Ordem de entrada ainda não publicada</b>Ela costuma sair na véspera da prova.</div></main>`;
+  const q = S.filtro.trim().toLowerCase();
+  const lista = q ? ordem.filter(l => (l.c + ' ' + l.h).toLowerCase().includes(q)) : ordem;
+  return `<main class="fade">
+    <div class="secao"><h2>Ordem de entrada</h2><span class="risco"></span><span class="aux">${ordem.length} conjuntos</span></div>
+    <div class="barra-filtros" style="padding-top:0"><label class="sr" for="filtroOrdem">Buscar cavaleiro ou cavalo</label>
+      <input class="busca" id="filtroOrdem" type="search" placeholder="Buscar cavaleiro ou cavalo" value="${esc(S.filtro)}"></div>
+    <div class="tabela"><div class="cab"><span class="p">#</span><span class="c">CONJUNTO</span><span class="f" style="width:70px">CATEG.</span></div>
+      <div id="linhasOrdem">${linhasOrdem(lista)}</div></div>
+    <p class="fonte">A ordem pode mudar até o início da prova. <a href="https://www.fph.com.br/calendario/OrdemEntrada.aspx?ID=${p.id}" target="_blank" rel="noopener">Ver no site da FPH ↗</a></p>
+  </main>`;
+}
+function linhasOrdem(lista) {
+  if (!lista.length) return `<div class="vazio">Ninguém encontrado com esse nome.</div>`;
+  return lista.map(l => `<button class="linha" data-perfil="cavaleiros" data-k="${esc(chave(l.c))}">
+      <span class="pos">${l.o}</span>
+      <span class="conj"><span class="cav">${esc(titulo(l.c))}</span><span class="cavalo">${esc(titulo(l.h))}</span></span>
+      <span class="f" style="width:70px;font-weight:600;font-size:12.5px;color:var(--muted)">${esc(l.cat || '')}</span>
+    </button>`).join('');
+}
+function corpoLinhas(linhas, fed, ordemDoCavalo) {
+  if (!linhas.length) return `<div class="vazio">Ninguém encontrado com esse nome.</div>`;
+  return linhas.map(l => {
+    const f = fed(l.f), perc = l.r?.[0];
+    const entrou = ordemDoCavalo && ordemDoCavalo.get(chave(l.h));
+    return `<button class="linha" data-perfil="cavaleiros" data-k="${esc(chave(l.c))}">
+      <span class="pos">${l.p}</span>
+      <span class="conj"><span class="cav">${esc(titulo(l.c))}</span><span class="cavalo">${esc(titulo(l.h))}${f ? ' · ' + esc(fedCurta(f)) : ''}${entrou ? ` · entrou em ${entrou}º` : ''}</span></span>
+      <span class="f${!l.s && perc?.[0] === 0 ? ' zero' : ''}">${l.s ? `<span class="status">${esc(l.s)}</span>` : fmtN(perc?.[0])}</span>
+      <span class="t">${l.s || !perc ? '–' : fmtT(perc[1])}</span>
+    </button>`;
+  }).join('');
+}
+
+function telaSeguindo() {
+  const capa = `<header class="capa"><div class="topo-linha"><span class="marca">${marcaSvg(26)}Salta<small>by Opportunity</small></span><button class="btn-fino" data-acao="sobre">Sobre</button></div>
+    <h1>Seguindo</h1><span class="sub">Cavaleiros, cavalos e torneios que você acompanha</span></header>`;
+  const salvosT = salvos.map(id => achar(id)).filter(Boolean);
+  if (!seguindo.length && !salvosT.length) {
+    return capa + `<main><div class="vazio"><b>Você ainda não segue ninguém</b>Toque na estrela de um torneio ou no nome de um cavaleiro nos resultados para acompanhá-lo por aqui.</div>${blocoAvisos()}</main>`;
+  }
+  let corpo = '<main class="fade">';
+  if (seguindo.length || salvosT.length) {
+    corpo += `<div class="secao"><h2>Quem você segue</h2><span class="risco"></span></div><div class="seguidos">${
+      seguindo.map(s => `<button class="seguido" data-perfil="${s.tipo}" data-k="${esc(s.k)}"><span class="bolha">${esc(iniciais(s.nome))}</span><span>${esc(titulo(s.nome))}</span></button>`).join('')
+      + salvosT.map(t => `<button class="seguido" data-torneio="${t.id}"><span class="bolha">${esc(iniciais(t.nome))}</span><span>${esc(titulo(t.nome))}</span></button>`).join('')
+    }</div>`;
+  }
+  const novidades = montarNovidades();
+  corpo += `<div class="secao"><h2>Novidades</h2><span class="risco"></span></div>`;
+  corpo += novidades.length
+    ? `<div class="feed">${novidades.map(n => `<button class="novidade" ${n.acao}>
+        <span class="topo"><span class="tag" style="color:${n.cor}">${n.tag}</span><span class="meta" style="font-size:12px;color:var(--muted)">${n.quando}</span></span>
+        <span class="txt">${esc(n.texto)}</span><span class="onde">${esc(n.onde)}</span></button>`).join('')}</div>`
+    : `<div class="vazio">Nada novo por enquanto. Assim que alguém que você segue competir, aparece aqui.</div>`;
+  corpo += blocoAvisos();
+  return capa + corpo + '</main>';
+}
+const iniciais = n => titulo(n).split(/\s+/).filter(w => /[A-Za-zÀ-ÿ]/.test(w[0])).slice(0, 2).map(w => w[0].toUpperCase()).join('');
+
+function montarNovidades() {
+  const out = [];
+  const hoje = hojeISO();
+  for (const s of seguindo) {
+    const p = perfilDe(s.tipo, s.k);
+    if (!p || typeof p !== 'object') { carregarPerfil(s.tipo, s.k); continue; }
+    for (const h of (p.hist || []).slice(0, 3)) {
+      const d = diasEntre(hoje, h.d);
+      if (d > 45) continue;
+      const pos = h.p;
+      out.push({
+        d: h.d, tag: pos === 1 ? 'VITÓRIA' : (pos <= 3 ? 'PÓDIO' : 'RESULTADO'),
+        cor: pos === 1 ? 'var(--ouro-escuro)' : (pos <= 3 ? 'var(--bronze)' : 'var(--muted)'),
+        quando: d === 0 ? 'hoje' : (d === 1 ? 'ontem' : `${d} dias atrás`),
+        texto: `${titulo(p.nome)} ficou em ${pos}º na prova de ${fmtAlt(h.a)}${h.h ? ' com ' + titulo(h.h) : (h.c ? ' com ' + titulo(h.c) : '')}`,
+        onde: `${titulo(h.t)} · ${h.n} conjuntos`,
+        acao: `data-torneio="${h.ti}"`,
+      });
+    }
+  }
+  for (const id of salvos) {
+    const t = achar(id);
+    if (!t) continue;
+    const faltam = diasEntre(t.inicio, hoje);
+    if (faltam >= 0 && faltam <= 30) {
+      out.push({
+        d: t.inicio, tag: faltam === 0 ? 'COMEÇA HOJE' : 'PRÓXIMO', cor: 'var(--verde)',
+        quando: faltam === 0 ? 'hoje' : `em ${faltam} dia${faltam > 1 ? 's' : ''}`,
+        texto: `${titulo(t.nome)}${t.provas.length ? ` · ${t.provas.length} provas publicadas` : ' · programação ainda não publicada'}`,
+        onde: `${titulo(t.local || '')} · ${periodoLongo(t)}`, acao: `data-torneio="${t.id}"`,
+      });
+    }
+  }
+  return out.sort((a, b) => b.d.localeCompare(a.d)).slice(0, 8);
+}
+
+function telaSobre() {
+  const t = S.stats?.totais;
+  return `<header class="capa">
+      ${voltar('voltarSobre', 'Voltar')}
+      <span class="olho">SOBRE O SALTA</span>
+      <h1>Calendário e resultados de salto</h1>
+      <span class="sub">Um projeto da Opportunity Leilões, em fase de testes.</span>
+    </header><main class="fade">
+    <div class="painel"><h3>De onde vêm os dados</h3>
+      <p style="margin:0;font-size:14px;line-height:1.55;color:var(--muted)">Tudo o que aparece aqui vem das páginas públicas de torneios da Federação Paulista de Hipismo, lidas automaticamente algumas vezes por dia. Cada prova traz o link para o resultado oficial, que é sempre a fonte final. O Salta não é um serviço da FPH nem da CBH.</p>
+    </div>
+    ${t ? `<div class="stats" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+      <div><b>${t.torneios}</b><span>torneios</span></div>
+      <div><b>${t.percursos.toLocaleString('pt-BR')}</b><span>percursos</span></div>
+      <div><b>${t.cavaleiros.toLocaleString('pt-BR')}</b><span>cavaleiros</span></div>
+      <div><b>${t.cavalos.toLocaleString('pt-BR')}</b><span>cavalos</span></div>
+    </div>` : ''}
+    <div class="painel"><h3>Cuidados</h3>
+      <p style="margin:0;font-size:14px;line-height:1.55;color:var(--muted)">O ranking é uma contagem própria do Salta e não substitui o ranking oficial da federação. Em provas de categorias infantis, o sobrenome do atleta aparece abreviado. Se encontrar algum erro, avise: dá para conferir na hora no link oficial de cada prova.</p>
+    </div>
+    <div class="painel"><h3>Seus dados</h3>
+      <p style="margin:0;font-size:14px;line-height:1.55;color:var(--muted)">O que você salva e segue fica guardado só neste aparelho, no seu navegador. Nada é enviado para lugar nenhum e não existe cadastro.</p>
+    </div>
+    ${rodape()}</main>`;
+}
+
+function telaRanking() {
+  const capa = `<header class="capa">
+      <div class="topo-linha"><span class="marca">${marcaSvg(26)}Salta<small>by Opportunity</small></span><button class="btn-fino" data-acao="sobre">Sobre</button></div>
+      <span class="olho">TEMPORADA ${(S.stats?.desde || '2026').slice(0, 4)}</span>
+      <h1>Quem mais venceu</h1>
+      <div class="chips" role="group" aria-label="Tipo de ranking">
+        ${[['cavaleiros', 'Cavaleiros'], ['cavalos', 'Cavalos'], ['clubes', 'Federações']].map(([k, t]) =>
+          `<button class="chip" data-rank="${k}" aria-pressed="${S.rankTipo === k}">${t}</button>`).join('')}
+      </div>
+    </header>`;
+  if (!S.stats) return capa + '<main><div class="vazio">Calculando o ranking…</div></main>';
+  const t = S.stats.totais;
+  let corpo = `<main class="fade"><div class="secao"><h2>${S.rankTipo === 'clubes' ? 'Por federação' : 'Por vitórias'}</h2><span class="risco"></span></div><div class="podio">`;
+  if (S.rankTipo === 'clubes') {
+    corpo += (S.stats.clubes || []).map((c, i) => `<div class="linha-podio">
+      ${i < 3 ? roseta(i + 1, 38) : `<span class="pos" style="width:38px;flex:none;text-align:center;font-family:var(--serif);font-size:20px;color:var(--muted)">${i + 1}</span>`}
+      <span style="flex-grow:1;min-width:0;display:flex;flex-direction:column;gap:2px">
+        <span class="nome">${esc(c.sig || titulo(c.nome))}</span><span class="meta">${esc(titulo(c.nome))}</span></span>
+      <span class="res"><b>${c.vitorias}</b><span>vitórias</span></span></div>`).join('');
+  } else {
+    const lista = S.stats[S.rankTipo] || [];
+    let pos = 0, ult = null;
+    corpo += lista.map((r, i) => {
+      if (r.v !== ult) { pos = i + 1; ult = r.v; }
+      return `<button class="linha-podio" data-perfil="${S.rankTipo}" data-k="${esc(r.k)}">
+        ${pos <= 3 ? roseta(pos, 38) : `<span style="width:38px;flex:none;text-align:center;font-family:var(--serif);font-size:20px;color:var(--muted)">${pos}</span>`}
+        <span style="flex-grow:1;min-width:0;display:flex;flex-direction:column;gap:2px">
+          <span class="nome">${esc(titulo(r.nome))}</span>
+          <span class="meta">${r.fed ? esc(r.fed) + ' · ' : ''}${r.l} largadas · ${r.po} pódios</span></span>
+        <span class="res"><b>${r.v}</b><span>vitórias</span></span></button>`;
+    }).join('');
+  }
+  corpo += `</div><p class="fonte">Contagem do Pista em ${t.torneios} torneios, ${t.cavaleiros.toLocaleString('pt-BR')} cavaleiros e ${t.percursos.toLocaleString('pt-BR')} percursos de ${(S.stats.desde || '').slice(0, 4)}, a partir dos resultados públicos da FPH. Não é o ranking oficial da federação.</p></main>`;
+  return capa + corpo;
+}
+
+function telaPerfil() {
+  const tipo = S.perfilTipo, k = S.perfilK;
+  const p = perfilDe(tipo, k);
+  const pessoa = tipo === 'cavaleiros';
+  const cab = nome => `<header class="capa">
+      ${voltar('voltarPerfil', 'Voltar')}
+      <span class="olho">${pessoa ? 'CAVALEIRO' : 'CAVALO'}</span>
+      <h1>${esc(titulo(nome))}</h1>`;
+  if (!p || p === 'carregando') { carregarPerfil(tipo, k); return cab(titulo(k)) + '</header><main><div class="vazio">Carregando perfil…</div></main>'; }
+  if (p === 'erro' || p === 'ausente') return cab(titulo(k)) + `</header><main><div class="vazio"><b>Sem dados por enquanto</b>Este perfil aparece assim que houver resultados coletados de 2026.</div></main>`;
+  const seguido = estaSeguindo(tipo, k);
+  const pct = p.l ? Math.round(p.z / p.l * 100) : 0;
+  const alturas = Object.entries(p.alt || {}).sort((a, b) => b[0].localeCompare(a[0]));
+  const maxL = Math.max(1, ...alturas.map(([, v]) => v[0]));
+  let corpo = cab(p.nome) + `<span class="sub">${p.fed ? esc(p.fed) + ' · ' : ''}${p.par?.length ? (pessoa ? 'Monta ' : 'Montado por ') + esc(titulo(p.par[0].n)) : ''}</span>
+    <div class="acoes"><button class="btn ouro" data-acao="seguir" data-tipo="${tipo}" data-k="${esc(k)}" data-nome="${esc(p.nome)}">★ ${seguido ? 'Seguindo' : (pessoa ? 'Seguir cavaleiro' : 'Seguir cavalo')}</button></div>
+    </header><main class="fade">
+    <div class="stats">
+      <div><b>${p.l}</b><span>largadas</span></div>
+      <div><b style="color:var(--ouro-escuro)">${p.v}</b><span>vitórias</span></div>
+      <div><b>${p.po}</b><span>pódios</span></div>
+      <div><b style="color:var(--ok)">${pct}%</b><span>sem faltas</span></div>
+    </div>`;
+  if (p.par?.length) {
+    corpo += `<div class="secao"><h2>${pessoa ? 'Cavalos na temporada' : 'Cavaleiros'}</h2><span class="risco"></span></div>
+      <div class="carrossel">${p.par.map(x => `<button class="mini" data-perfil="${pessoa ? 'cavalos' : 'cavaleiros'}" data-k="${esc(chave(x.n))}"><b>${esc(titulo(x.n))}</b><span>${x.q} largada${x.q > 1 ? 's' : ''}</span></button>`).join('')}</div>`;
+  }
+  if (alturas.length) {
+    corpo += `<div class="painel"><h3>Desempenho por altura</h3>
+      ${alturas.map(([a, [l, v]]) => `<div class="barra">
+        <span class="rot">${a.replace('.', ',')}</span>
+        <span class="trilho"><i class="v" style="width:${v / maxL * 100}%"></i><i class="o" style="width:${(l - v) / maxL * 100}%"></i></span>
+        <span class="num">${l} · ${v}</span></div>`).join('')}
+      <div class="legenda"><span><i style="background:var(--ouro)"></i>vitórias</span><span><i style="background:var(--verde-3)"></i>outras largadas</span></div></div>`;
+  }
+  corpo += `<div class="secao"><h2>Histórico</h2><span class="risco"></span></div><div class="tabela">${(p.hist || []).map(h => {
+    const x = dt(h.d);
+    return `<button class="linha" data-torneio="${h.ti}">
+      <span class="pos" style="color:${h.p === 1 ? 'var(--ouro-escuro)' : (h.p <= 3 ? 'var(--bronze)' : 'var(--muted)')}">${h.s ? '–' : h.p + 'º'}</span>
+      <span class="conj"><span class="cav">${fmtAlt(h.a)}${h.h ? ' com ' + esc(titulo(h.h)) : (h.c ? ' com ' + esc(titulo(h.c)) : '')}${h.s ? ' · ' + esc(h.s) : ''}</span>
+      <span class="cavalo">${x.getDate()} ${MES[x.getMonth()]} · ${esc(titulo(h.t))} · ${h.n} conjuntos</span></span>${seta}</button>`;
+  }).join('')}</div>${p.prot ? '<p class="fonte">O sobrenome está abreviado porque as provas deste atleta são de categorias infantis.</p>' : ''}</main>`;
+  return corpo;
+}
+
+// ---------- compartilhar ----------
+function cartaoSVG() {
+  const t = achar(S.torneio), p = t.provas.find(x => x.id === +S.prova), dados = S.torneios[t.id];
+  const linhas = dados?.provas?.[String(p.id)] || [];
+  const c = linhas.find(l => l.p === 1);
+  if (!c) return '';
+  const perc = c.r?.[0], des = c.r?.length > 1 ? c.r[c.r.length - 1] : null;
+  const x = p.dia ? dt(p.dia) : null;
+  const quebra = (s, max) => {
+    const out = []; let linha = '';
+    for (const w of String(s).split(/\s+/)) { if ((linha + ' ' + w).trim().length > max) { out.push(linha.trim()); linha = w; } else linha += ' ' + w; }
+    if (linha.trim()) out.push(linha.trim());
+    return out.slice(0, 2);
+  };
+  const nome = quebra(titulo(c.c), 22);
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" font-family="DM Sans, system-ui, sans-serif">
+  <rect width="1080" height="1920" fill="#123D30"/>
+  <rect x="40" y="40" width="1000" height="1840" fill="none" stroke="#D9B45A" stroke-width="2"/>
+  <text x="540" y="180" text-anchor="middle" fill="#D9B45A" font-size="30" font-weight="700" letter-spacing="6">${esc(titulo(t.nome)).toUpperCase().slice(0, 34)}</text>
+  <text x="540" y="230" text-anchor="middle" fill="#C9D6CF" font-size="28">${esc(titulo(t.local || ''))}${x ? ` · ${x.getDate()} ${MES[x.getMonth()]} ${x.getFullYear()}` : ''}</text>
+  <g transform="translate(430,430) scale(4.8)">
+    <path d="M14 34l-5 22 8-5 5 6 2-22M32 34l5 22-8-5-5 6-2-22" fill="#8A6A1F"/>
+    <circle cx="23" cy="22" r="20" fill="#D9B45A"/>
+    <circle cx="23" cy="22" r="17" fill="none" stroke="#123D30" stroke-width="0.8" stroke-dasharray="2.4 2"/>
+    <circle cx="23" cy="22" r="11" fill="#F4F1EA"/>
+    <text x="23" y="27" text-anchor="middle" font-family="DM Serif Display, Georgia, serif" font-size="14" fill="#123D30">1º</text>
+  </g>
+  <text x="540" y="880" text-anchor="middle" fill="#D9B45A" font-size="40" letter-spacing="14" font-family="DM Serif Display, Georgia, serif">CAMPEÃO</text>
+  ${nome.map((l, i) => `<text x="540" y="${970 + i * 88}" text-anchor="middle" fill="#F4F1EA" font-size="76" font-family="DM Serif Display, Georgia, serif">${esc(l)}</text>`).join('')}
+  <text x="540" y="${1000 + nome.length * 88}" text-anchor="middle" fill="#C9D6CF" font-size="38">com ${esc(titulo(c.h))}</text>
+  <text x="540" y="${1070 + nome.length * 88}" text-anchor="middle" fill="#F4F1EA" font-size="34" font-weight="700" letter-spacing="4">PROVA ${numProva(p)} · ${fmtAlt(p.altura).toUpperCase()}</text>
+  <line x1="200" y1="1560" x2="880" y2="1560" stroke="#2C5747" stroke-width="2"/>
+  <text x="${des ? 360 : 540}" y="1650" text-anchor="middle" fill="#F4F1EA" font-size="52" font-family="DM Serif Display, Georgia, serif">${fmtN(perc?.[0])} · ${fmtT(perc?.[1])}</text>
+  <text x="${des ? 360 : 540}" y="1695" text-anchor="middle" fill="#D9B45A" font-size="26" letter-spacing="5">PERCURSO</text>
+  ${des ? `<text x="720" y="1650" text-anchor="middle" fill="#F4F1EA" font-size="52" font-family="DM Serif Display, Georgia, serif">${fmtN(des[0])} · ${fmtT(des[1])}</text>
+  <text x="720" y="1695" text-anchor="middle" fill="#D9B45A" font-size="26" letter-spacing="5">DESEMPATE</text>` : ''}
+  <text x="120" y="1810" fill="#F4F1EA" font-size="44" font-family="DM Serif Display, Georgia, serif">Salta</text>
+  <text x="960" y="1810" text-anchor="end" fill="#C9D6CF" font-size="26">by Opportunity Leilões</text>
+</svg>`;
+}
+function folhaCompartilhar() {
+  if (!S.compartilhar) return '';
+  return `<div class="folha" data-acao="fecharFolha"><div class="caixa" role="dialog" aria-label="Compartilhar resultado">
+    <h3>Card do campeão</h3>
+    <div id="cartaoArea">${S.compartilhar}</div>
+    <div class="acoes">
+      <button class="btn ouro" data-acao="baixarCard">Baixar imagem</button>
+      <button class="btn clara" data-acao="fecharFolha">Fechar</button>
+    </div>
+    <p class="fonte" style="padding:0">A imagem sai em 1080×1920, no tamanho de stories.</p>
+  </div></div>`;
+}
+function baixarCard() {
+  const svgEl = document.querySelector('#cartaoArea svg');
+  if (!svgEl) return;
+  const texto = new XMLSerializer().serializeToString(svgEl);
+  const img = new Image();
+  img.onload = () => {
+    const c = document.createElement('canvas');
+    c.width = 1080; c.height = 1920;
+    const ctx = c.getContext('2d');
+    ctx.fillStyle = '#123D30'; ctx.fillRect(0, 0, 1080, 1920);
+    ctx.drawImage(img, 0, 0, 1080, 1920);
+    c.toBlob(b => {
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(b);
+      a.download = 'pista-campeao.png';
+      a.click();
+      setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+    }, 'image/png');
+  };
+  img.onerror = () => alert('Não foi possível gerar a imagem neste navegador. Você pode tirar um print do card.');
+  img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(texto);
+}
+
+// ---------- render ----------
+const app = document.getElementById('app');
+function render() {
+  let html;
+  if (S.erro) {
+    html = `<header class="capa"><span class="marca">${marcaSvg(26)}Salta<small>by Opportunity</small></span></header><main><div class="vazio">${
+      S.erro === 'sem-dados'
+        ? '<b>Dados ainda não coletados</b>Rode o coletor no GitHub (aba Actions) e volte em alguns minutos.'
+        : '<b>Não deu para carregar</b><button class="btn clara" style="margin-top:12px;flex:none" data-acao="recarregar">Tentar de novo</button>'
+    }</div></main>`;
+  } else if (!S.dados) {
+    html = `<header class="capa"><span class="marca">${marcaSvg(26)}Salta<small>by Opportunity</small></span></header><main><div class="vazio">Carregando provas…</div></main>`;
+  } else if (S.tela === 'sobre') html = telaSobre();
+  else if (S.tela === 'perfil') html = telaPerfil();
+  else if (S.tela === 'prova') html = telaProva();
+  else if (S.tela === 'torneio') html = telaTorneio();
+  else if (S.aba === 'resultados') html = telaResultados();
+  else if (S.aba === 'seguindo') html = telaSeguindo();
+  else if (S.aba === 'ranking') html = telaRanking();
+  else html = telaCalendario();
+  app.innerHTML = html + abas() + folhaCompartilhar();
+  const sel = document.getElementById('altura'); if (sel) sel.value = S.altura;
+}
+
+function irPara(tela, extra = {}) { Object.assign(S, { tela }, extra); window.scrollTo(0, 0); render(); }
+
+document.addEventListener('click', e => {
+  const alvo = e.target.closest('[data-aba],[data-aba-prova],[data-acao],[data-torneio],[data-prova],[data-perfil],[data-cat],[data-dia],[data-rank],[data-aviso]');
+  if (!alvo) return;
+  const d = alvo.dataset;
+  if (d.acao === 'fecharFolha' && e.target.closest('.caixa') && !e.target.closest('[data-acao="fecharFolha"]')) return;
+  if (d.aba) { Object.assign(S, { aba: d.aba, tela: null, torneio: null, prova: null }); window.scrollTo(0, 0); return render(); }
+  if (d.acao === 'salvar') return alternar(salvos, 'pista-salvos', +d.id);
+  if (d.acao === 'seguir') return seguir(d.tipo, d.k, d.nome);
+  if (d.acao === 'salvos') { S.soSalvos = !S.soSalvos; return render(); }
+  if (d.acao === 'limpar') { Object.assign(S, { cat: 'Todas', altura: 'todas', soSalvos: false }); return render(); }
+  if (d.acao === 'sobre') return irPara('sobre');
+  if (d.acao === 'voltarSobre') return irPara(null);
+  if (d.acao === 'voltarLista') return irPara(null, { torneio: null });
+  if (d.acao === 'voltarTorneio') return irPara('torneio', { prova: null, filtro: '' });
+  if (d.acao === 'voltarPerfil') return irPara(S.prova ? 'prova' : (S.torneio ? 'torneio' : null), { perfilTipo: null, perfilK: null });
+  if (d.acao === 'recarregar') { S.erro = null; S.dados = null; render(); return carregar(); }
+  if (d.acao === 'recarregarProva') { delete S.torneios[S.torneio]; return render(); }
+  if (d.acao === 'compartilhar') { S.compartilhar = cartaoSVG(); return render(); }
+  if (d.acao === 'fecharFolha') { S.compartilhar = null; return render(); }
+  if (d.acao === 'baixarCard') return baixarCard();
+  if (d.aviso) { avisos[d.aviso] = !avisos[d.aviso]; guarda.gravar('pista-avisos', avisos); sincronizarAvisos(); return render(); }
+  if (d.acao === 'ativarAvisos') return ativarAvisos();
+  if (d.acao === 'desativarAvisos') return desativarAvisos();
+  if (d.cat) { S.cat = d.cat; return render(); }
+  if (d.dia) { S.dia = d.dia; return render(); }
+  if (d.rank) { S.rankTipo = d.rank; return render(); }
+  if (d.abaProva) { S.abaProva = d.abaProva; S.filtro = ''; return render(); }
+  if (d.prova) return irPara('prova', { prova: +d.prova, filtro: '', abaProva: 'classificacao' });
+  if (d.perfil) { carregarPerfil(d.perfil, d.k); return irPara('perfil', { perfilTipo: d.perfil, perfilK: d.k }); }
+  if (d.torneio) return irPara('torneio', { torneio: +d.torneio, dia: null, prova: null });
+});
+document.addEventListener('change', e => { if (e.target.id === 'altura') { S.altura = e.target.value; render(); } });
+document.addEventListener('input', e => {
+  if (e.target.id === 'filtroCruzado') {
+    S.filtro = e.target.value;
+    const dados = S.torneios[S.torneio], t = achar(S.torneio), p = t && t.provas.find(x => x.id === +S.prova);
+    const ordem = (dados && dados.ordem && dados.ordem[String(S.prova)]) || [];
+    const linhas = (dados && dados.provas && dados.provas[String(S.prova)]) || [];
+    const resultadoDo = new Map(linhas.map(l => [chave(l.h), l]));
+    const proximo = ordem.find(o => !resultadoDo.has(chave(o.h)));
+    const q = S.filtro.trim().toLowerCase();
+    const alvo = document.getElementById('linhasCruzadas');
+    if (alvo && p) alvo.innerHTML = linhasCruzadas(q ? ordem.filter(l => (l.c + ' ' + l.h).toLowerCase().includes(q)) : ordem, resultadoDo, proximo, p);
+    return;
+  }
+  if (e.target.id === 'filtroOrdem') {
+    S.filtro = e.target.value;
+    const dados = S.torneios[S.torneio];
+    const ordem = (dados && dados.ordem && dados.ordem[String(S.prova)]) || [];
+    const q = S.filtro.trim().toLowerCase();
+    const alvo = document.getElementById('linhasOrdem');
+    if (alvo) alvo.innerHTML = linhasOrdem(q ? ordem.filter(l => (l.c + ' ' + l.h).toLowerCase().includes(q)) : ordem);
+    return;
+  }
+  if (e.target.id !== 'filtro') return;
+  S.filtro = e.target.value;
+  const t = achar(S.torneio), dados = S.torneios[t.id];
+  const linhas = dados?.provas?.[String(S.prova)] || [];
+  const q = S.filtro.trim().toLowerCase();
+  const filtradas = q ? linhas.filter(l => (l.c + ' ' + l.h).toLowerCase().includes(q)) : linhas.filter(l => l.p > 3);
+  const alvo = document.getElementById('linhas');
+  const ordemDoCavalo = new Map(((dados && dados.ordem && dados.ordem[String(S.prova)]) || []).map(o => [chave(o.h), o.o]));
+  if (alvo) alvo.innerHTML = corpoLinhas(filtradas, i => i != null ? dados.fed[i] : null, ordemDoCavalo);
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && S.compartilhar) { S.compartilhar = null; render(); } });
+
+function abrirPeloEndereco() {
+  const h = new URLSearchParams(location.hash.slice(1));
+  const t = +h.get('t'), p = +h.get('p');
+  if (!t || !S.dados || !achar(t)) return;
+  Object.assign(S, { torneio: t, dia: null, prova: p || null, filtro: '', tela: p ? 'prova' : 'torneio' });
+  history.replaceState(null, '', location.pathname);
+  render();
+}
+window.addEventListener('hashchange', abrirPeloEndereco);
+
+render();
+carregar().then(abrirPeloEndereco);
+iniciarPush();
+</script>
+</body>
+</html>
