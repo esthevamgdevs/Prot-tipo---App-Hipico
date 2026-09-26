@@ -1,6 +1,6 @@
 {
  "fonte": "Federação Paulista de Hipismo (fph.com.br)",
- "atualizadoEm": "2026-09-25T21:31:51.397Z",
+ "atualizadoEm": "2026-09-26T12:35:33.171Z",
  "torneios": [
   {
    "id": 3404,
@@ -10190,8 +10190,14 @@
      "hora": "08:30",
      "pista": "AREIA-1",
      "gp": false,
-     "linkResultado": false,
-     "oe": 102
+     "linkResultado": true,
+     "res": true,
+     "v": {
+      "c": "",
+      "h": "ANA CLARA THOMAZ DE ALMEIDA"
+     },
+     "oe": 102,
+     "n": 1
     },
     {
      "id": 14650,
@@ -10207,7 +10213,7 @@
      "oe": 97
     },
     {
-     "id": null,
+     "id": 14644,
      "numero": "07",
      "nome": "MMR ASP",
      "desc": "0,40M - 0,40M - MMR ASP - 0,40M/JC ASP - 0,40M/AM ASP - 0,40M",
@@ -10216,10 +10222,11 @@
      "hora": "08:30",
      "pista": "AREIA-1",
      "gp": false,
-     "linkResultado": false
+     "linkResultado": false,
+     "oe": 57
     },
     {
-     "id": null,
+     "id": 14646,
      "numero": "08",
      "nome": "MMR PREL",
      "desc": "0,60M - 0,60M - MMR PREL - 0,60M/JC PREL - 0,60M/AM PREL - 0,60M",
@@ -10228,7 +10235,8 @@
      "hora": "12:00",
      "pista": "AREIA-1",
      "gp": false,
-     "linkResultado": false
+     "linkResultado": false,
+     "oe": 138
     }
    ],
    "url": "https://www.fph.com.br/calendario/ListaProvas.aspx?ID=3487"
